@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="39b9e4add6394bb5beec43ac60509488" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="KOMK_Main_v2Model.hAccess" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KOMK_Main_v2Model.hEventType" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KOMK_Main_v2Model.hPerson" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KOMK_Main_v2Model.hSkill" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KOMK_Main_v2Model.hState" Width="1.5" PointX="6" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KOMK_Main_v2Model.hStateWork" Width="1.5" PointX="8.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KOMK_Main_v2Model.hWorkType" Width="1.5" PointX="8.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KOMK_Main_v2Model.jJournal" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KOMK_Main_v2Model.jQuery" Width="1.5" PointX="8.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KOMK_Main_v2Model.jSkillList" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KOMK_Main_v2Model.jWorkList" Width="1.5" PointX="10.5" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="KOMK_Main_v2Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <AssociationConnector Association="KOMK_Main_v2Model.FK_hPerson_hAccess" ManuallyRouted="false" />
+        <AssociationConnector Association="KOMK_Main_v2Model.FK_jJournal_hEventType" ManuallyRouted="false" />
+        <AssociationConnector Association="KOMK_Main_v2Model.FK_jJournal_hPerson" ManuallyRouted="false" />
+        <AssociationConnector Association="KOMK_Main_v2Model.FK_jQuery_hPerson" ManuallyRouted="false" />
+        <AssociationConnector Association="KOMK_Main_v2Model.FK_jQuery_hPerson1" ManuallyRouted="false" />
+        <AssociationConnector Association="KOMK_Main_v2Model.FK_jSkillList_hPerson" ManuallyRouted="false" />
+        <AssociationConnector Association="KOMK_Main_v2Model.FK_jWorkList_hPerson" ManuallyRouted="false" />
+        <AssociationConnector Association="KOMK_Main_v2Model.FK_jSkillList_hSkill" ManuallyRouted="false" />
+        <AssociationConnector Association="KOMK_Main_v2Model.FK_jSkillList_hWorkType" ManuallyRouted="false" />
+        <AssociationConnector Association="KOMK_Main_v2Model.FK_jQuery_hState" ManuallyRouted="false" />
+        <AssociationConnector Association="KOMK_Main_v2Model.FK_jWorkList_hStateWork" ManuallyRouted="false" />
+        <AssociationConnector Association="KOMK_Main_v2Model.FK_jWorkList_hWorkType" ManuallyRouted="false" />
+        <AssociationConnector Association="KOMK_Main_v2Model.FK_jJournal_jWorkList" ManuallyRouted="false" />
+        <AssociationConnector Association="KOMK_Main_v2Model.FK_jWorkList_jQuery" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
