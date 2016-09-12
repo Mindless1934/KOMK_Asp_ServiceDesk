@@ -199,6 +199,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\jJournalsController.cs" />
+    <Compile Include="Controllers\jQueriesController.cs" />
+    <Compile Include="Controllers\jWorkListsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -349,6 +352,14 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\jQueries\Create.cshtml" />
+    <Content Include="Views\jQueries\Index.cshtml" />
+    <Content Include="Views\jWorkLists\Index.cshtml" />
+    <Content Include="Views\jWorkLists\Create.cshtml" />
+    <Content Include="Views\jWorkLists\Edit.cshtml" />
+    <Content Include="Views\jJournals\Index.cshtml" />
+    <Content Include="Views\jJournals\Create.cshtml" />
+    <Content Include="Views\jQueries\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

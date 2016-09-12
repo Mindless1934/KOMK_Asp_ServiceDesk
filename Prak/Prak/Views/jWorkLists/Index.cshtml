@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Prak.Models.jWorkList>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupWorkListId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateIn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateModifcation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Deadline)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Verification)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Relevance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JournalId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hPerson.FIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hStateWork.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hWorkType.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jQuery.Text)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GroupWorkListId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateIn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateModifcation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Deadline)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Verification)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Relevance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JournalId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hPerson.FIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hStateWork.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hWorkType.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.jQuery.Text)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.WorkListId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.WorkListId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.WorkListId })
+        </td>
+    </tr>
+}
+
+</table>

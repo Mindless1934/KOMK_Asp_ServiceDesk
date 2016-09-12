@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Prak.Models.jQuery>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupQueryId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateIn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateModification)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeadLine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Relevance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hPerson.FIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hPerson1.FIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hState.Description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GroupQueryId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateIn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateModification)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeadLine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Text)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Relevance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hPerson.FIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hPerson1.FIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hState.Description)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.QueryId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.QueryId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.QueryId })
+        </td>
+    </tr>
+}
+
+</table>
