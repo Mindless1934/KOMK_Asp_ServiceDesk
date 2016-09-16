@@ -4,15 +4,22 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Список заявок на обслуживание</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Добавить заявку", "Create")
 </p>
+
+<h5> Предлагаю убрать груповой ID, Revelance, дату модификации (под вопросом), 
+    текст (его можно показывать при переходе в детальное описание заявки). 
+    Так же при переходе в детали заявки должен отображаться список работ по этой заявке. 
+    Думаю не стоит выводить полный список работ, только для конкретной заявки.</h5>
+<h5> "Здесь должен быть поиск по пользователю"</h5>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.GroupQueryId)
+            @Html.DisplayNameFor(model => model.GroupQueryId) (+)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DateOut)
@@ -21,13 +28,13 @@
             @Html.DisplayNameFor(model => model.DateIn)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateModification)
+            @Html.DisplayNameFor(model => model.DateModification) (?)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DeadLine)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Text)
+            @Html.DisplayNameFor(model => model.Text) (+)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Relevance)
@@ -77,9 +84,9 @@
             @Html.DisplayFor(modelItem => item.hState.Description)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.QueryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.QueryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.QueryId })
+            @Html.ActionLink("Изменить", "Edit", new { id=item.QueryId }) |
+            @Html.ActionLink("Подробней", "Details", new { id=item.QueryId }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.QueryId })
         </td>
     </tr>
 }

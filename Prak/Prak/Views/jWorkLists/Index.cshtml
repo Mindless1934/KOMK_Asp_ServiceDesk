@@ -4,15 +4,16 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Список работ</h2>
 
+<h5>Здесь убираем груповой ID, журнальный ID, текст запроса, Relevance</h5>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Добавить работу", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.GroupWorkListId)
+            @Html.DisplayNameFor(model => model.GroupWorkListId) (+)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DateIn)
@@ -30,10 +31,10 @@
             @Html.DisplayNameFor(model => model.Verification)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Relevance)
+            @Html.DisplayNameFor(model => model.Relevance) (+)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.JournalId)
+            @Html.DisplayNameFor(model => model.JournalId) (+)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.hPerson.FIO)
@@ -45,7 +46,7 @@
             @Html.DisplayNameFor(model => model.hWorkType.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.jQuery.Text)
+            @Html.DisplayNameFor(model => model.jQuery.Text) (+)
         </th>
         <th></th>
     </tr>
@@ -89,9 +90,9 @@
             @Html.DisplayFor(modelItem => item.jQuery.Text)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.WorkListId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.WorkListId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.WorkListId })
+            @Html.ActionLink("Изменить", "Edit", new { id=item.WorkListId }) |
+            @Html.ActionLink("Подробнее", "Details", new { id=item.WorkListId }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.WorkListId })
         </td>
     </tr>
 }
