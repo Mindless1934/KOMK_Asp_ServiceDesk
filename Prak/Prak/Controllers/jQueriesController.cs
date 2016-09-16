@@ -18,7 +18,7 @@ namespace Prak.Controllers
         public ActionResult Index()
         {
             var jQuery = db.jQuery.Include(j => j.hPerson).Include(j => j.hPerson1).Include(j => j.hState);
-            return View(jQuery.ToList());
+            return View(jQuery.ToList().Where(j => j.Relevance==true));
         }
 
         // GET: jQueries/Details/5

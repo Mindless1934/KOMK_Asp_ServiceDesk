@@ -18,44 +18,36 @@
 
 <table class="table">
     <tr>
+
+
         <th>
-            @Html.DisplayNameFor(model => model.GroupQueryId) (+)
+            Дата выполнения
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateOut)
+            Дата поступления
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateIn)
+            Последнее изменение
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateModification) (?)
+            Выполнить до
+        </th>
+
+        <th>
+            Отправитель
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DeadLine)
+            Обработал
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Text) (+)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Relevance)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.hPerson.FIO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.hPerson1.FIO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.hState.Description)
+            Статус
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.GroupQueryId)
-        </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.DateOut)
         </td>
@@ -71,9 +63,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Text)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Relevance)
-        </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.hPerson.FIO)
         </td>
@@ -85,7 +75,7 @@
         </td>
         <td>
             @Html.ActionLink("Изменить", "Edit", new { id=item.QueryId }) |
-            @Html.ActionLink("Подробней", "Details", new { id=item.QueryId }) |
+            @Html.ActionLink("Подробнее", "Details", new { id=item.QueryId }) |
             @Html.ActionLink("Удалить", "Delete", new { id=item.QueryId })
         </td>
     </tr>
