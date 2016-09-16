@@ -10,6 +10,24 @@
 
 </head>
 <body>
+    @Scripts.Render("~/bundles/jquery")
+    <!--стили jquery ui-->
+    @Styles.Render("~/Content/themes/base/css")
+    <!--сама библиотека jquey ui-->
+    @Scripts.Render("~/bundles/jqueryui")
+    @RenderSection("scripts", required: false)
+    <!--если браузер не создает специального поля для date, то добавляем datepicker-->
+    <script type="text/javascript">
+        $(function () {
+            if (!Modernizr.inputtypes.date) {
+                $(function () {
+                    $("input[type='date']")
+                                .datepicker({ dateFormat: 'dd/mm/yy' })
+                                .get(0).setAttribute("type", "text");
+                })
+            }
+        });
+    </script>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -40,6 +58,6 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
 </body>
 </html>

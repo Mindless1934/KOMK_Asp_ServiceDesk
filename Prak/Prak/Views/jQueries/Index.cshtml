@@ -11,44 +11,38 @@
 </p>
 <table class="table">
     <tr>
+
         <th>
-            @Html.DisplayNameFor(model => model.GroupQueryId)
+            Дата выполнения
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateOut)
+            Дата поступления
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateIn)
+            Последние изменения
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateModification)
+            Выполнить до
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DeadLine)
+            Текст заявки
+        </th>
+
+        <th>
+            Обработал
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Text)
+            Отправитель
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Relevance)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.hPerson.FIO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.hPerson1.FIO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.hState.Description)
+            Статус
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.GroupQueryId)
-        </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.DateOut)
         </td>
@@ -64,9 +58,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Text)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Relevance)
-        </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.hPerson.FIO)
         </td>
@@ -77,9 +69,9 @@
             @Html.DisplayFor(modelItem => item.hState.Description)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.QueryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.QueryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.QueryId })
+            @Html.ActionLink("Изменить", "Edit", new { id=item.QueryId }) |
+            @Html.ActionLink("Подробнее", "Details", new { id=item.QueryId }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.QueryId })
         </td>
     </tr>
 }
