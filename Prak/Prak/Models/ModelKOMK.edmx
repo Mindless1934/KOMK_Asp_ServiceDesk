@@ -21,8 +21,6 @@
           </Key>
           <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
-          <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="Discriminator" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <EntityType Name="AspNetUserClaims">
           <Key>
@@ -170,7 +168,6 @@
           <Property Name="StateWorkId" Type="int" Nullable="false" />
           <Property Name="Verification" Type="bit" Nullable="false" />
           <Property Name="Relevance" Type="bit" Nullable="false" />
-          <Property Name="JournalId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -569,7 +566,7 @@
           <NavigationProperty Name="jQuery" Relationship="Self.FK_jQuery_hPerson" FromRole="hPerson" ToRole="jQuery" />
           <NavigationProperty Name="jQuery1" Relationship="Self.FK_jQuery_hPerson1" FromRole="hPerson" ToRole="jQuery" />
           <NavigationProperty Name="jSkillList" Relationship="Self.FK_jSkillList_hPerson" FromRole="hPerson" ToRole="jSkillList" />
-          <NavigationProperty Name="jWorkList" Relationship="Self.FK_jWorkList_hPerson" FromRole="hPerson" ToRole="jWorkList" />
+          <NavigationProperty Name="jWorkList" Relationship="KOMK_Main_v2Model.FK_jWorkList_hPerson" FromRole="hPerson" ToRole="jWorkList" />
         </EntityType>
         <EntityType Name="hSkill">
           <Key>
@@ -594,7 +591,7 @@
           </Key>
           <Property Name="StateWorkId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="jWorkList" Relationship="Self.FK_jWorkList_hStateWork" FromRole="hStateWork" ToRole="jWorkList" />
+          <NavigationProperty Name="jWorkList" Relationship="KOMK_Main_v2Model.FK_jWorkList_hStateWork" FromRole="hStateWork" ToRole="jWorkList" />
         </EntityType>
         <EntityType Name="hWorkType">
           <Key>
@@ -604,7 +601,7 @@
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SkillId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="hSkill" Relationship="Self.FK_jSkillList_hWorkType" FromRole="hWorkType" ToRole="hSkill" />
-          <NavigationProperty Name="jWorkList" Relationship="Self.FK_jWorkList_hWorkType" FromRole="hWorkType" ToRole="jWorkList" />
+          <NavigationProperty Name="jWorkList" Relationship="KOMK_Main_v2Model.FK_jWorkList_hWorkType" FromRole="hWorkType" ToRole="jWorkList" />
         </EntityType>
         <EntityType Name="jJournal">
           <Key>
@@ -618,7 +615,7 @@
           <Property Name="PersonId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="hEventType" Relationship="Self.FK_jJournal_hEventType" FromRole="jJournal" ToRole="hEventType" />
           <NavigationProperty Name="hPerson" Relationship="Self.FK_jJournal_hPerson" FromRole="jJournal" ToRole="hPerson" />
-          <NavigationProperty Name="jWorkList" Relationship="Self.FK_jJournal_jWorkList" FromRole="jJournal" ToRole="jWorkList" />
+          <NavigationProperty Name="jWorkList" Relationship="KOMK_Main_v2Model.FK_jJournal_jWorkList" FromRole="jJournal" ToRole="jWorkList" />
         </EntityType>
         <EntityType Name="jQuery">
           <Key>
@@ -638,7 +635,7 @@
           <NavigationProperty Name="hPerson" Relationship="Self.FK_jQuery_hPerson" FromRole="jQuery" ToRole="hPerson" />
           <NavigationProperty Name="hPerson1" Relationship="Self.FK_jQuery_hPerson1" FromRole="jQuery" ToRole="hPerson" />
           <NavigationProperty Name="hState" Relationship="Self.FK_jQuery_hState" FromRole="jQuery" ToRole="hState" />
-          <NavigationProperty Name="jWorkList" Relationship="Self.FK_jWorkList_jQuery" FromRole="jQuery" ToRole="jWorkList" />
+          <NavigationProperty Name="jWorkList" Relationship="KOMK_Main_v2Model.FK_jWorkList_jQuery" FromRole="jQuery" ToRole="jWorkList" />
         </EntityType>
         <EntityType Name="jSkillList">
           <Key>
@@ -649,29 +646,6 @@
           <Property Name="PersonId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="hPerson" Relationship="Self.FK_jSkillList_hPerson" FromRole="jSkillList" ToRole="hPerson" />
           <NavigationProperty Name="hSkill" Relationship="Self.FK_jSkillList_hSkill" FromRole="jSkillList" ToRole="hSkill" />
-        </EntityType>
-        <EntityType Name="jWorkList">
-          <Key>
-            <PropertyRef Name="WorkListId" />
-          </Key>
-          <Property Name="GroupWorkListId" Type="Int32" Nullable="false" />
-          <Property Name="WorkListId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DateIn" Type="DateTime" Precision="3" />
-          <Property Name="DateOut" Type="DateTime" Precision="3" />
-          <Property Name="DateModifcation" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Deadline" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="QueryId" Type="Int32" Nullable="false" />
-          <Property Name="WorkTypeId" Type="Int32" Nullable="false" />
-          <Property Name="PersonExecId" Type="Int32" Nullable="false" />
-          <Property Name="StateWorkId" Type="Int32" Nullable="false" />
-          <Property Name="Verification" Type="Boolean" Nullable="false" />
-          <Property Name="Relevance" Type="Boolean" Nullable="false" />
-          <Property Name="JournalId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="hPerson" Relationship="Self.FK_jWorkList_hPerson" FromRole="jWorkList" ToRole="hPerson" />
-          <NavigationProperty Name="hStateWork" Relationship="Self.FK_jWorkList_hStateWork" FromRole="jWorkList" ToRole="hStateWork" />
-          <NavigationProperty Name="hWorkType" Relationship="Self.FK_jWorkList_hWorkType" FromRole="jWorkList" ToRole="hWorkType" />
-          <NavigationProperty Name="jJournal" Relationship="Self.FK_jJournal_jWorkList" FromRole="jWorkList" ToRole="jJournal" />
-          <NavigationProperty Name="jQuery" Relationship="Self.FK_jWorkList_jQuery" FromRole="jWorkList" ToRole="jQuery" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -755,18 +729,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_jWorkList_hPerson">
-          <End Role="hPerson" Type="Self.hPerson" Multiplicity="1" />
-          <End Role="jWorkList" Type="Self.jWorkList" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="hPerson">
-              <PropertyRef Name="PersonId" />
-            </Principal>
-            <Dependent Role="jWorkList">
-              <PropertyRef Name="PersonExecId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_jSkillList_hSkill">
           <End Role="hSkill" Type="Self.hSkill" Multiplicity="1" />
           <End Role="jSkillList" Type="Self.jSkillList" Multiplicity="*" />
@@ -803,54 +765,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_jWorkList_hStateWork">
-          <End Role="hStateWork" Type="Self.hStateWork" Multiplicity="1" />
-          <End Role="jWorkList" Type="Self.jWorkList" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="hStateWork">
-              <PropertyRef Name="StateWorkId" />
-            </Principal>
-            <Dependent Role="jWorkList">
-              <PropertyRef Name="StateWorkId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_jWorkList_hWorkType">
-          <End Role="hWorkType" Type="Self.hWorkType" Multiplicity="1" />
-          <End Role="jWorkList" Type="Self.jWorkList" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="hWorkType">
-              <PropertyRef Name="WorkTypeId" />
-            </Principal>
-            <Dependent Role="jWorkList">
-              <PropertyRef Name="WorkTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_jJournal_jWorkList">
-          <End Role="jWorkList" Type="Self.jWorkList" Multiplicity="1" />
-          <End Role="jJournal" Type="Self.jJournal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="jWorkList">
-              <PropertyRef Name="WorkListId" />
-            </Principal>
-            <Dependent Role="jJournal">
-              <PropertyRef Name="WorkListId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_jWorkList_jQuery">
-          <End Role="jQuery" Type="Self.jQuery" Multiplicity="1" />
-          <End Role="jWorkList" Type="Self.jWorkList" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="jQuery">
-              <PropertyRef Name="QueryId" />
-            </Principal>
-            <Dependent Role="jWorkList">
-              <PropertyRef Name="QueryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="KOMK_Main_v2Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="hAccess" EntityType="Self.hAccess" />
           <EntitySet Name="hEventType" EntityType="Self.hEventType" />
@@ -862,7 +776,6 @@
           <EntitySet Name="jJournal" EntityType="Self.jJournal" />
           <EntitySet Name="jQuery" EntityType="Self.jQuery" />
           <EntitySet Name="jSkillList" EntityType="Self.jSkillList" />
-          <EntitySet Name="jWorkList" EntityType="Self.jWorkList" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <AssociationSet Name="FK_hPerson_hAccess" Association="Self.FK_hPerson_hAccess">
             <End Role="hAccess" EntitySet="hAccess" />
@@ -888,10 +801,6 @@
             <End Role="hPerson" EntitySet="hPerson" />
             <End Role="jSkillList" EntitySet="jSkillList" />
           </AssociationSet>
-          <AssociationSet Name="FK_jWorkList_hPerson" Association="Self.FK_jWorkList_hPerson">
-            <End Role="hPerson" EntitySet="hPerson" />
-            <End Role="jWorkList" EntitySet="jWorkList" />
-          </AssociationSet>
           <AssociationSet Name="FK_jSkillList_hSkill" Association="Self.FK_jSkillList_hSkill">
             <End Role="hSkill" EntitySet="hSkill" />
             <End Role="jSkillList" EntitySet="jSkillList" />
@@ -903,22 +812,6 @@
           <AssociationSet Name="FK_jQuery_hState" Association="Self.FK_jQuery_hState">
             <End Role="hState" EntitySet="hState" />
             <End Role="jQuery" EntitySet="jQuery" />
-          </AssociationSet>
-          <AssociationSet Name="FK_jWorkList_hStateWork" Association="Self.FK_jWorkList_hStateWork">
-            <End Role="hStateWork" EntitySet="hStateWork" />
-            <End Role="jWorkList" EntitySet="jWorkList" />
-          </AssociationSet>
-          <AssociationSet Name="FK_jWorkList_hWorkType" Association="Self.FK_jWorkList_hWorkType">
-            <End Role="hWorkType" EntitySet="hWorkType" />
-            <End Role="jWorkList" EntitySet="jWorkList" />
-          </AssociationSet>
-          <AssociationSet Name="FK_jJournal_jWorkList" Association="Self.FK_jJournal_jWorkList">
-            <End Role="jWorkList" EntitySet="jWorkList" />
-            <End Role="jJournal" EntitySet="jJournal" />
-          </AssociationSet>
-          <AssociationSet Name="FK_jWorkList_jQuery" Association="Self.FK_jWorkList_jQuery">
-            <End Role="jQuery" EntitySet="jQuery" />
-            <End Role="jWorkList" EntitySet="jWorkList" />
           </AssociationSet>
           <FunctionImport Name="inshEventType">
           <Parameter Name="De" Mode="In" Type="String" />
@@ -963,6 +856,7 @@
           <EntitySet Name="AspNetUserClaims" EntityType="KOMK_Main_v2Model.AspNetUserClaims" />
           <EntitySet Name="AspNetUserLogins" EntityType="KOMK_Main_v2Model.AspNetUserLogins" />
           <EntitySet Name="AspNetUsers" EntityType="KOMK_Main_v2Model.AspNetUsers" />
+          <EntitySet Name="jWorkList" EntityType="KOMK_Main_v2Model.jWorkList" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="KOMK_Main_v2Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -970,6 +864,26 @@
           <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="KOMK_Main_v2Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jWorkList_hPerson" Association="KOMK_Main_v2Model.FK_jWorkList_hPerson">
+            <End Role="hPerson" EntitySet="hPerson" />
+            <End Role="jWorkList" EntitySet="jWorkList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jWorkList_hStateWork" Association="KOMK_Main_v2Model.FK_jWorkList_hStateWork">
+            <End Role="hStateWork" EntitySet="hStateWork" />
+            <End Role="jWorkList" EntitySet="jWorkList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jWorkList_hWorkType" Association="KOMK_Main_v2Model.FK_jWorkList_hWorkType">
+            <End Role="hWorkType" EntitySet="hWorkType" />
+            <End Role="jWorkList" EntitySet="jWorkList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jJournal_jWorkList" Association="KOMK_Main_v2Model.FK_jJournal_jWorkList">
+            <End Role="jWorkList" EntitySet="jWorkList" />
+            <End Role="jJournal" EntitySet="jJournal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jWorkList_jQuery" Association="KOMK_Main_v2Model.FK_jWorkList_jQuery">
+            <End Role="jQuery" EntitySet="jQuery" />
+            <End Role="jWorkList" EntitySet="jWorkList" />
           </AssociationSet>
           <AssociationSet Name="AspNetUserRoles" Association="KOMK_Main_v2Model.AspNetUserRoles">
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
@@ -1019,8 +933,6 @@
           </Key>
           <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Discriminator" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AspNetUsers" Relationship="KOMK_Main_v2Model.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="AspNetUserClaims">
@@ -1064,6 +976,28 @@
           <NavigationProperty Name="AspNetUserLogins" Relationship="KOMK_Main_v2Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
           <NavigationProperty Name="AspNetRoles" Relationship="KOMK_Main_v2Model.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
         </EntityType>
+        <EntityType Name="jWorkList">
+          <Key>
+            <PropertyRef Name="WorkListId" />
+          </Key>
+          <Property Name="GroupWorkListId" Type="Int32" Nullable="false" />
+          <Property Name="WorkListId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateIn" Type="DateTime" Precision="3" />
+          <Property Name="DateOut" Type="DateTime" Precision="3" />
+          <Property Name="DateModifcation" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Deadline" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="QueryId" Type="Int32" Nullable="false" />
+          <Property Name="WorkTypeId" Type="Int32" Nullable="false" />
+          <Property Name="PersonExecId" Type="Int32" Nullable="false" />
+          <Property Name="StateWorkId" Type="Int32" Nullable="false" />
+          <Property Name="Verification" Type="Boolean" Nullable="false" />
+          <Property Name="Relevance" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="hPerson" Relationship="KOMK_Main_v2Model.FK_jWorkList_hPerson" FromRole="jWorkList" ToRole="hPerson" />
+          <NavigationProperty Name="hStateWork" Relationship="KOMK_Main_v2Model.FK_jWorkList_hStateWork" FromRole="jWorkList" ToRole="hStateWork" />
+          <NavigationProperty Name="hWorkType" Relationship="KOMK_Main_v2Model.FK_jWorkList_hWorkType" FromRole="jWorkList" ToRole="hWorkType" />
+          <NavigationProperty Name="jJournal" Relationship="KOMK_Main_v2Model.FK_jJournal_jWorkList" FromRole="jWorkList" ToRole="jJournal" />
+          <NavigationProperty Name="jQuery" Relationship="KOMK_Main_v2Model.FK_jWorkList_jQuery" FromRole="jWorkList" ToRole="jQuery" />
+        </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Type="KOMK_Main_v2Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -1089,6 +1023,66 @@
             </Principal>
             <Dependent Role="AspNetUserLogins">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jWorkList_hPerson">
+          <End Type="KOMK_Main_v2Model.hPerson" Role="hPerson" Multiplicity="1" />
+          <End Type="KOMK_Main_v2Model.jWorkList" Role="jWorkList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hPerson">
+              <PropertyRef Name="PersonId" />
+            </Principal>
+            <Dependent Role="jWorkList">
+              <PropertyRef Name="PersonExecId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jWorkList_hStateWork">
+          <End Type="KOMK_Main_v2Model.hStateWork" Role="hStateWork" Multiplicity="1" />
+          <End Type="KOMK_Main_v2Model.jWorkList" Role="jWorkList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hStateWork">
+              <PropertyRef Name="StateWorkId" />
+            </Principal>
+            <Dependent Role="jWorkList">
+              <PropertyRef Name="StateWorkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jWorkList_hWorkType">
+          <End Type="KOMK_Main_v2Model.hWorkType" Role="hWorkType" Multiplicity="1" />
+          <End Type="KOMK_Main_v2Model.jWorkList" Role="jWorkList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hWorkType">
+              <PropertyRef Name="WorkTypeId" />
+            </Principal>
+            <Dependent Role="jWorkList">
+              <PropertyRef Name="WorkTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jJournal_jWorkList">
+          <End Type="KOMK_Main_v2Model.jWorkList" Role="jWorkList" Multiplicity="1" />
+          <End Type="KOMK_Main_v2Model.jJournal" Role="jJournal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jWorkList">
+              <PropertyRef Name="WorkListId" />
+            </Principal>
+            <Dependent Role="jJournal">
+              <PropertyRef Name="WorkListId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jWorkList_jQuery">
+          <End Type="KOMK_Main_v2Model.jQuery" Role="jQuery" Multiplicity="1" />
+          <End Type="KOMK_Main_v2Model.jWorkList" Role="jWorkList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jQuery">
+              <PropertyRef Name="QueryId" />
+            </Principal>
+            <Dependent Role="jWorkList">
+              <PropertyRef Name="QueryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1198,25 +1192,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="jWorkList">
-            <EntityTypeMapping TypeName="KOMK_Main_v2Model.jWorkList">
-              <MappingFragment StoreEntitySet="jWorkList">
-                <ScalarProperty Name="GroupWorkListId" ColumnName="GroupWorkListId" />
-                <ScalarProperty Name="WorkListId" ColumnName="WorkListId" />
-                <ScalarProperty Name="DateIn" ColumnName="DateIn" />
-                <ScalarProperty Name="DateOut" ColumnName="DateOut" />
-                <ScalarProperty Name="DateModifcation" ColumnName="DateModifcation" />
-                <ScalarProperty Name="Deadline" ColumnName="Deadline" />
-                <ScalarProperty Name="QueryId" ColumnName="QueryId" />
-                <ScalarProperty Name="WorkTypeId" ColumnName="WorkTypeId" />
-                <ScalarProperty Name="PersonExecId" ColumnName="PersonExecId" />
-                <ScalarProperty Name="StateWorkId" ColumnName="StateWorkId" />
-                <ScalarProperty Name="Verification" ColumnName="Verification" />
-                <ScalarProperty Name="Relevance" ColumnName="Relevance" />
-                <ScalarProperty Name="JournalId" ColumnName="JournalId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="KOMK_Main_v2Model.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -1291,8 +1266,6 @@
           <EntitySetMapping Name="AspNetRoles">
             <EntityTypeMapping TypeName="KOMK_Main_v2Model.AspNetRoles">
               <MappingFragment StoreEntitySet="AspNetRoles">
-                <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
@@ -1332,6 +1305,24 @@
                 <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jWorkList">
+            <EntityTypeMapping TypeName="KOMK_Main_v2Model.jWorkList">
+              <MappingFragment StoreEntitySet="jWorkList">
+                <ScalarProperty Name="Relevance" ColumnName="Relevance" />
+                <ScalarProperty Name="Verification" ColumnName="Verification" />
+                <ScalarProperty Name="StateWorkId" ColumnName="StateWorkId" />
+                <ScalarProperty Name="PersonExecId" ColumnName="PersonExecId" />
+                <ScalarProperty Name="WorkTypeId" ColumnName="WorkTypeId" />
+                <ScalarProperty Name="QueryId" ColumnName="QueryId" />
+                <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+                <ScalarProperty Name="DateModifcation" ColumnName="DateModifcation" />
+                <ScalarProperty Name="DateOut" ColumnName="DateOut" />
+                <ScalarProperty Name="DateIn" ColumnName="DateIn" />
+                <ScalarProperty Name="WorkListId" ColumnName="WorkListId" />
+                <ScalarProperty Name="GroupWorkListId" ColumnName="GroupWorkListId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

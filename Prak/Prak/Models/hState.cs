@@ -7,20 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
-public partial class hState
+namespace Prak.Models
 {
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public hState()
+    using System;
+    using System.Collections.Generic;
+    
+    public partial class hState
     {
-        this.jQuery = new HashSet<jQuery>();
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public hState()
+        {
+            this.jQuery = new HashSet<jQuery>();
+        }
+    
+        public int StateId { get; set; }
+        public string Description { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<jQuery> jQuery { get; set; }
     }
-
-    public int StateId { get; set; }
-    public string Description { get; set; }
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-    public virtual ICollection<jQuery> jQuery { get; set; }
 }

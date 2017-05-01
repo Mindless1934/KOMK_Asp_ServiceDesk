@@ -7,14 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
-public partial class AspNetUserLogins
+namespace Prak.Models
 {
-    public string LoginProvider { get; set; }
-    public string ProviderKey { get; set; }
-    public string UserId { get; set; }
-
-    public virtual AspNetUsers AspNetUsers { get; set; }
+    using System;
+    using System.Collections.Generic;
+    
+    public partial class AspNetUserLogins
+    {
+        public string LoginProvider { get; set; }
+        public string ProviderKey { get; set; }
+        public string UserId { get; set; }
+    
+        public virtual AspNetUsers AspNetUsers { get; set; }
+    }
 }

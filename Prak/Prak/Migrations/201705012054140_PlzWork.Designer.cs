@@ -7,13 +7,13 @@ namespace Prak.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class DataMigration : IMigrationMetadata
+    public sealed partial class PlzWork : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DataMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(PlzWork));
         
         string IMigrationMetadata.Id
         {
-            get { return "201705011346457_DataMigration"; }
+            get { return "201705012054140_PlzWork"; }
         }
         
         string IMigrationMetadata.Source

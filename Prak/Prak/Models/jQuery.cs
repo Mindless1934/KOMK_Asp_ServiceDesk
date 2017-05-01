@@ -7,32 +7,35 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
-public partial class jQuery
+namespace Prak.Models
 {
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public jQuery()
+    using System;
+    using System.Collections.Generic;
+    
+    public partial class jQuery
     {
-        this.jWorkList = new HashSet<jWorkList>();
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public jQuery()
+        {
+            this.jWorkList = new HashSet<jWorkList>();
+        }
+    
+        public int GroupQueryId { get; set; }
+        public int QueryId { get; set; }
+        public Nullable<System.DateTime> DateOut { get; set; }
+        public Nullable<System.DateTime> DateIn { get; set; }
+        public System.DateTime DateModification { get; set; }
+        public Nullable<System.DateTime> DeadLine { get; set; }
+        public string Text { get; set; }
+        public int StateId { get; set; }
+        public int PersonId { get; set; }
+        public int PersonSpId { get; set; }
+        public bool Relevance { get; set; }
+    
+        public virtual hPerson hPerson { get; set; }
+        public virtual hPerson hPerson1 { get; set; }
+        public virtual hState hState { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<jWorkList> jWorkList { get; set; }
     }
-
-    public int GroupQueryId { get; set; }
-    public int QueryId { get; set; }
-    public Nullable<System.DateTime> DateOut { get; set; }
-    public Nullable<System.DateTime> DateIn { get; set; }
-    public System.DateTime DateModification { get; set; }
-    public Nullable<System.DateTime> DeadLine { get; set; }
-    public string Text { get; set; }
-    public int StateId { get; set; }
-    public int PersonId { get; set; }
-    public int PersonSpId { get; set; }
-    public bool Relevance { get; set; }
-
-    public virtual hPerson hPerson { get; set; }
-    public virtual hPerson hPerson1 { get; set; }
-    public virtual hState hState { get; set; }
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-    public virtual ICollection<jWorkList> jWorkList { get; set; }
 }

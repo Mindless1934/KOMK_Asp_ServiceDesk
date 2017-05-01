@@ -5,17 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="39b9e4add6394bb5beec43ac60509488" Name="Diagram1" ZoomLevel="72">
-        <EntityTypeShape EntityType="KOMK_Main_v2Model.hAccess" Width="1.5" PointX="4.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KOMK_Main_v2Model.hAccess" Width="1.5" PointX="0.5" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="KOMK_Main_v2Model.hEventType" Width="1.5" PointX="8.375" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="KOMK_Main_v2Model.hPerson" Width="1.5" PointX="4" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KOMK_Main_v2Model.hPerson" Width="1.5" PointX="1.125" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="KOMK_Main_v2Model.hSkill" Width="1.5" PointX="6.25" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="KOMK_Main_v2Model.hState" Width="1.5" PointX="6" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="KOMK_Main_v2Model.hStateWork" Width="1.5" PointX="14.5" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="KOMK_Main_v2Model.hWorkType" Width="1.5" PointX="16.125" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KOMK_Main_v2Model.jJournal" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="KOMK_Main_v2Model.jQuery" Width="1.5" PointX="10.375" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KOMK_Main_v2Model.jQuery" Width="1.5" PointX="13.25" PointY="8.375" IsExpanded="true" />
         <EntityTypeShape EntityType="KOMK_Main_v2Model.jSkillList" Width="1.5" PointX="14.5" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="KOMK_Main_v2Model.jWorkList" Width="1.5" PointX="12.375" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="KOMK_Main_v2Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
         <AssociationConnector Association="KOMK_Main_v2Model.FK_hPerson_hAccess" ManuallyRouted="false" />
         <AssociationConnector Association="KOMK_Main_v2Model.FK_jJournal_hEventType" ManuallyRouted="false" />
@@ -23,21 +22,22 @@
         <AssociationConnector Association="KOMK_Main_v2Model.FK_jQuery_hPerson" ManuallyRouted="false" />
         <AssociationConnector Association="KOMK_Main_v2Model.FK_jQuery_hPerson1" ManuallyRouted="false" />
         <AssociationConnector Association="KOMK_Main_v2Model.FK_jSkillList_hPerson" ManuallyRouted="false" />
-        <AssociationConnector Association="KOMK_Main_v2Model.FK_jWorkList_hPerson" ManuallyRouted="false" />
         <AssociationConnector Association="KOMK_Main_v2Model.FK_jSkillList_hSkill" ManuallyRouted="false" />
         <AssociationConnector Association="KOMK_Main_v2Model.FK_jSkillList_hWorkType" ManuallyRouted="false" />
         <AssociationConnector Association="KOMK_Main_v2Model.FK_jQuery_hState" ManuallyRouted="false" />
-        <AssociationConnector Association="KOMK_Main_v2Model.FK_jWorkList_hStateWork" ManuallyRouted="false" />
-        <AssociationConnector Association="KOMK_Main_v2Model.FK_jWorkList_hWorkType" ManuallyRouted="false" />
-        <AssociationConnector Association="KOMK_Main_v2Model.FK_jJournal_jWorkList" ManuallyRouted="false" />
-        <AssociationConnector Association="KOMK_Main_v2Model.FK_jWorkList_jQuery" ManuallyRouted="false" />
         <EntityTypeShape EntityType="KOMK_Main_v2Model.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="KOMK_Main_v2Model.AspNetRoles" Width="1.5" PointX="3.375" PointY="10.375" />
-        <EntityTypeShape EntityType="KOMK_Main_v2Model.AspNetUserClaims" Width="1.5" PointX="7.875" PointY="11.625" />
-        <EntityTypeShape EntityType="KOMK_Main_v2Model.AspNetUserLogins" Width="1.5" PointX="7.875" PointY="9" />
-        <EntityTypeShape EntityType="KOMK_Main_v2Model.AspNetUsers" Width="1.5" PointX="5.625" PointY="9.375" />
+        <EntityTypeShape EntityType="KOMK_Main_v2Model.AspNetRoles" Width="1.5" PointX="4.75" PointY="9.625" />
+        <EntityTypeShape EntityType="KOMK_Main_v2Model.AspNetUserClaims" Width="1.5" PointX="10.625" PointY="8.75" />
+        <EntityTypeShape EntityType="KOMK_Main_v2Model.AspNetUserLogins" Width="1.5" PointX="10.875" PointY="11.375" />
+        <EntityTypeShape EntityType="KOMK_Main_v2Model.AspNetUsers" Width="1.5" PointX="7" PointY="9.375" />
+        <EntityTypeShape EntityType="KOMK_Main_v2Model.jWorkList" Width="1.5" PointX="12.375" PointY="2.625" />
         <AssociationConnector Association="KOMK_Main_v2Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="KOMK_Main_v2Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="KOMK_Main_v2Model.FK_jWorkList_hPerson" />
+        <AssociationConnector Association="KOMK_Main_v2Model.FK_jWorkList_hStateWork" />
+        <AssociationConnector Association="KOMK_Main_v2Model.FK_jWorkList_hWorkType" />
+        <AssociationConnector Association="KOMK_Main_v2Model.FK_jJournal_jWorkList" />
+        <AssociationConnector Association="KOMK_Main_v2Model.FK_jWorkList_jQuery" />
         <AssociationConnector Association="KOMK_Main_v2Model.AspNetUserRoles" />
         </Diagram>
     </edmx:Diagrams>

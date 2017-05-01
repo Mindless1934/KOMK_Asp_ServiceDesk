@@ -7,23 +7,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
-public partial class hSkill
+namespace Prak.Models
 {
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public hSkill()
+    using System;
+    using System.Collections.Generic;
+    
+    public partial class hSkill
     {
-        this.jSkillList = new HashSet<jSkillList>();
-        this.hWorkType = new HashSet<hWorkType>();
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public hSkill()
+        {
+            this.jSkillList = new HashSet<jSkillList>();
+            this.hWorkType = new HashSet<hWorkType>();
+        }
+    
+        public int SkillId { get; set; }
+        public string Description { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<jSkillList> jSkillList { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<hWorkType> hWorkType { get; set; }
     }
-
-    public int SkillId { get; set; }
-    public string Description { get; set; }
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-    public virtual ICollection<jSkillList> jSkillList { get; set; }
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-    public virtual ICollection<hWorkType> hWorkType { get; set; }
 }

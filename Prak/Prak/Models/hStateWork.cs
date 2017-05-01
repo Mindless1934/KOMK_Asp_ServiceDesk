@@ -7,20 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
-public partial class hStateWork
+namespace Prak.Models
 {
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public hStateWork()
+    using System;
+    using System.Collections.Generic;
+    
+    public partial class hStateWork
     {
-        this.jWorkList = new HashSet<jWorkList>();
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public hStateWork()
+        {
+            this.jWorkList = new HashSet<jWorkList>();
+        }
+    
+        public int StateWorkId { get; set; }
+        public string Description { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<jWorkList> jWorkList { get; set; }
     }
-
-    public int StateWorkId { get; set; }
-    public string Description { get; set; }
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-    public virtual ICollection<jWorkList> jWorkList { get; set; }
 }

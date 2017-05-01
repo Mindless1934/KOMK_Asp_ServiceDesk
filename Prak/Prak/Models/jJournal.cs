@@ -7,19 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
-public partial class jJournal
+namespace Prak.Models
 {
-    public System.DateTime Date { get; set; }
-    public int EventTypeId { get; set; }
-    public int WorkListId { get; set; }
-    public string Description { get; set; }
-    public int JournalId { get; set; }
-    public int PersonId { get; set; }
-
-    public virtual hEventType hEventType { get; set; }
-    public virtual hPerson hPerson { get; set; }
-    public virtual jWorkList jWorkList { get; set; }
+    using System;
+    using System.Collections.Generic;
+    
+    public partial class jJournal
+    {
+        public System.DateTime Date { get; set; }
+        public int EventTypeId { get; set; }
+        public int WorkListId { get; set; }
+        public string Description { get; set; }
+        public int JournalId { get; set; }
+        public int PersonId { get; set; }
+    
+        public virtual hEventType hEventType { get; set; }
+        public virtual hPerson hPerson { get; set; }
+        public virtual jWorkList jWorkList { get; set; }
+    }
 }
