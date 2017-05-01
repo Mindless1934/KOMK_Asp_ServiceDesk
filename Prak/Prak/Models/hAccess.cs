@@ -7,23 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Prak.Models
+using System;
+using System.Collections.Generic;
+
+public partial class hAccess
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class hAccess
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+    public hAccess()
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public hAccess()
-        {
-            this.hPerson = new HashSet<hPerson>();
-        }
-    
-        public int AccessID { get; set; }
-        public string Description { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<hPerson> hPerson { get; set; }
+        this.hPerson = new HashSet<hPerson>();
     }
+
+    public int AccessID { get; set; }
+    public string Description { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    public virtual ICollection<hPerson> hPerson { get; set; }
 }

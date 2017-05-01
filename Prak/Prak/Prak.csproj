@@ -209,13 +209,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704301848398_InitialCreate.cs" />
-    <Compile Include="Migrations\201704301848398_InitialCreate.Designer.cs">
-      <DependentUpon>201704301848398_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705011049151_DataMigration.cs" />
-    <Compile Include="Migrations\201705011049151_DataMigration.Designer.cs">
-      <DependentUpon>201705011049151_DataMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201705011346457_DataMigration.cs" />
+    <Compile Include="Migrations\201705011346457_DataMigration.Designer.cs">
+      <DependentUpon>201705011346457_DataMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -442,8 +438,6 @@
     <Content Include="Views\hPersons\Details.cshtml" />
     <Content Include="Views\hPersons\Edit.cshtml" />
     <Content Include="Views\hPersons\Index.cshtml" />
-    <Content Include="Views\AspNetRoles\Create.cshtml" />
-    <Content Include="Views\AspNetRoles\Index.cshtml" />
     <Content Include="Views\AspNetUsers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -460,11 +454,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201704301848398_InitialCreate.resx">
-      <DependentUpon>201704301848398_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705011049151_DataMigration.resx">
-      <DependentUpon>201705011049151_DataMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705011346457_DataMigration.resx">
+      <DependentUpon>201705011346457_DataMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

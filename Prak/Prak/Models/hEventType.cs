@@ -7,23 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Prak.Models
+using System;
+using System.Collections.Generic;
+
+public partial class hEventType
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class hEventType
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+    public hEventType()
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public hEventType()
-        {
-            this.jJournal = new HashSet<jJournal>();
-        }
-    
-        public int EventTypeId { get; set; }
-        public string Description { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<jJournal> jJournal { get; set; }
+        this.jJournal = new HashSet<jJournal>();
     }
+
+    public int EventTypeId { get; set; }
+    public string Description { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    public virtual ICollection<jJournal> jJournal { get; set; }
 }

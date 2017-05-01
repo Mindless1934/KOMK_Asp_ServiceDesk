@@ -13,7 +13,7 @@ namespace Prak.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201705011049151_DataMigration"; }
+            get { return "201705011346457_DataMigration"; }
         }
         
         string IMigrationMetadata.Source

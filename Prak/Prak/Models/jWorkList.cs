@@ -7,38 +7,35 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Prak.Models
+using System;
+using System.Collections.Generic;
+
+public partial class jWorkList
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class jWorkList
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+    public jWorkList()
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public jWorkList()
-        {
-            this.jJournal = new HashSet<jJournal>();
-        }
-    
-        public int GroupWorkListId { get; set; }
-        public int WorkListId { get; set; }
-        public Nullable<System.DateTime> DateIn { get; set; }
-        public Nullable<System.DateTime> DateOut { get; set; }
-        public System.DateTime DateModifcation { get; set; }
-        public System.DateTime Deadline { get; set; }
-        public int QueryId { get; set; }
-        public int WorkTypeId { get; set; }
-        public int PersonExecId { get; set; }
-        public int StateWorkId { get; set; }
-        public bool Verification { get; set; }
-        public bool Relevance { get; set; }
-        public int JournalId { get; set; }
-    
-        public virtual hPerson hPerson { get; set; }
-        public virtual hStateWork hStateWork { get; set; }
-        public virtual hWorkType hWorkType { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<jJournal> jJournal { get; set; }
-        public virtual jQuery jQuery { get; set; }
+        this.jJournal = new HashSet<jJournal>();
     }
+
+    public int GroupWorkListId { get; set; }
+    public int WorkListId { get; set; }
+    public Nullable<System.DateTime> DateIn { get; set; }
+    public Nullable<System.DateTime> DateOut { get; set; }
+    public System.DateTime DateModifcation { get; set; }
+    public System.DateTime Deadline { get; set; }
+    public int QueryId { get; set; }
+    public int WorkTypeId { get; set; }
+    public int PersonExecId { get; set; }
+    public int StateWorkId { get; set; }
+    public bool Verification { get; set; }
+    public bool Relevance { get; set; }
+    public int JournalId { get; set; }
+
+    public virtual hPerson hPerson { get; set; }
+    public virtual hStateWork hStateWork { get; set; }
+    public virtual hWorkType hWorkType { get; set; }
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    public virtual ICollection<jJournal> jJournal { get; set; }
+    public virtual jQuery jQuery { get; set; }
 }
