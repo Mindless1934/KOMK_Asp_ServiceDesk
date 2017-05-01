@@ -12,69 +12,86 @@
 
 
 
-<table class="table">
-    <tr>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                Дата выполнения
+            </th>
+            <th>
+                Дата поступления
+            </th>
+            <th>
+                Последнее изменение
+            </th>
+            <th>
+                Выполнить до
+            </th>
+            <th>
+                Текст
+            </th>
+            <th>
+                Отправитель
+            </th>
+            <th>
+                Исполнитель
+            </th>
+            <th>
+                Статус работы
+            </th>
+        </tr>
+    </thead>
+    <tbody class="queries_table">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <div class="query_item_id">
+                    @Html.DisplayFor(modelItem => item.QueryId)
+                </div>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateIn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateModification)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeadLine)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Text)
+                </td>
 
-
-        <th>
-            Дата выполнения
-        </th>
-        <th>
-            Дата поступления
-        </th>
-        <th>
-            Последнее изменение
-        </th>
-        <th>
-            Выполнить до
-        </th>
-
-        <th>
-            Отправитель
-        </th>
-        <th>
-            Обработал
-        </th>
-        <th>
-            Статус
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-
-        <td>
-            @Html.DisplayFor(modelItem => item.DateOut)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateIn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateModification)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DeadLine)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Text)
-        </td>
-
-        <td>
-            @Html.DisplayFor(modelItem => item.hPerson.FIO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hPerson1.FIO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hState.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Изменить", "Edit", new { id=item.QueryId }) |
-            @Html.ActionLink("Подробнее", "Details", new { id=item.QueryId }) |
-            @Html.ActionLink("Удалить", "Delete", new { id=item.QueryId })
-        </td>
-    </tr>
-}
-
+                <td>
+                    @Html.DisplayFor(modelItem => item.hPerson.FIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hPerson1.FIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hState.Description)
+                </td>
+                <div class="item_edit_link">
+                    @Html.ActionLink("Изменить", "Edit", new { id = item.QueryId })              
+                </div>
+                <div class="item_details_link">
+                    @Html.ActionLink("Подробнее", "Details", new { id = item.QueryId })
+                </div>
+                <div class="item_delete_link">
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.QueryId })
+                </div>
+            </tr>
+        }
+        </tbody>
 </table>
+
+
+<div class="context_menu>
+    <ul>
+        <li class="edit"></li>
+        <li class="details"></li>
+        <li class="delete"></li>
+     </ul>
+</div>
