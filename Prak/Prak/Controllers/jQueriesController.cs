@@ -15,6 +15,7 @@ namespace Prak.Controllers
         private KOMK_Main_v2Entities db = new KOMK_Main_v2Entities();
 
         // GET: jQueries
+        
         public ActionResult Index()
         {
             var jQuery = db.jQuery.Include(j => j.hPerson).Include(j => j.hPerson1).Include(j => j.hState);

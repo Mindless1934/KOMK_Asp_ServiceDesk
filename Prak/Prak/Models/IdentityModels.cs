@@ -18,6 +18,8 @@ namespace Prak.Models
         }
     }
 
+
+
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
