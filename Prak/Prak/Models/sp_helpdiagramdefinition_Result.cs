@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Prak.Models
+using System;
+using System.Collections.Generic;
+
+public partial class sp_helpdiagramdefinition_Result
 {
-    using System;
-    
-    public partial class sp_helpdiagramdefinition_Result
-    {
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
-    }
+    public Nullable<int> version { get; set; }
+    public byte[] definition { get; set; }
 }

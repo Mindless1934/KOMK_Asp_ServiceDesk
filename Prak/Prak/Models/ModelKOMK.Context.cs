@@ -27,22 +27,20 @@ namespace Prak.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<hAccess> hAccess { get; set; }
-        public virtual DbSet<hEventType> hEventType { get; set; }
-        public virtual DbSet<hPerson> hPerson { get; set; }
-        public virtual DbSet<hSkill> hSkill { get; set; }
-        public virtual DbSet<hState> hState { get; set; }
-        public virtual DbSet<hStateWork> hStateWork { get; set; }
-        public virtual DbSet<hWorkType> hWorkType { get; set; }
-        public virtual DbSet<jJournal> jJournal { get; set; }
-        public virtual DbSet<jQuery> jQuery { get; set; }
-        public virtual DbSet<jSkillList> jSkillList { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+        public virtual DbSet<hEventType> hEventType { get; set; }
+        public virtual DbSet<hSkill> hSkill { get; set; }
+        public virtual DbSet<hState> hState { get; set; }
+        public virtual DbSet<hStateWork> hStateWork { get; set; }
+        public virtual DbSet<hWorkType> hWorkType { get; set; }
+        public virtual DbSet<jJournal> jJournal { get; set; }
+        public virtual DbSet<jSkillList> jSkillList { get; set; }
+        public virtual DbSet<jQuery> jQuery { get; set; }
         public virtual DbSet<jWorkList> jWorkList { get; set; }
     
         public virtual int inshEventType(string de)

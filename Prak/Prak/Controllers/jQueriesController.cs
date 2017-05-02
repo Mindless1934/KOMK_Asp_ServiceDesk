@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Prak.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Prak.Controllers
 {
@@ -18,8 +19,8 @@ namespace Prak.Controllers
         
         public ActionResult Index()
         {
-            var jQuery = db.jQuery.Include(j => j.hPerson).Include(j => j.hPerson1).Include(j => j.hState);
-            return View(jQuery.ToList().Where(j => j.Relevance==true));
+            var jQuery = db.jQuery.Include(j => j.AspNetUsers).Include(j => j.AspNetUsers1).Include(j => j.hState);
+            return View(jQuery.ToList());
         }
 
         // GET: jQueries/Details/5
@@ -40,8 +41,8 @@ namespace Prak.Controllers
         // GET: jQueries/Create
         public ActionResult Create()
         {
-            ViewBag.PersonId = new SelectList(db.hPerson, "PersonId", "FIO");
-            ViewBag.PersonSpId = new SelectList(db.hPerson, "PersonId", "FIO");
+            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName");
+            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "UserName");
             ViewBag.StateId = new SelectList(db.hState, "StateId", "Description");
             return View();
         }
@@ -51,17 +52,21 @@ namespace Prak.Controllers
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GroupQueryId,QueryId,DateOut,DateIn,DateModification,DeadLine,Text,StateId,PersonId,PersonSpId,Relevance")] jQuery jQuery)
+        public ActionResult Create([Bind(Include = "QueryId,DateOut,DateIn,DateModification,DeadLine,Text,StateId,PersonId,PersonSpId")] jQuery jQuery)
         {
             if (ModelState.IsValid)
             {
+                jQuery.DateIn = DateTime.Parse(DateTime.Today.ToShortDateString());
+                jQuery.DateModification = DateTime.Now;
+                jQuery.StateId = 2;
+                jQuery.PersonId = User.Identity.GetUserId();
                 db.jQuery.Add(jQuery);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PersonId = new SelectList(db.hPerson, "PersonId", "FIO", jQuery.PersonId);
-            ViewBag.PersonSpId = new SelectList(db.hPerson, "PersonId", "FIO", jQuery.PersonSpId);
+            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonId);
+            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonSpId);
             ViewBag.StateId = new SelectList(db.hState, "StateId", "Description", jQuery.StateId);
             return View(jQuery);
         }
@@ -78,8 +83,8 @@ namespace Prak.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.PersonId = new SelectList(db.hPerson, "PersonId", "FIO", jQuery.PersonId);
-            ViewBag.PersonSpId = new SelectList(db.hPerson, "PersonId", "FIO", jQuery.PersonSpId);
+            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonId);
+            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonSpId);
             ViewBag.StateId = new SelectList(db.hState, "StateId", "Description", jQuery.StateId);
             return View(jQuery);
         }
@@ -97,8 +102,8 @@ namespace Prak.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.PersonId = new SelectList(db.hPerson, "PersonId", "FIO", jQuery.PersonId);
-            ViewBag.PersonSpId = new SelectList(db.hPerson, "PersonId", "FIO", jQuery.PersonSpId);
+            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonId);
+            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonSpId);
             ViewBag.StateId = new SelectList(db.hState, "StateId", "Description", jQuery.StateId);
             return View(jQuery);
         }

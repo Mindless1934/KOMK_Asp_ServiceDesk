@@ -17,7 +17,7 @@ namespace Prak.Controllers
         // GET: jJournals
         public ActionResult Index()
         {
-            var jJournal = db.jJournal.Include(j => j.hEventType).Include(j => j.hPerson).Include(j => j.jWorkList);
+           var jJournal = db.jJournal.Include(j => j.hEventType).Include(j => j.AspNetUsers).Include(j => j.jWorkList);
             return View(jJournal.ToList());
         }
 
@@ -40,7 +40,7 @@ namespace Prak.Controllers
         public ActionResult Create()
         {
             ViewBag.EventTypeId = new SelectList(db.hEventType, "EventTypeId", "Description");
-            ViewBag.PersonId = new SelectList(db.hPerson, "PersonId", "FIO");
+            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName");
             ViewBag.WorkListId = new SelectList(db.jWorkList, "WorkListId", "WorkListId");
             return View();
         }
@@ -60,7 +60,7 @@ namespace Prak.Controllers
             }
 
             ViewBag.EventTypeId = new SelectList(db.hEventType, "EventTypeId", "Description", jJournal.EventTypeId);
-            ViewBag.PersonId = new SelectList(db.hPerson, "PersonId", "FIO", jJournal.PersonId);
+            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jJournal.PersonId);
             ViewBag.WorkListId = new SelectList(db.jWorkList, "WorkListId", "WorkListId", jJournal.WorkListId);
             return View(jJournal);
         }
@@ -78,7 +78,7 @@ namespace Prak.Controllers
                 return HttpNotFound();
             }
             ViewBag.EventTypeId = new SelectList(db.hEventType, "EventTypeId", "Description", jJournal.EventTypeId);
-            ViewBag.PersonId = new SelectList(db.hPerson, "PersonId", "FIO", jJournal.PersonId);
+            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jJournal.PersonId);
             ViewBag.WorkListId = new SelectList(db.jWorkList, "WorkListId", "WorkListId", jJournal.WorkListId);
             return View(jJournal);
         }
@@ -97,7 +97,7 @@ namespace Prak.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.EventTypeId = new SelectList(db.hEventType, "EventTypeId", "Description", jJournal.EventTypeId);
-            ViewBag.PersonId = new SelectList(db.hPerson, "PersonId", "FIO", jJournal.PersonId);
+            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jJournal.PersonId);
             ViewBag.WorkListId = new SelectList(db.jWorkList, "WorkListId", "WorkListId", jJournal.WorkListId);
             return View(jJournal);
         }

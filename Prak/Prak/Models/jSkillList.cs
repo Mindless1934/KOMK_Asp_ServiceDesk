@@ -7,18 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Prak.Models
+using System;
+using System.Collections.Generic;
+
+public partial class jSkillList
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class jSkillList
-    {
-        public int SkillListId { get; set; }
-        public int SkillId { get; set; }
-        public int PersonId { get; set; }
-    
-        public virtual hPerson hPerson { get; set; }
-        public virtual hSkill hSkill { get; set; }
-    }
+    public int SkillListId { get; set; }
+    public int SkillId { get; set; }
+    public string PersonId { get; set; }
+
+    public virtual hSkill hSkill { get; set; }
+    public virtual AspNetUsers AspNetUsers { get; set; }
 }

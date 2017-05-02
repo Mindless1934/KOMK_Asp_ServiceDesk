@@ -17,7 +17,7 @@ namespace Prak.Controllers
         // GET: jWorkLists
         public ActionResult Index()
         {
-            var jWorkList = db.jWorkList.Include(j => j.hPerson).Include(j => j.hStateWork).Include(j => j.hWorkType).Include(j => j.jQuery);
+            var jWorkList = db.jWorkList.Include(j => j.AspNetUsers).Include(j => j.hStateWork).Include(j => j.hWorkType).Include(j => j.jQuery);
             return View(jWorkList.ToList());
         }
 
@@ -39,7 +39,7 @@ namespace Prak.Controllers
         // GET: jWorkLists/Create
         public ActionResult Create()
         {
-            ViewBag.PersonExecId = new SelectList(db.hPerson, "PersonId", "FIO");
+            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "UserName");
             ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description");
             ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description");
             ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text");
@@ -60,7 +60,7 @@ namespace Prak.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PersonExecId = new SelectList(db.hPerson, "PersonId", "FIO", jWorkList.PersonExecId);
+            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "UserName", jWorkList.PersonExecId);
             ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description", jWorkList.StateWorkId);
             ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description", jWorkList.WorkTypeId);
             ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text", jWorkList.QueryId);
@@ -79,7 +79,7 @@ namespace Prak.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.PersonExecId = new SelectList(db.hPerson, "PersonId", "FIO", jWorkList.PersonExecId);
+            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "UserName", jWorkList.PersonExecId);
             ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description", jWorkList.StateWorkId);
             ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description", jWorkList.WorkTypeId);
             ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text", jWorkList.QueryId);
@@ -99,7 +99,7 @@ namespace Prak.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.PersonExecId = new SelectList(db.hPerson, "PersonId", "FIO", jWorkList.PersonExecId);
+            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "UserName", jWorkList.PersonExecId);
             ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description", jWorkList.StateWorkId);
             ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description", jWorkList.WorkTypeId);
             ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text", jWorkList.QueryId);

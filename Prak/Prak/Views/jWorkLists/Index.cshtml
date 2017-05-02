@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Prak.Models.jWorkList>
+﻿@model IEnumerable<jWorkList>
 
 
 @{
@@ -13,9 +13,6 @@
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.GroupWorkListId) (+)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.DateIn)
         </th>
@@ -32,10 +29,7 @@
             @Html.DisplayNameFor(model => model.Verification)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Relevance) (+)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.hPerson.FIO)
+            @Html.DisplayNameFor(model => model.AspNetUsers.UserName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.hStateWork.Description)
@@ -52,9 +46,6 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.GroupWorkListId)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.DateIn)
         </td>
         <td>
@@ -70,10 +61,7 @@
             @Html.DisplayFor(modelItem => item.Verification)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Relevance)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hPerson.FIO)
+            @Html.DisplayFor(modelItem => item.AspNetUsers.UserName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.hStateWork.Description)

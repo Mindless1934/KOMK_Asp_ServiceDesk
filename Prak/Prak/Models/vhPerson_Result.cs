@@ -7,15 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Prak.Models
+using System;
+using System.Collections.Generic;
+
+public partial class vhPerson_Result
 {
-    using System;
-    
-    public partial class vhPerson_Result
-    {
-        public int PersonId { get; set; }
-        public string FIO { get; set; }
-        public string Description { get; set; }
-        public Nullable<int> Число_навыков { get; set; }
-    }
+    public int PersonId { get; set; }
+    public string FIO { get; set; }
+    public string Description { get; set; }
+    public Nullable<int> Число_навыков { get; set; }
 }
