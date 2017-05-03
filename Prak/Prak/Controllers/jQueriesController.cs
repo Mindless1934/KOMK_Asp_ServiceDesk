@@ -108,6 +108,43 @@ namespace Prak.Controllers
             return View(jQuery);
         }
 
+        // GET: jQueries/ChangeStatusQuery/5
+        public ActionResult ChangeStatusQuery(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            jQuery jQuery = db.jQuery.Find(id);
+            if (jQuery == null)
+            {
+                return HttpNotFound();
+            }
+            /*ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonId);
+            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonSpId);
+           */ ViewBag.StateId = new SelectList(db.hState, "StateId", "Description", jQuery.StateId);
+            return View(jQuery);
+        }
+
+        // POST: jQueries/ChangeStatusQuery/5
+        // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
+        // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangeStatusQuery([Bind(Include = "StateId")] jQuery jQuery)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(jQuery).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            /*ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonId);
+            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonSpId);*/
+            ViewBag.StateId = new SelectList(db.hState, "StateId", "Description", jQuery.StateId);
+            return View(jQuery);
+        }
+
         // GET: jQueries/Delete/5
         public ActionResult Delete(int? id)
         {

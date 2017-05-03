@@ -515,7 +515,8 @@
     <Content Include="Views\jJournals\Create.cshtml" />
     <Content Include="Views\jQueries\Edit.cshtml" />
     <Content Include="Views\AspNetUsers\Index.cshtml" />
-    <Content Include="Views\jQueries\ChangeStatus.cshtml" />
+    <Content Include="Views\jQueries\ChangeStatusQuery.cshtml" />
+    <Content Include="Views\jWorkLists\ChangeStateWork.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

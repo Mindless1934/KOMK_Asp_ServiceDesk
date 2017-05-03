@@ -111,6 +111,45 @@ namespace Prak.Controllers
             return View(jWorkList);
         }
 
+        // GET: jWorkLists/ChangeStateWork/5
+        public ActionResult ChangeStateWork(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            jWorkList jWorkList = db.jWorkList.Find(id);
+            if (jWorkList == null)
+            {
+                return HttpNotFound();
+            }
+            //ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "UserName", jWorkList.PersonExecId);
+            ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description", jWorkList.StateWorkId);
+            /*ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description", jWorkList.WorkTypeId);
+            ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text", jWorkList.QueryId);*/
+            return View(jWorkList);
+        }
+
+        // POST: jWorkLists/ChangeStateWork/5
+        // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
+        // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangeStateWork([Bind(Include = "GroupWorkListId,WorkListId,DateIn,DateOut,DateModifcation,Deadline,QueryId,WorkTypeId,PersonExecId,StateWorkId,Verification,Relevance,JournalId")] jWorkList jWorkList)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(jWorkList).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+          // ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "UserName", jWorkList.PersonExecId);
+            ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description", jWorkList.StateWorkId);
+           /* ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description", jWorkList.WorkTypeId);
+            ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text", jWorkList.QueryId);*/
+            return View(jWorkList);
+        }
+
         // GET: jWorkLists/Delete/5
         public ActionResult Delete(int? id)
         {

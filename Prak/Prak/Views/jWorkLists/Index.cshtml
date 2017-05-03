@@ -74,6 +74,7 @@
         </td>
         <td>
             @Html.ActionLink("Изменить", "Edit", new { id=item.WorkListId }) |
+            @Html.ActionLink("Сменить статус", "ChangeStateWork", new { id = item.WorkListId }) |
             @Html.ActionLink("Подробнее", "Details", new { id=item.WorkListId }) |
             @Html.ActionLink("Удалить", "Delete", new { id=item.WorkListId })
         </td>
