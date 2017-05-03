@@ -41,9 +41,6 @@
         @foreach (var item in Model)
         {
             <tr>
-                <div class="query_item_id">
-                    @Html.DisplayFor(modelItem => item.QueryId)
-                </div>
                 <td>
                     @Html.DisplayFor(modelItem => item.DateOut)
                 </td>
@@ -69,25 +66,17 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.hState.Description)
                 </td>
-                <div class="item_edit_link">
-                    @Html.ActionLink("Изменить", "Edit", new { id = item.QueryId })              
-                </div>
-                <div class="item_details_link">
+                <td>
+                    @Html.ActionLink("Изменить", "Edit", new { id = item.QueryId })
+
                     @Html.ActionLink("Подробнее", "Details", new { id = item.QueryId })
-                </div>
-                <div class="item_delete_link">
+
                     @Html.ActionLink("Удалить", "Delete", new { id = item.QueryId })
-                </div>
+                </td>
             </tr>
         }
         </tbody>
 </table>
 
 
-<div class="context_menu>
-    <ul>
-        <li class="edit"></li>
-        <li class="details"></li>
-        <li class="delete"></li>
-     </ul>
-</div>
+
