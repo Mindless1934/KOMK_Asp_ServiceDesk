@@ -20,7 +20,9 @@ public partial class jWorkList
     }
 
     public int WorkListId { get; set; }
+    [DataType(DataType.Date)]
     public Nullable<System.DateTime> DateIn { get; set; }
+    [DataType(DataType.Date)]
     public Nullable<System.DateTime> DateOut { get; set; }
     public System.DateTime DateModifcation { get; set; }
     [DataType(DataType.Date)]

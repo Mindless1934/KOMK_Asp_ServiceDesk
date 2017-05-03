@@ -135,7 +135,7 @@ namespace Prak.Controllers
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ChangeStateWork([Bind(Include = "GroupWorkListId,WorkListId,DateIn,DateOut,DateModifcation,Deadline,QueryId,WorkTypeId,PersonExecId,StateWorkId,Verification,Relevance,JournalId")] jWorkList jWorkList)
+        public ActionResult ChangeStateWork([Bind(Include = "StateWorkId")] jWorkList jWorkList)
         {
             if (ModelState.IsValid)
             {
