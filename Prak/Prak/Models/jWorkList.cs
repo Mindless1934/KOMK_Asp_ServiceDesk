@@ -9,6 +9,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 public partial class jWorkList
 {
@@ -22,6 +23,10 @@ public partial class jWorkList
     public Nullable<System.DateTime> DateIn { get; set; }
     public Nullable<System.DateTime> DateOut { get; set; }
     public System.DateTime DateModifcation { get; set; }
+    [DataType(DataType.Date)]
+    [DisplayFormat(DataFormatString =
+"{0:yyyy-MM-dd}",
+ApplyFormatInEditMode = true)]
     public System.DateTime Deadline { get; set; }
     public int QueryId { get; set; }
     public int WorkTypeId { get; set; }

@@ -39,6 +39,7 @@ namespace Prak.Controllers
         // GET: jWorkLists/Create
         public ActionResult Create()
         {
+
             ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "UserName");
             ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description");
             ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description");
@@ -51,10 +52,14 @@ namespace Prak.Controllers
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GroupWorkListId,WorkListId,DateIn,DateOut,DateModifcation,Deadline,QueryId,WorkTypeId,PersonExecId,StateWorkId,Verification,Relevance,JournalId")] jWorkList jWorkList)
+        public ActionResult Create([Bind(Include = "WorkListId,DateIn,DateOut,DateModifcation,Deadline,QueryId,WorkTypeId,PersonExecId,StateWorkId,Verification")] jWorkList jWorkList)
         {
             if (ModelState.IsValid)
             {
+                jWorkList.DateIn = DateTime.Parse(DateTime.Today.ToShortDateString());
+                jWorkList.DateModifcation = DateTime.Now;
+                jWorkList.StateWorkId = 4;
+                jWorkList.Verification = false;
                 db.jWorkList.Add(jWorkList);
                 db.SaveChanges();
                 return RedirectToAction("Index");

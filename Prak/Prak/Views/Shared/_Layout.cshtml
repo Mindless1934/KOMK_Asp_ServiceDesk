@@ -36,14 +36,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
                 
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("На главную", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Заявки на обслуживание", "Index", "jQueries")</li>
-                    <li>@Html.ActionLink("Выполняемые работы", "Index", "jWorkLists")</li>
+                    <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Создание заявки", "Create", "jQueries")</li>
+                    <li>@Html.ActionLink("Заявки", "Index", "jQueries")</li>
+                    <li>@Html.ActionLink("Создание работы", "Create", "jWorkLists")</li>
+                    <li>@Html.ActionLink("Работы", "Index", "jWorkLists")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

@@ -71,8 +71,8 @@ namespace Prak.Models
 
         [Required]
         [StringLength(30, ErrorMessage = "Значение {0} должно содержать не менее {2} символов.", MinimumLength = 4)]
-        [Display(Name = "Имя")]
-        public string UserName { get; set; }
+        [Display(Name = "Фио")]
+        public string Fio { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "Значение {0} должно содержать не менее {2} символов.", MinimumLength = 3)]

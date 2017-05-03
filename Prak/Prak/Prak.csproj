@@ -220,6 +220,10 @@
     <Compile Include="Migrations\201705021705415_TestDel.Designer.cs">
       <DependentUpon>201705021705415_TestDel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705031011228_+Fio.cs" />
+    <Compile Include="Migrations\201705031011228_+Fio.Designer.cs">
+      <DependentUpon>201705031011228_+Fio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AspNetRoles.cs">
@@ -534,6 +538,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705021705415_TestDel.resx">
       <DependentUpon>201705021705415_TestDel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705031011228_+Fio.resx">
+      <DependentUpon>201705031011228_+Fio.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
