@@ -87,6 +87,7 @@ namespace Prak.Controllers
             ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "UserName", jWorkList.PersonExecId);
             ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description", jWorkList.StateWorkId);
             ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description", jWorkList.WorkTypeId);
+            ViewBag.WorkTest = ViewBag.WorkTypeId;
             ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text", jWorkList.QueryId);
             return View(jWorkList);
         }
@@ -96,7 +97,7 @@ namespace Prak.Controllers
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "GroupWorkListId,WorkListId,DateIn,DateOut,DateModifcation,Deadline,QueryId,WorkTypeId,PersonExecId,StateWorkId,Verification,Relevance,JournalId")] jWorkList jWorkList)
+        public ActionResult Edit([Bind(Include = "WorkListId,DateIn,DateOut,DateModifcation,Deadline,QueryId,WorkTypeId,PersonExecId,StateWorkId,Verification")] jWorkList jWorkList)
         {
             if (ModelState.IsValid)
             {
@@ -123,10 +124,10 @@ namespace Prak.Controllers
             {
                 return HttpNotFound();
             }
-            //ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "UserName", jWorkList.PersonExecId);
+            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "UserName", jWorkList.PersonExecId);
             ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description", jWorkList.StateWorkId);
-            /*ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description", jWorkList.WorkTypeId);
-            ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text", jWorkList.QueryId);*/
+            ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description", jWorkList.WorkTypeId);
+            ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text", jWorkList.QueryId);
             return View(jWorkList);
         }
 
@@ -135,7 +136,7 @@ namespace Prak.Controllers
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ChangeStateWork([Bind(Include = "StateWorkId")] jWorkList jWorkList)
+        public ActionResult ChangeStateWork([Bind(Include = "WorkListId,DateIn,DateOut,DateModifcation,Deadline,QueryId,WorkTypeId,PersonExecId,StateWorkId,Verification")] jWorkList jWorkList)
         {
             if (ModelState.IsValid)
             {
@@ -143,10 +144,10 @@ namespace Prak.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-          // ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "UserName", jWorkList.PersonExecId);
+            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "UserName", jWorkList.PersonExecId);
             ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description", jWorkList.StateWorkId);
-           /* ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description", jWorkList.WorkTypeId);
-            ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text", jWorkList.QueryId);*/
+            ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description", jWorkList.WorkTypeId);
+            ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text", jWorkList.QueryId);
             return View(jWorkList);
         }
 

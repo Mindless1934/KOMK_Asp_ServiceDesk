@@ -4,13 +4,59 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>jQuery</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
         @Html.HiddenFor(model => model.QueryId)
-      
+
+        <div class="query_item_id">
+            @Html.LabelFor(model => model.DateOut, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateOut, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateOut, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="query_item_id">
+            @Html.LabelFor(model => model.DateIn, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateIn, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateIn, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="query_item_id">
+            @Html.LabelFor(model => model.DateModification, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateModification, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateModification, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="query_item_id">
+            @Html.LabelFor(model => model.DeadLine, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DeadLine, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DeadLine, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Text,"Текст заявки", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="mtop">
+                    @Html.DisplayTextFor(model => model.Text)
+                </div>   
+                <div class="query_item_id">
+                    @Html.EditorFor(model => model.Text, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+                </div> 
+            </div>
+        </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.StateId, "StateId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -19,6 +65,21 @@
             </div>
         </div>
 
+        <div class="query_item_id">
+            @Html.LabelFor(model => model.PersonId, "PersonId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("PersonId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PersonId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="query_item_id">
+            @Html.LabelFor(model => model.PersonSpId, "PersonSpId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("PersonSpId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PersonSpId, "", new { @class = "text-danger" })
+            </div>
+        </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
@@ -27,9 +88,7 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

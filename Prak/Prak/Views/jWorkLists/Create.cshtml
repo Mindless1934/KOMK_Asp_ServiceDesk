@@ -1,10 +1,10 @@
 ﻿@model jWorkList
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Создание работы";
 }
 
-<h2>Create</h2>
+<h2>Создание работы</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,12 +12,12 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>jWorkList</h4>
+       
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Deadline, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Deadline,"Выполнить до ", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Deadline, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Deadline, "", new { @class = "text-danger" })
@@ -33,7 +33,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.WorkTypeId, "WorkTypeId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.WorkTypeId, "Тип работы", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("WorkTypeId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.WorkTypeId, "", new { @class = "text-danger" })
@@ -41,7 +41,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PersonExecId, "PersonExecId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.PersonExecId, "Выберите работника", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("PersonExecId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.PersonExecId, "", new { @class = "text-danger" })
@@ -49,15 +49,13 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Создать" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

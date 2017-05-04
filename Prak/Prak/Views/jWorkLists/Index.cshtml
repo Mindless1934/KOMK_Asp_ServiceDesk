@@ -14,31 +14,28 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.DateIn)
+            Дата поступления
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateOut)
+            Дата выполнения
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateModifcation)
+            Последние изменения
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Deadline)
+            Выполнить до
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Verification)
+            Выполняет
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AspNetUsers.UserName)
+            Статус работы
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.hStateWork.Description)
+            Тип работы
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.hWorkType.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.jQuery.Text) (+)
+            Текст заявки
         </th>
         <th></th>
     </tr>
@@ -56,9 +53,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Deadline)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Verification)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.AspNetUsers.UserName)

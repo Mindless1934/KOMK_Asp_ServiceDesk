@@ -94,7 +94,7 @@ namespace Prak.Controllers
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "GroupQueryId,QueryId,DateOut,DateIn,DateModification,DeadLine,Text,StateId,PersonId,PersonSpId,Relevance")] jQuery jQuery)
+        public ActionResult Edit([Bind(Include = "QueryId,DateOut,DateIn,DateModification,DeadLine,Text,StateId,PersonId,PersonSpId")] jQuery jQuery)
         {
             if (ModelState.IsValid)
             {
@@ -120,9 +120,9 @@ namespace Prak.Controllers
             {
                 return HttpNotFound();
             }
-            /*ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonId);
+            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonId);
             ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonSpId);
-           */ ViewBag.StateId = new SelectList(db.hState, "StateId", "Description", jQuery.StateId);
+            ViewBag.StateId = new SelectList(db.hState, "StateId", "Description", jQuery.StateId);
             return View(jQuery);
         }
 
@@ -131,7 +131,7 @@ namespace Prak.Controllers
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ChangeStatusQuery([Bind(Include = "StateId")] jQuery jQuery)
+        public ActionResult ChangeStatusQuery([Bind(Include = "QueryId,DateOut,DateIn,DateModification,DeadLine,Text,StateId,PersonId,PersonSpId")] jQuery jQuery)
         {
             if (ModelState.IsValid)
             {
@@ -139,8 +139,8 @@ namespace Prak.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            /*ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonId);
-            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonSpId);*/
+            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonId);
+            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonSpId);
             ViewBag.StateId = new SelectList(db.hState, "StateId", "Description", jQuery.StateId);
             return View(jQuery);
         }
