@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="KOMK_Main_v2Model.C__MigrationHistory" Width="1.5" PointX="0.5" PointY="8.875" />
         <EntityTypeShape EntityType="KOMK_Main_v2Model.AspNetRoles" Width="1.5" PointX="4.75" PointY="9.625" />
         <EntityTypeShape EntityType="KOMK_Main_v2Model.AspNetUserClaims" Width="1.5" PointX="7.125" PointY="9.625" />
-        <EntityTypeShape EntityType="KOMK_Main_v2Model.AspNetUserLogins" Width="1.5" PointX="10.875" PointY="11.375" />
+        <EntityTypeShape EntityType="KOMK_Main_v2Model.AspNetUserLogins" Width="1.5" PointX="10.875" PointY="11.375" IsExpanded="true" />
         <EntityTypeShape EntityType="KOMK_Main_v2Model.AspNetUsers" Width="1.5" PointX="7.75" PointY="3.5" />
         <AssociationConnector Association="KOMK_Main_v2Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="KOMK_Main_v2Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />

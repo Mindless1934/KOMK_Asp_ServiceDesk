@@ -65,6 +65,7 @@
           <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Fio" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="hEventType">
           <Key>
@@ -149,6 +150,7 @@
           <Property Name="PersonExecId" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="StateWorkId" Type="int" Nullable="false" />
           <Property Name="Verification" Type="bit" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -720,6 +722,7 @@
           <NavigationProperty Name="jQuery" Relationship="KOMK_Main_v2Model.FK_jQuery_AspNetUsers" FromRole="AspNetUsers" ToRole="jQuery" />
           <NavigationProperty Name="jQuery1" Relationship="KOMK_Main_v2Model.FK_jQuery_AspNetUsers1" FromRole="AspNetUsers" ToRole="jQuery" />
           <NavigationProperty Name="jWorkList" Relationship="KOMK_Main_v2Model.FK_jWorkList_AspNetUsers" FromRole="AspNetUsers" ToRole="jWorkList" />
+          <Property Name="Fio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Type="KOMK_Main_v2Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
@@ -917,6 +920,7 @@
           <NavigationProperty Name="hWorkType" Relationship="KOMK_Main_v2Model.FK_jWorkList_hWorkType" FromRole="jWorkList" ToRole="hWorkType" />
           <NavigationProperty Name="jJournal" Relationship="KOMK_Main_v2Model.FK_jJournal_jWorkList" FromRole="jWorkList" ToRole="jJournal" />
           <NavigationProperty Name="jQuery" Relationship="KOMK_Main_v2Model.FK_jWorkList_jQuery" FromRole="jWorkList" ToRole="jQuery" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_jQuery_AspNetUsers">
           <End Type="KOMK_Main_v2Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
@@ -1121,6 +1125,7 @@
           <EntitySetMapping Name="AspNetUsers">
             <EntityTypeMapping TypeName="KOMK_Main_v2Model.AspNetUsers">
               <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Fio" ColumnName="Fio" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
                 <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
@@ -1224,6 +1229,7 @@
           <EntitySetMapping Name="jWorkList">
             <EntityTypeMapping TypeName="KOMK_Main_v2Model.jWorkList">
               <MappingFragment StoreEntitySet="jWorkList">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="Verification" ColumnName="Verification" />
                 <ScalarProperty Name="StateWorkId" ColumnName="StateWorkId" />
                 <ScalarProperty Name="PersonExecId" ColumnName="PersonExecId" />

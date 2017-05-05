@@ -41,6 +41,7 @@ ApplyFormatInEditMode = true)]
     public string PersonExecId { get; set; }
     public int StateWorkId { get; set; }
     public bool Verification { get; set; }
+    public string Comment { get; set; }
 
     public virtual AspNetUsers AspNetUsers { get; set; }
     public virtual hStateWork hStateWork { get; set; }
