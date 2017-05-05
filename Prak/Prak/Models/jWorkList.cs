@@ -41,6 +41,7 @@ ApplyFormatInEditMode = true)]
     public string PersonExecId { get; set; }
     public int StateWorkId { get; set; }
     public bool Verification { get; set; }
+    [DataType(DataType.MultilineText)]
     public string Comment { get; set; }
 
     public virtual AspNetUsers AspNetUsers { get; set; }
