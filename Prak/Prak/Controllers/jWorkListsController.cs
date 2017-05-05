@@ -145,7 +145,7 @@ namespace Prak.Controllers
             {
                 db.Entry(jWorkList).State = EntityState.Modified;                
                 string com = "  -" + Request.Form["addCom"]+  " " + User.Identity.Name + " " + DateTime.Now.ToString();
-                jWorkList.Comment = jWorkList.Comment + Environment.NewLine + com;
+                jWorkList.Comment = jWorkList.Comment + "\n" + com;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
