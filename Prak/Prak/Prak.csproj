@@ -514,13 +514,13 @@
     <Content Include="Views\jQueries\Index.cshtml" />
     <Content Include="Views\jWorkLists\Index.cshtml" />
     <Content Include="Views\jWorkLists\Create.cshtml" />
-    <Content Include="Views\jWorkLists\Edit.cshtml" />
     <Content Include="Views\jJournals\Index.cshtml" />
     <Content Include="Views\jJournals\Create.cshtml" />
     <Content Include="Views\jQueries\Edit.cshtml" />
     <Content Include="Views\AspNetUsers\Index.cshtml" />
     <Content Include="Views\jQueries\ChangeStatusQuery.cshtml" />
     <Content Include="Views\jWorkLists\ChangeStateWork.cshtml" />
+    <Content Include="Views\jWorkLists\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

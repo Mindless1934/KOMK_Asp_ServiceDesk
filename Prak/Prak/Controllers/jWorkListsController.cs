@@ -60,8 +60,11 @@ namespace Prak.Controllers
                 jWorkList.DateModifcation = DateTime.Now;
                 jWorkList.StateWorkId = 4;
                 jWorkList.Verification = false;
+                string com = "-" + jWorkList.Comment + " "+User.Identity.Name + " " +DateTime.Now.ToString();
+                jWorkList.Comment = com;
                 db.jWorkList.Add(jWorkList);
                 db.SaveChanges();
+                
                 return RedirectToAction("Index");
             }
 
@@ -101,7 +104,7 @@ namespace Prak.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(jWorkList).State = EntityState.Modified;
+                db.Entry(jWorkList).State = EntityState.Modified;             
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -127,7 +130,7 @@ namespace Prak.Controllers
             ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "UserName", jWorkList.PersonExecId);
             ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description", jWorkList.StateWorkId);
             ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description", jWorkList.WorkTypeId);
-            ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text", jWorkList.QueryId);
+            ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text", jWorkList.QueryId);            
             return View(jWorkList);
         }
 
@@ -140,7 +143,9 @@ namespace Prak.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(jWorkList).State = EntityState.Modified;
+                db.Entry(jWorkList).State = EntityState.Modified;                
+                string com = "  -" + Request.Form["addCom"]+  " " + User.Identity.Name + " " + DateTime.Now.ToString();
+                jWorkList.Comment = jWorkList.Comment + Environment.NewLine + com;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
