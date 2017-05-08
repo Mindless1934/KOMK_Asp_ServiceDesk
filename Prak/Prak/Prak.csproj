@@ -198,7 +198,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AspNetRolesController.cs" />
     <Compile Include="Controllers\AspNetUsersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\jJournalsController.cs" />
@@ -517,10 +516,10 @@
     <Content Include="Views\jJournals\Index.cshtml" />
     <Content Include="Views\jJournals\Create.cshtml" />
     <Content Include="Views\jQueries\Edit.cshtml" />
-    <Content Include="Views\AspNetUsers\Index.cshtml" />
     <Content Include="Views\jQueries\ChangeStatusQuery.cshtml" />
     <Content Include="Views\jWorkLists\ChangeStateWork.cshtml" />
     <Content Include="Views\jWorkLists\Edit.cshtml" />
+    <Content Include="Views\AspNetUsers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

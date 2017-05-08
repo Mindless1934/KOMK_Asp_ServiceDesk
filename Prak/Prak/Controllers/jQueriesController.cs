@@ -11,12 +11,16 @@ using Microsoft.AspNet.Identity;
 
 namespace Prak.Controllers
 {
+    //Контроллер отвечает за обработку входящих запросов, 
+    //выполнение операций над моделью предметной области и выбор представлений для визуализации пользователю.
     public class jQueriesController : Controller
     {
+        //Создаем экземпляр класса контекста для взаимодействия с нашей бд 
         private KOMK_Main_v2Entities db = new KOMK_Main_v2Entities();
 
         // GET: jQueries
-        
+        // Метод Index, в нем мы задаем связи с какими таблицами нам будут нужны для оботражения данных в представлени
+        //Результатом работы метода является вызов представления Index
         public ActionResult Index()
         {
             var jQuery = db.jQuery.Include(j => j.AspNetUsers).Include(j => j.AspNetUsers1).Include(j => j.hState);
@@ -24,12 +28,14 @@ namespace Prak.Controllers
         }
 
         // GET: jQueries/Details/5
+        // Метод Детали, имеет аргумент id, чтобы получать из базы данные только по 1 конкретной заявке
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            //Производим поиск по id
             jQuery jQuery = db.jQuery.Find(id);
             if (jQuery == null)
             {
@@ -39,6 +45,7 @@ namespace Prak.Controllers
         }
 
         // GET: jQueries/Create
+        // Используем ViewBag для того чтобы в представлении у нас были вместо вторичных ключей конкретные значения из связаных таблиц
         public ActionResult Create()
         {
             ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName");
@@ -50,12 +57,13 @@ namespace Prak.Controllers
         // POST: jQueries/Create
         // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpPost] //Обрабатываем данные полученые из представления
+        [ValidateAntiForgeryToken] 
         public ActionResult Create([Bind(Include = "QueryId,DateOut,DateIn,DateModification,DeadLine,Text,StateId,PersonId,PersonSpId")] jQuery jQuery)
         {
             if (ModelState.IsValid)
             {
+                //Заполняем необходимые для для создания заявки поля, которые не видит пользователь 
                 jQuery.DateIn = DateTime.Parse(DateTime.Today.ToShortDateString());
                 jQuery.DateModification = DateTime.Now;
                 jQuery.StateId = 2;
@@ -64,7 +72,47 @@ namespace Prak.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            //Если данные не валидны то делаем тоже что и в методе GET
+            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonId);
+            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonSpId);
+            ViewBag.StateId = new SelectList(db.hState, "StateId", "Description", jQuery.StateId);
+            return View(jQuery);
+        }
 
+      
+
+        // GET: jQueries/ChangeStatusQuery/5
+        // Метод Смена статуса заявки, имеет аргумент id, чтобы производить действия над конкретной заявкой
+        public ActionResult ChangeStatusQuery(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            jQuery jQuery = db.jQuery.Find(id);
+            if (jQuery == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonId);
+            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonSpId);
+            ViewBag.StateId = new SelectList(db.hState, "StateId", "Description", jQuery.StateId);
+            return View(jQuery);
+        }
+
+        // POST: jQueries/ChangeStatusQuery/5
+        // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
+        // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost] // Сохраняем изменения 
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangeStatusQuery([Bind(Include = "QueryId,DateOut,DateIn,DateModification,DeadLine,Text,StateId,PersonId,PersonSpId")] jQuery jQuery)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(jQuery).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
             ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonId);
             ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonSpId);
             ViewBag.StateId = new SelectList(db.hState, "StateId", "Description", jQuery.StateId);
@@ -107,44 +155,6 @@ namespace Prak.Controllers
             ViewBag.StateId = new SelectList(db.hState, "StateId", "Description", jQuery.StateId);
             return View(jQuery);
         }
-
-        // GET: jQueries/ChangeStatusQuery/5
-        public ActionResult ChangeStatusQuery(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            jQuery jQuery = db.jQuery.Find(id);
-            if (jQuery == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonId);
-            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonSpId);
-            ViewBag.StateId = new SelectList(db.hState, "StateId", "Description", jQuery.StateId);
-            return View(jQuery);
-        }
-
-        // POST: jQueries/ChangeStatusQuery/5
-        // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
-        // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult ChangeStatusQuery([Bind(Include = "QueryId,DateOut,DateIn,DateModification,DeadLine,Text,StateId,PersonId,PersonSpId")] jQuery jQuery)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(jQuery).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonId);
-            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonSpId);
-            ViewBag.StateId = new SelectList(db.hState, "StateId", "Description", jQuery.StateId);
-            return View(jQuery);
-        }
-
         // GET: jQueries/Delete/5
         public ActionResult Delete(int? id)
         {
