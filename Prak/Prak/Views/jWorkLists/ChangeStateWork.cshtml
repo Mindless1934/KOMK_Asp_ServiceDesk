@@ -83,7 +83,7 @@
             @Html.LabelFor(model => model.Comment, "Коментарии", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="mtop">
-                    @Html.TextAreaFor(model => model.Comment, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", style = "height: 150px; width: 350px; font-size:10px;" } })
+                    @Html.DisplayFor(model => model.Comment)
                 </div>
             </div>
         </div>

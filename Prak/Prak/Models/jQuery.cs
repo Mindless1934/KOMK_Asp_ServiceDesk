@@ -21,20 +21,17 @@ public partial class jQuery
 
     public int QueryId { get; set; }
     [DataType(DataType.Date)]
-    [DisplayFormat(DataFormatString =
-"{0:yyyy-MM-dd}",
-ApplyFormatInEditMode = true)]
+    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}",
+    ApplyFormatInEditMode = true)]
     public Nullable<System.DateTime> DateOut { get; set; }
     [DataType(DataType.Date)]
-    [DisplayFormat(DataFormatString =
-"{0:yyyy-MM-dd}",
-ApplyFormatInEditMode = true)]
+    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}",
+    ApplyFormatInEditMode = true)]
     public Nullable<System.DateTime> DateIn { get; set; }
     public System.DateTime DateModification { get; set; }
     [DataType(DataType.Date)]
-    [DisplayFormat(DataFormatString =
-"{0:yyyy-MM-dd}",
-ApplyFormatInEditMode = true)]
+    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}",
+    ApplyFormatInEditMode = true)]
     public Nullable<System.DateTime> DeadLine { get; set; }
     public string Text { get; set; }
     public int StateId { get; set; }

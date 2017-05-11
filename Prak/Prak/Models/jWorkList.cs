@@ -21,27 +21,23 @@ public partial class jWorkList
 
     public int WorkListId { get; set; }
     [DataType(DataType.Date)]
-    [DisplayFormat(DataFormatString =
-"{0:yyyy-MM-dd}",
-ApplyFormatInEditMode = true)]
+    [DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}",
+        ApplyFormatInEditMode =true)]
     public Nullable<System.DateTime> DateIn { get; set; }
     [DataType(DataType.Date)]
-    [DisplayFormat(DataFormatString =
-"{0:yyyy-MM-dd}",
-ApplyFormatInEditMode = true)]
+    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}",
+    ApplyFormatInEditMode = true)]
     public Nullable<System.DateTime> DateOut { get; set; }
     public System.DateTime DateModifcation { get; set; }
     [DataType(DataType.Date)]
-    [DisplayFormat(DataFormatString =
-"{0:yyyy-MM-dd}",
-ApplyFormatInEditMode = true)]
+    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}",
+    ApplyFormatInEditMode = true)]
     public System.DateTime Deadline { get; set; }
     public int QueryId { get; set; }
     public int WorkTypeId { get; set; }
     public string PersonExecId { get; set; }
     public int StateWorkId { get; set; }
     public bool Verification { get; set; }
-    [DataType(DataType.MultilineText)]
     public string Comment { get; set; }
 
     public virtual AspNetUsers AspNetUsers { get; set; }
