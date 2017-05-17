@@ -66,9 +66,25 @@ namespace Prak.Controllers
                 //Заполняем необходимые для для создания заявки поля, которые не видит пользователь 
                 jQuery.DateIn = DateTime.Parse(DateTime.Today.ToShortDateString());
                 jQuery.DateModification = DateTime.Now;
+                jQuery.DateModification = jQuery.DateModification.AddMilliseconds(-jQuery.DateModification.Millisecond);
+                DateTime dmd = jQuery.DateModification;
                 jQuery.StateId = 2;
                 jQuery.PersonId = User.Identity.GetUserId();
                 db.jQuery.Add(jQuery);
+                db.SaveChanges();
+
+                jJournal jJur = new jJournal();
+                jQuery jQ = db.jQuery.First(m => m.DateModification == dmd);    
+
+                jJur.Date= DateTime.Now;
+                jJur.EventTypeId = 1;
+                jJur.WorkListId = null;                
+                jJur.PersonId = User.Identity.GetUserId();
+                jJur.QueryID = jQ.QueryId;
+                jJur.Description = "  ";
+
+
+                db.jJournal.Add(jJur);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

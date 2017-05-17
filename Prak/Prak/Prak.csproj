@@ -227,6 +227,10 @@
     <Compile Include="Migrations\201705051754126_+com.Designer.cs">
       <DependentUpon>201705051754126_+com.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705161247268_jJur.cs" />
+    <Compile Include="Migrations\201705161247268_jJur.Designer.cs">
+      <DependentUpon>201705161247268_jJur.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AspNetRoles.cs">
@@ -514,7 +518,6 @@
     <Content Include="Views\jWorkLists\Index.cshtml" />
     <Content Include="Views\jWorkLists\Create.cshtml" />
     <Content Include="Views\jJournals\Index.cshtml" />
-    <Content Include="Views\jJournals\Create.cshtml" />
     <Content Include="Views\jQueries\Edit.cshtml" />
     <Content Include="Views\jQueries\ChangeStatusQuery.cshtml" />
     <Content Include="Views\jWorkLists\ChangeStateWork.cshtml" />
@@ -549,6 +552,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705051754126_+com.resx">
       <DependentUpon>201705051754126_+com.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705161247268_jJur.resx">
+      <DependentUpon>201705161247268_jJur.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

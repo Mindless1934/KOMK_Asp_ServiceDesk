@@ -1,10 +1,4 @@
-﻿@model IEnumerable<Prak.Models.jJournal>
-
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Index</h2>
+﻿@model IEnumerable<jJournal>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -18,13 +12,16 @@
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.QueryID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUsers.Email)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.hEventType.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.hPerson.FIO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.jWorkList.WorkListId)
+            @Html.DisplayNameFor(model => model.jWorkList.PersonExecId)
         </th>
         <th></th>
     </tr>
@@ -38,13 +35,16 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.QueryID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUsers.Email)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.hEventType.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.hPerson.FIO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.jWorkList.WorkListId)
+            @Html.DisplayFor(modelItem => item.jWorkList.PersonExecId)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.JournalId }) |

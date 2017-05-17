@@ -17,7 +17,7 @@ namespace Prak.Controllers
         // GET: jJournals
         public ActionResult Index()
         {
-           var jJournal = db.jJournal.Include(j => j.hEventType).Include(j => j.AspNetUsers).Include(j => j.jWorkList);
+            var jJournal = db.jJournal.Include(j => j.AspNetUsers).Include(j => j.hEventType).Include(j => j.jWorkList);
             return View(jJournal.ToList());
         }
 
@@ -39,9 +39,9 @@ namespace Prak.Controllers
         // GET: jJournals/Create
         public ActionResult Create()
         {
+            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "Email");
             ViewBag.EventTypeId = new SelectList(db.hEventType, "EventTypeId", "Description");
-            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName");
-            ViewBag.WorkListId = new SelectList(db.jWorkList, "WorkListId", "WorkListId");
+            ViewBag.WorkListId = new SelectList(db.jWorkList, "WorkListId", "PersonExecId");
             return View();
         }
 
@@ -50,7 +50,7 @@ namespace Prak.Controllers
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Date,EventTypeId,WorkListId,Description,JournalId,PersonId")] jJournal jJournal)
+        public ActionResult Create([Bind(Include = "Date,EventTypeId,WorkListId,Description,JournalId,PersonId,QueryID")] jJournal jJournal)
         {
             if (ModelState.IsValid)
             {
@@ -59,9 +59,9 @@ namespace Prak.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "Email", jJournal.PersonId);
             ViewBag.EventTypeId = new SelectList(db.hEventType, "EventTypeId", "Description", jJournal.EventTypeId);
-            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jJournal.PersonId);
-            ViewBag.WorkListId = new SelectList(db.jWorkList, "WorkListId", "WorkListId", jJournal.WorkListId);
+            ViewBag.WorkListId = new SelectList(db.jWorkList, "WorkListId", "PersonExecId", jJournal.WorkListId);
             return View(jJournal);
         }
 
@@ -77,9 +77,9 @@ namespace Prak.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "Email", jJournal.PersonId);
             ViewBag.EventTypeId = new SelectList(db.hEventType, "EventTypeId", "Description", jJournal.EventTypeId);
-            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jJournal.PersonId);
-            ViewBag.WorkListId = new SelectList(db.jWorkList, "WorkListId", "WorkListId", jJournal.WorkListId);
+            ViewBag.WorkListId = new SelectList(db.jWorkList, "WorkListId", "PersonExecId", jJournal.WorkListId);
             return View(jJournal);
         }
 
@@ -88,7 +88,7 @@ namespace Prak.Controllers
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Date,EventTypeId,WorkListId,Description,JournalId,PersonId")] jJournal jJournal)
+        public ActionResult Edit([Bind(Include = "Date,EventTypeId,WorkListId,Description,JournalId,PersonId,QueryID")] jJournal jJournal)
         {
             if (ModelState.IsValid)
             {
@@ -96,9 +96,9 @@ namespace Prak.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "Email", jJournal.PersonId);
             ViewBag.EventTypeId = new SelectList(db.hEventType, "EventTypeId", "Description", jJournal.EventTypeId);
-            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jJournal.PersonId);
-            ViewBag.WorkListId = new SelectList(db.jWorkList, "WorkListId", "WorkListId", jJournal.WorkListId);
+            ViewBag.WorkListId = new SelectList(db.jWorkList, "WorkListId", "PersonExecId", jJournal.WorkListId);
             return View(jJournal);
         }
 

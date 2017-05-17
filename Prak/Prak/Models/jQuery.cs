@@ -28,6 +28,7 @@ public partial class jQuery
     [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}",
     ApplyFormatInEditMode = true)]
     public Nullable<System.DateTime> DateIn { get; set; }
+    [DataType(DataType.DateTime)]
     public System.DateTime DateModification { get; set; }
     [DataType(DataType.Date)]
     [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}",

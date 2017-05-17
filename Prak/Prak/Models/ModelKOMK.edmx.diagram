@@ -19,12 +19,9 @@
         <EntityTypeShape EntityType="KOMK_Main_v2Model.hState" Width="1.5" PointX="12.75" PointY="4.25" />
         <EntityTypeShape EntityType="KOMK_Main_v2Model.hStateWork" Width="1.5" PointX="12.75" PointY="6.5" />
         <EntityTypeShape EntityType="KOMK_Main_v2Model.hWorkType" Width="1.5" PointX="10.125" PointY="3.625" />
-        <EntityTypeShape EntityType="KOMK_Main_v2Model.jJournal" Width="1.5" PointX="12.125" PointY="1.25" />
         <EntityTypeShape EntityType="KOMK_Main_v2Model.jSkillList" Width="1.5" PointX="8" PointY="1.375" />
-        <AssociationConnector Association="KOMK_Main_v2Model.FK_jJournal_hEventType" />
         <AssociationConnector Association="KOMK_Main_v2Model.FK_jSkillList_hSkill" />
         <AssociationConnector Association="KOMK_Main_v2Model.FK_jSkillList_hWorkType" />
-        <AssociationConnector Association="KOMK_Main_v2Model.FK_jJournal_AspNetUsers" />
         <AssociationConnector Association="KOMK_Main_v2Model.FK_jSkillList_AspNetUsers" />
         <EntityTypeShape EntityType="KOMK_Main_v2Model.jQuery" Width="1.5" PointX="14.75" PointY="5.875" />
         <EntityTypeShape EntityType="KOMK_Main_v2Model.jWorkList" Width="1.5" PointX="14.75" PointY="1.25" />
@@ -34,8 +31,11 @@
         <AssociationConnector Association="KOMK_Main_v2Model.FK_jQuery_hState" />
         <AssociationConnector Association="KOMK_Main_v2Model.FK_jWorkList_hStateWork" />
         <AssociationConnector Association="KOMK_Main_v2Model.FK_jWorkList_hWorkType" />
-        <AssociationConnector Association="KOMK_Main_v2Model.FK_jJournal_jWorkList" />
         <AssociationConnector Association="KOMK_Main_v2Model.FK_jWorkList_jQuery" />
+        <EntityTypeShape EntityType="KOMK_Main_v2Model.jJournal" Width="1.5" PointX="17" PointY="2.375" />
+        <AssociationConnector Association="KOMK_Main_v2Model.FK_jJournal_AspNetUsers" />
+        <AssociationConnector Association="KOMK_Main_v2Model.FK_jJournal_hEventType" />
+        <AssociationConnector Association="KOMK_Main_v2Model.FK_jJournal_jWorkList" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

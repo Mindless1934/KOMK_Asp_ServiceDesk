@@ -21,8 +21,8 @@ public partial class jWorkList
 
     public int WorkListId { get; set; }
     [DataType(DataType.Date)]
-    [DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}",
-        ApplyFormatInEditMode =true)]
+    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}",
+    ApplyFormatInEditMode = true)]
     public Nullable<System.DateTime> DateIn { get; set; }
     [DataType(DataType.Date)]
     [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}",
@@ -43,7 +43,7 @@ public partial class jWorkList
     public virtual AspNetUsers AspNetUsers { get; set; }
     public virtual hStateWork hStateWork { get; set; }
     public virtual hWorkType hWorkType { get; set; }
+    public virtual jQuery jQuery { get; set; }
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
     public virtual ICollection<jJournal> jJournal { get; set; }
-    public virtual jQuery jQuery { get; set; }
 }

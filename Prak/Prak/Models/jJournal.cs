@@ -14,12 +14,13 @@ public partial class jJournal
 {
     public System.DateTime Date { get; set; }
     public int EventTypeId { get; set; }
-    public int WorkListId { get; set; }
+    public Nullable<int> WorkListId { get; set; }
     public string Description { get; set; }
     public int JournalId { get; set; }
     public string PersonId { get; set; }
+    public int QueryID { get; set; }
 
-    public virtual hEventType hEventType { get; set; }
     public virtual AspNetUsers AspNetUsers { get; set; }
+    public virtual hEventType hEventType { get; set; }
     public virtual jWorkList jWorkList { get; set; }
 }

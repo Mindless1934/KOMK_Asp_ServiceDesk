@@ -38,10 +38,10 @@ namespace Prak.Models
         public virtual DbSet<hState> hState { get; set; }
         public virtual DbSet<hStateWork> hStateWork { get; set; }
         public virtual DbSet<hWorkType> hWorkType { get; set; }
-        public virtual DbSet<jJournal> jJournal { get; set; }
         public virtual DbSet<jSkillList> jSkillList { get; set; }
         public virtual DbSet<jQuery> jQuery { get; set; }
         public virtual DbSet<jWorkList> jWorkList { get; set; }
+        public virtual DbSet<jJournal> jJournal { get; set; }
     
         public virtual int inshEventType(string de)
         {
