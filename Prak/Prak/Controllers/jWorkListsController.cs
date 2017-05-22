@@ -61,7 +61,7 @@ namespace Prak.Controllers
                 jWorkList.DateModifcation = DateTime.Now;
                 jWorkList.DateModifcation = jWorkList.DateModifcation.AddMilliseconds(-jWorkList.DateModifcation.Millisecond);
                 DateTime dmd = jWorkList.DateModifcation;
-                jWorkList.StateWorkId = 4;
+                jWorkList.StateWorkId = db.hStateWork.First(m => m.Description == "Ожидает").StateWorkId;
                 jWorkList.Verification = false;
                 string com = "-" + jWorkList.Comment + " "+User.Identity.Name + " " +DateTime.Now.ToString();
                 jWorkList.Comment = com;
@@ -75,7 +75,7 @@ namespace Prak.Controllers
                 jWorkList jW = db.jWorkList.First(m => m.DateModifcation == dmdn);
 
                 jJur.Date = DateTime.Now;
-                jJur.EventTypeId = 2;
+                jJur.EventTypeId = db.hEventType.First(m => m.Description == "Создание работы").EventTypeId;
                 jJur.WorkListId = jW.WorkListId;
                 jJur.PersonId = User.Identity.GetUserId();
                 jJur.QueryID = jW.QueryId;
@@ -167,13 +167,13 @@ namespace Prak.Controllers
                 db.Entry(jWorkList).State = EntityState.Modified;                
                 string com = "  -" + Request.Form["addCom"]+  " " + User.Identity.Name + " " + DateTime.Now.ToString();
                 jWorkList.Comment = jWorkList.Comment + "\n" + com;
-                if (jWorkList.StateWorkId == 2 || jWorkList.StateWorkId == 3)
+                if (jWorkList.StateWorkId == db.hStateWork.First(m => m.Description == "Выполнена").StateWorkId || jWorkList.StateWorkId == db.hStateWork.First(m => m.Description == "Отклонена").StateWorkId)
                 {
                     jWorkList.DateOut = DateTime.Parse(DateTime.Today.ToShortDateString());
                 }
                 jJournal jJur = new jJournal();
                 jJur.Date = DateTime.Now;
-                jJur.EventTypeId = 3;
+                jJur.EventTypeId = db.hEventType.First(m => m.Description == "Смена статуса работы").EventTypeId;
                 jJur.WorkListId = jWorkList.WorkListId;
                 jJur.PersonId = User.Identity.GetUserId();
                 jJur.QueryID = jWorkList.QueryId;
@@ -224,7 +224,7 @@ namespace Prak.Controllers
 
                 jJournal jJur = new jJournal();
                 jJur.Date = DateTime.Now;
-                jJur.EventTypeId = 5;
+                jJur.EventTypeId = db.hEventType.First(m => m.Description == "Смена исполнителя").EventTypeId;
                 jJur.WorkListId = jWorkList.WorkListId;
                 jJur.PersonId = User.Identity.GetUserId();
                 jJur.QueryID = jWorkList.QueryId;

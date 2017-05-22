@@ -66,8 +66,8 @@ namespace Prak.Controllers
                 jQuery.DateIn = DateTime.Parse(DateTime.Today.ToShortDateString());
                 jQuery.DateModification = DateTime.Now;
                 jQuery.DateModification = jQuery.DateModification.AddMilliseconds(-jQuery.DateModification.Millisecond);
-                DateTime dmd = jQuery.DateModification;
-                jQuery.StateId = 2;
+                DateTime dmd = jQuery.DateModification;             
+                jQuery.StateId = db.hState.First(m => m.Description == "Ожидает").StateId;
                 jQuery.PersonId = User.Identity.GetUserId();
                 db.jQuery.Add(jQuery);
                 db.SaveChanges();
@@ -79,7 +79,7 @@ namespace Prak.Controllers
                 jQuery jQ = db.jQuery.First(m => m.DateModification== dmdn);    
 
                 jJur.Date= DateTime.Now;
-                jJur.EventTypeId = 1;
+                jJur.EventTypeId = db.hEventType.First(m => m.Description == "Создание заявки").EventTypeId; 
                 jJur.WorkListId = null;                
                 jJur.PersonId = User.Identity.GetUserId();
                 jJur.QueryID = jQ.QueryId;
@@ -129,14 +129,14 @@ namespace Prak.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(jQuery).State = EntityState.Modified;
-                if (jQuery.StateId == 4 || jQuery.StateId == 5)
+                if (jQuery.StateId == db.hState.First(m => m.Description == "Выполнена").StateId || jQuery.StateId == db.hState.First(m => m.Description == "Отклонена").StateId)
                 {
                     jQuery.DateOut= DateTime.Parse(DateTime.Today.ToShortDateString());
                 }
 
                 jJournal jJur = new jJournal();
                 jJur.Date = DateTime.Now;
-                jJur.EventTypeId = 4;
+                jJur.EventTypeId = db.hEventType.First(m => m.Description == "Смена статуса заявки").EventTypeId;
                 jJur.WorkListId = null;
                 jJur.PersonId = User.Identity.GetUserId();
                 jJur.QueryID = jQuery.QueryId;
