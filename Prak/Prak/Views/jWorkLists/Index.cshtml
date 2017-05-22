@@ -11,75 +11,83 @@
 <p>
     @Html.ActionLink("Добавить работу", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            Дата поступления
-        </th>
-        <th>
-            Дата выполнения
-        </th>
-        <th>
-            Последние изменения
-        </th>
-        <th>
-            Выполнить до
-        </th>
-        <th>
-            Выполняет
-        </th>
-        <th>
-            Статус работы
-        </th>
-        <th>
-            Тип работы
-        </th>
-        <th>
-            Текст заявки
-        </th>
-        <th>
-            Комментарий
-        </th>
-        <th></th>
-    </tr>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                Дата выполнения
+            </th>
+            <th>
+                Дата поступления
+            </th>
+            <th>
+                Последние изменения
+            </th>
+            <th>
+                Выполнить до
+            </th>
+            <th>
+                Выполняет
+            </th>
+            <th>
+                Статус работы
+            </th>
+            <th>
+                Тип работы
+            </th>
+            <th>
+                Текст заявки
+            </th>
+            <th>
+                Комментарий
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateIn)
+                </td>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateIn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateOut)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateModifcation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Deadline)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AspNetUsers.UserName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hStateWork.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hWorkType.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.jQuery.Text)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comment)
-        </td>
-        <td>
-            @Html.ActionLink("Сменить статус", "ChangeStateWork", new { id = item.WorkListId })
-            <!--
-                @Html.ActionLink("Изменить", "Edit", new { id=item.WorkListId }) | 
-                @Html.ActionLink("Подробнее", "Details", new { id=item.WorkListId }) |
-            @Html.ActionLink("Удалить", "Delete", new { id=item.WorkListId })-->
-        </td>
-    </tr>
-}
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateModifcation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Deadline)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUsers.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hStateWork.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hWorkType.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.jQuery.Text)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comment)
+                </td>
+                <td>
+                    @Html.ActionLink("Сменить статус", "ChangeStateWork", new { id = item.WorkListId })
+                </td>
+                <td>
+                    @Html.ActionLink("Сменить исполнителя", "ChangeWorker", new { id = item.WorkListId })
+
+                    <!--
+                        @Html.ActionLink("Изменить", "Edit", new { id=item.WorkListId }) |
+                        @Html.ActionLink("Подробнее", "Details", new { id=item.WorkListId }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id=item.WorkListId })-->
+                </td>
+            </tr>
+        }
 
 </table>

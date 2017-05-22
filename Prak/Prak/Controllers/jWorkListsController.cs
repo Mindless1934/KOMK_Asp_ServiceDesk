@@ -41,7 +41,7 @@ namespace Prak.Controllers
         public ActionResult Create()
         {
 
-            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "UserName");
+            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "Fio");
             ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description");
             ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description");
             ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text");
@@ -79,7 +79,7 @@ namespace Prak.Controllers
                 jJur.WorkListId = jW.WorkListId;
                 jJur.PersonId = User.Identity.GetUserId();
                 jJur.QueryID = jW.QueryId;
-                jJur.Description = "  ";
+                jJur.Description = " Коментарий перед работой: " + jW.Comment;
 
 
                 db.jJournal.Add(jJur);
@@ -88,7 +88,7 @@ namespace Prak.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "UserName", jWorkList.PersonExecId);
+            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "Fio", jWorkList.PersonExecId);
             ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description", jWorkList.StateWorkId);
             ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description", jWorkList.WorkTypeId);
             ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text", jWorkList.QueryId);
@@ -107,7 +107,7 @@ namespace Prak.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "UserName", jWorkList.PersonExecId);
+            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "Fio", jWorkList.PersonExecId);
             ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description", jWorkList.StateWorkId);
             ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description", jWorkList.WorkTypeId);
             ViewBag.WorkTest = ViewBag.WorkTypeId;
@@ -128,7 +128,7 @@ namespace Prak.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "UserName", jWorkList.PersonExecId);
+            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "Fio", jWorkList.PersonExecId);
             ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description", jWorkList.StateWorkId);
             ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description", jWorkList.WorkTypeId);
             ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text", jWorkList.QueryId);
@@ -143,11 +143,12 @@ namespace Prak.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             jWorkList jWorkList = db.jWorkList.Find(id);
+            TempData["oldState"] = jWorkList.StateWorkId;
             if (jWorkList == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "UserName", jWorkList.PersonExecId);
+            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "Fio", jWorkList.PersonExecId);
             ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description", jWorkList.StateWorkId);
             ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description", jWorkList.WorkTypeId);
             ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text", jWorkList.QueryId);            
@@ -170,10 +171,71 @@ namespace Prak.Controllers
                 {
                     jWorkList.DateOut = DateTime.Parse(DateTime.Today.ToShortDateString());
                 }
+                jJournal jJur = new jJournal();
+                jJur.Date = DateTime.Now;
+                jJur.EventTypeId = 3;
+                jJur.WorkListId = jWorkList.WorkListId;
+                jJur.PersonId = User.Identity.GetUserId();
+                jJur.QueryID = jWorkList.QueryId;
+                hStateWork oldst = db.hStateWork.Find(Convert.ToInt32(TempData["oldState"]));
+                hStateWork newst = db.hStateWork.Find(jWorkList.StateWorkId);
+                jJur.Description = "c " + oldst.Description + " на " + newst.Description;
+                db.jJournal.Add(jJur);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "UserName", jWorkList.PersonExecId);
+            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "Fio", jWorkList.PersonExecId);
+            ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description", jWorkList.StateWorkId);
+            ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description", jWorkList.WorkTypeId);
+            ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text", jWorkList.QueryId);
+            return View(jWorkList);
+        }
+
+        // GET: jWorkLists/ChangeStateWork/5
+        public ActionResult ChangeWorker(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            jWorkList jWorkList = db.jWorkList.Find(id);
+            TempData["oldWork"] = jWorkList.PersonExecId;
+            if (jWorkList == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "Fio", jWorkList.PersonExecId);
+            ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description", jWorkList.StateWorkId);
+            ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description", jWorkList.WorkTypeId);
+            ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text", jWorkList.QueryId);
+            return View(jWorkList);
+        }
+
+        // POST: jWorkLists/ChangeStateWork/5
+        // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
+        // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangeWorker([Bind(Include = "WorkListId,DateIn,DateOut,DateModifcation,Deadline,QueryId,WorkTypeId,PersonExecId,StateWorkId,Verification,Comment")] jWorkList jWorkList)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(jWorkList).State = EntityState.Modified;
+
+                jJournal jJur = new jJournal();
+                jJur.Date = DateTime.Now;
+                jJur.EventTypeId = 5;
+                jJur.WorkListId = jWorkList.WorkListId;
+                jJur.PersonId = User.Identity.GetUserId();
+                jJur.QueryID = jWorkList.QueryId;
+                AspNetUsers oldst = db.AspNetUsers.Find(TempData["oldWork"]);
+                AspNetUsers newst = db.AspNetUsers.Find(jWorkList.PersonExecId);
+                jJur.Description = "c " + oldst.Fio + " на " + newst.Fio;
+                db.jJournal.Add(jJur);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "Fio", jWorkList.PersonExecId);
             ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description", jWorkList.StateWorkId);
             ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description", jWorkList.WorkTypeId);
             ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text", jWorkList.QueryId);

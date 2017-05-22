@@ -16,8 +16,7 @@ namespace Prak.Controllers
     public class jQueriesController : Controller
     {
         //Создаем экземпляр класса контекста для взаимодействия с нашей бд 
-        private KOMK_Main_v2Entities db = new KOMK_Main_v2Entities();
-
+        private KOMK_Main_v2Entities db = new KOMK_Main_v2Entities();      
         // GET: jQueries
         // Метод Index, в нем мы задаем связи с какими таблицами нам будут нужны для оботражения данных в представлени
         //Результатом работы метода является вызов представления Index
@@ -48,8 +47,8 @@ namespace Prak.Controllers
         // Используем ViewBag для того чтобы в представлении у нас были вместо вторичных ключей конкретные значения из связаных таблиц
         public ActionResult Create()
         {
-            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName");
-            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "UserName");
+            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "Fio");
+            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "Fio");
             ViewBag.StateId = new SelectList(db.hState, "StateId", "Description");
             return View();
         }
@@ -84,7 +83,7 @@ namespace Prak.Controllers
                 jJur.WorkListId = null;                
                 jJur.PersonId = User.Identity.GetUserId();
                 jJur.QueryID = jQ.QueryId;
-                jJur.Description = "  ";
+                jJur.Description = " Содержание:  "+jQ.Text;
 
 
                 db.jJournal.Add(jJur);
@@ -92,13 +91,13 @@ namespace Prak.Controllers
                 return RedirectToAction("Index");
             }
             //Если данные не валидны то делаем тоже что и в методе GET
-            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonId);
-            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonSpId);
+            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "Fio", jQuery.PersonId);
+            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "Fio", jQuery.PersonSpId);
             ViewBag.StateId = new SelectList(db.hState, "StateId", "Description", jQuery.StateId);
             return View(jQuery);
         }
 
-      
+
 
         // GET: jQueries/ChangeStatusQuery/5
         // Метод Смена статуса заявки, имеет аргумент id, чтобы производить действия над конкретной заявкой
@@ -109,12 +108,13 @@ namespace Prak.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             jQuery jQuery = db.jQuery.Find(id);
+            TempData["oldState"] = jQuery.StateId;
             if (jQuery == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonId);
-            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonSpId);
+            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "Fio", jQuery.PersonId);
+            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "Fio", jQuery.PersonSpId);
             ViewBag.StateId = new SelectList(db.hState, "StateId", "Description", jQuery.StateId);
             return View(jQuery);
         }
@@ -133,11 +133,22 @@ namespace Prak.Controllers
                 {
                     jQuery.DateOut= DateTime.Parse(DateTime.Today.ToShortDateString());
                 }
+
+                jJournal jJur = new jJournal();
+                jJur.Date = DateTime.Now;
+                jJur.EventTypeId = 4;
+                jJur.WorkListId = null;
+                jJur.PersonId = User.Identity.GetUserId();
+                jJur.QueryID = jQuery.QueryId;
+                hState oldst = db.hState.Find(Convert.ToInt32(TempData["oldState"]));
+                hState newst = db.hState.Find(jQuery.StateId);
+                jJur.Description = "c " + oldst.Description + " на "+ newst.Description;
+                db.jJournal.Add(jJur);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonId);
-            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonSpId);
+            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "Fio", jQuery.PersonId);
+            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "Fio", jQuery.PersonSpId);
             ViewBag.StateId = new SelectList(db.hState, "StateId", "Description", jQuery.StateId);
             return View(jQuery);
         }
@@ -154,8 +165,8 @@ namespace Prak.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonId);
-            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonSpId);
+            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "Fio", jQuery.PersonId);
+            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "Fio", jQuery.PersonSpId);
             ViewBag.StateId = new SelectList(db.hState, "StateId", "Description", jQuery.StateId);
             return View(jQuery);
         }
@@ -173,8 +184,8 @@ namespace Prak.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonId);
-            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "UserName", jQuery.PersonSpId);
+            ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "Fio", jQuery.PersonId);
+            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "Fio", jQuery.PersonSpId);
             ViewBag.StateId = new SelectList(db.hState, "StateId", "Description", jQuery.StateId);
             return View(jQuery);
         }

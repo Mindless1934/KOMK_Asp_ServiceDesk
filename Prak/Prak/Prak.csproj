@@ -525,6 +525,7 @@
     <Content Include="Views\AspNetUsers\Index.cshtml" />
     <Content Include="Views\jQueries\Details.cshtml" />
     <Content Include="Views\jWorkLists\Details.cshtml" />
+    <Content Include="Views\jWorkLists\ChangeWorker.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
