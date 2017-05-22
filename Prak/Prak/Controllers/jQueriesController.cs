@@ -74,7 +74,10 @@ namespace Prak.Controllers
                 db.SaveChanges();
 
                 jJournal jJur = new jJournal();
-                jQuery jQ = db.jQuery.First(m => m.DateModification == dmd);    
+                string dmdstr = dmd.ToString("yyyy-MM-dd HH:mm:ss") + ".000";
+                DateTime dmdn = DateTime.Parse(dmdstr);
+                db = new KOMK_Main_v2Entities();
+                jQuery jQ = db.jQuery.First(m => m.DateModification== dmdn);    
 
                 jJur.Date= DateTime.Now;
                 jJur.EventTypeId = 1;
@@ -126,6 +129,10 @@ namespace Prak.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(jQuery).State = EntityState.Modified;
+                if (jQuery.StateId == 4 || jQuery.StateId == 5)
+                {
+                    jQuery.DateOut= DateTime.Parse(DateTime.Today.ToShortDateString());
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

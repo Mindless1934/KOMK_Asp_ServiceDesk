@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Prak.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Prak.Controllers
 {
@@ -58,13 +59,32 @@ namespace Prak.Controllers
             {
                 jWorkList.DateIn = DateTime.Parse(DateTime.Today.ToShortDateString());
                 jWorkList.DateModifcation = DateTime.Now;
+                jWorkList.DateModifcation = jWorkList.DateModifcation.AddMilliseconds(-jWorkList.DateModifcation.Millisecond);
+                DateTime dmd = jWorkList.DateModifcation;
                 jWorkList.StateWorkId = 4;
                 jWorkList.Verification = false;
                 string com = "-" + jWorkList.Comment + " "+User.Identity.Name + " " +DateTime.Now.ToString();
                 jWorkList.Comment = com;
                 db.jWorkList.Add(jWorkList);
                 db.SaveChanges();
-                
+
+                jJournal jJur = new jJournal();
+                string dmdstr = dmd.ToString("yyyy-MM-dd HH:mm:ss") + ".000";
+                DateTime dmdn = DateTime.Parse(dmdstr);
+                db = new KOMK_Main_v2Entities();
+                jWorkList jW = db.jWorkList.First(m => m.DateModifcation == dmdn);
+
+                jJur.Date = DateTime.Now;
+                jJur.EventTypeId = 2;
+                jJur.WorkListId = jW.WorkListId;
+                jJur.PersonId = User.Identity.GetUserId();
+                jJur.QueryID = jW.QueryId;
+                jJur.Description = "  ";
+
+
+                db.jJournal.Add(jJur);
+                db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
@@ -146,6 +166,10 @@ namespace Prak.Controllers
                 db.Entry(jWorkList).State = EntityState.Modified;                
                 string com = "  -" + Request.Form["addCom"]+  " " + User.Identity.Name + " " + DateTime.Now.ToString();
                 jWorkList.Comment = jWorkList.Comment + "\n" + com;
+                if (jWorkList.StateWorkId == 2 || jWorkList.StateWorkId == 3)
+                {
+                    jWorkList.DateOut = DateTime.Parse(DateTime.Today.ToShortDateString());
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

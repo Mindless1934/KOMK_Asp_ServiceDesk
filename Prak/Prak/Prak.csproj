@@ -523,6 +523,8 @@
     <Content Include="Views\jWorkLists\ChangeStateWork.cshtml" />
     <Content Include="Views\jWorkLists\Edit.cshtml" />
     <Content Include="Views\AspNetUsers\Index.cshtml" />
+    <Content Include="Views\jQueries\Details.cshtml" />
+    <Content Include="Views\jWorkLists\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,81 @@
+﻿@model jWorkList
+
+<div>
+    <h4>jWorkList</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Дата поступления
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateIn)
+        </dd>
+
+        <dt>
+            Дата выполнения
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOut)
+        </dd>
+
+        <dt>
+            Последние изменения
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateModifcation)
+        </dd>
+
+        <dt>
+            Крайний срок выполнения
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deadline)
+        </dd>
+
+        <dt>
+            Комментарии
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+
+        <dt>
+            Исполнитель
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUsers.Fio)
+        </dd>
+
+        <dt>
+            Статус работы
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hStateWork.Description)
+        </dd>
+
+        <dt>
+            Тип работы
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hWorkType.Description)
+        </dd>
+
+        <dt>
+            Содержание  заявки
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.jQuery.Text)
+        </dd>
+
+    </dl>
+</div>
+

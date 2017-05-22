@@ -1,27 +1,22 @@
 ﻿@model IEnumerable<jJournal>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Date)
+            Дата
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            Событие
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.QueryID)
+            Пользователь
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AspNetUsers.Email)
+            Заявка
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.hEventType.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.jWorkList.PersonExecId)
+            Работа
         </th>
         <th></th>
     </tr>
@@ -32,25 +27,20 @@
             @Html.DisplayFor(modelItem => item.Date)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
+            @Html.DisplayFor(modelItem => item.hEventType.Description)            
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.QueryID)
+            @Html.DisplayFor(modelItem => item.AspNetUsers.Fio)
+        </td>
+        <td>           
+            @Html.ActionLink(item.QueryID.ToString(), "Details", "jQueries", new { id = item.QueryID }, new { id = "QerId" })
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.AspNetUsers.Email)
+            @if (item.WorkListId != null) {
+            @Html.ActionLink(item.jWorkList.WorkListId.ToString(), "Details", "jWorkLists", new { id = item.jWorkList.WorkListId }, new { id = "WorkId" })}
+            @if(item.WorkListId == null) { @Html.DisplayFor(modelItem => item.jWorkList.PersonExecId)}
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hEventType.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.jWorkList.PersonExecId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.JournalId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.JournalId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.JournalId })
-        </td>
+
     </tr>
 }
 

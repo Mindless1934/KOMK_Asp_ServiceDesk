@@ -1,0 +1,73 @@
+﻿@model jQuery
+
+<div>
+    <h4>Заявка</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Дата выполнения
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOut)
+        </dd>
+
+        <dt>
+            Дата поступления
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateIn)
+        </dd>
+
+        <dt>
+            Последние изменения
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateModification)
+        </dd>
+
+        <dt>
+            Крайний срок выполнения
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeadLine)
+        </dd>
+
+        <dt>
+            Содержание заявки
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Text)
+        </dd>
+
+        <dt>
+            Отправитель
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUsers.Fio)
+        </dd>
+
+        <dt>
+            Исполнитель
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUsers1.Fio)
+        </dd>
+
+        <dt>
+            Статус
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hState.Description)
+        </dd>
+
+    </dl>
+</div>
+
