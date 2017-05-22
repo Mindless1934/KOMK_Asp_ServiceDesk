@@ -164,23 +164,29 @@ namespace Prak.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(jWorkList).State = EntityState.Modified;                
-                string com = "  -" + Request.Form["addCom"]+  " " + User.Identity.Name + " " + DateTime.Now.ToString();
-                jWorkList.Comment = jWorkList.Comment + "\n" + com;
+                db.Entry(jWorkList).State = EntityState.Modified;
+                if (Request.Form["addCom"] != null)
+                {
+                    string com = "  -" + Request.Form["addCom"] + " " + User.Identity.Name + " " + DateTime.Now.ToString();
+                    jWorkList.Comment = jWorkList.Comment + "\n" + com;
+                }
                 if (jWorkList.StateWorkId == db.hStateWork.First(m => m.Description == "Выполнена").StateWorkId || jWorkList.StateWorkId == db.hStateWork.First(m => m.Description == "Отклонена").StateWorkId)
                 {
                     jWorkList.DateOut = DateTime.Parse(DateTime.Today.ToShortDateString());
                 }
-                jJournal jJur = new jJournal();
-                jJur.Date = DateTime.Now;
-                jJur.EventTypeId = db.hEventType.First(m => m.Description == "Смена статуса работы").EventTypeId;
-                jJur.WorkListId = jWorkList.WorkListId;
-                jJur.PersonId = User.Identity.GetUserId();
-                jJur.QueryID = jWorkList.QueryId;
-                hStateWork oldst = db.hStateWork.Find(Convert.ToInt32(TempData["oldState"]));
-                hStateWork newst = db.hStateWork.Find(jWorkList.StateWorkId);
-                jJur.Description = "c " + oldst.Description + " на " + newst.Description;
-                db.jJournal.Add(jJur);
+                if (Convert.ToInt32(TempData["oldState"]) != jWorkList.StateWorkId)
+                {
+                    jJournal jJur = new jJournal();
+                    jJur.Date = DateTime.Now;
+                    jJur.EventTypeId = db.hEventType.First(m => m.Description == "Смена статуса работы").EventTypeId;
+                    jJur.WorkListId = jWorkList.WorkListId;
+                    jJur.PersonId = User.Identity.GetUserId();
+                    jJur.QueryID = jWorkList.QueryId;
+                    hStateWork oldst = db.hStateWork.Find(Convert.ToInt32(TempData["oldState"]));
+                    hStateWork newst = db.hStateWork.Find(jWorkList.StateWorkId);
+                    jJur.Description = "c " + oldst.Description + " на " + newst.Description;
+                    db.jJournal.Add(jJur);
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -221,17 +227,18 @@ namespace Prak.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(jWorkList).State = EntityState.Modified;
-
-                jJournal jJur = new jJournal();
-                jJur.Date = DateTime.Now;
-                jJur.EventTypeId = db.hEventType.First(m => m.Description == "Смена исполнителя").EventTypeId;
-                jJur.WorkListId = jWorkList.WorkListId;
-                jJur.PersonId = User.Identity.GetUserId();
-                jJur.QueryID = jWorkList.QueryId;
-                AspNetUsers oldst = db.AspNetUsers.Find(TempData["oldWork"]);
-                AspNetUsers newst = db.AspNetUsers.Find(jWorkList.PersonExecId);
-                jJur.Description = "c " + oldst.Fio + " на " + newst.Fio;
-                db.jJournal.Add(jJur);
+                if (TempData["oldWork"].ToString() != jWorkList.PersonExecId) {
+                    jJournal jJur = new jJournal();
+                    jJur.Date = DateTime.Now;
+                    jJur.EventTypeId = db.hEventType.First(m => m.Description == "Смена исполнителя").EventTypeId;
+                    jJur.WorkListId = jWorkList.WorkListId;
+                    jJur.PersonId = User.Identity.GetUserId();
+                    jJur.QueryID = jWorkList.QueryId;
+                    AspNetUsers oldst = db.AspNetUsers.Find(TempData["oldWork"]);
+                    AspNetUsers newst = db.AspNetUsers.Find(jWorkList.PersonExecId);
+                    jJur.Description = "c " + oldst.Fio + " на " + newst.Fio;
+                    db.jJournal.Add(jJur);
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

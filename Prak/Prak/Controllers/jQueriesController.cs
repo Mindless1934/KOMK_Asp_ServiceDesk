@@ -133,17 +133,18 @@ namespace Prak.Controllers
                 {
                     jQuery.DateOut= DateTime.Parse(DateTime.Today.ToShortDateString());
                 }
-
-                jJournal jJur = new jJournal();
-                jJur.Date = DateTime.Now;
-                jJur.EventTypeId = db.hEventType.First(m => m.Description == "Смена статуса заявки").EventTypeId;
-                jJur.WorkListId = null;
-                jJur.PersonId = User.Identity.GetUserId();
-                jJur.QueryID = jQuery.QueryId;
-                hState oldst = db.hState.Find(Convert.ToInt32(TempData["oldState"]));
-                hState newst = db.hState.Find(jQuery.StateId);
-                jJur.Description = "c " + oldst.Description + " на "+ newst.Description;
-                db.jJournal.Add(jJur);
+                if (Convert.ToInt32(TempData["oldState"])!= jQuery.StateId) {
+                    jJournal jJur = new jJournal();
+                    jJur.Date = DateTime.Now;
+                    jJur.EventTypeId = db.hEventType.First(m => m.Description == "Смена статуса заявки").EventTypeId;
+                    jJur.WorkListId = null;
+                    jJur.PersonId = User.Identity.GetUserId();
+                    jJur.QueryID = jQuery.QueryId;
+                    hState oldst = db.hState.Find(Convert.ToInt32(TempData["oldState"]));
+                    hState newst = db.hState.Find(jQuery.StateId);
+                    jJur.Description = "c " + oldst.Description + " на " + newst.Description;
+                    db.jJournal.Add(jJur);
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
