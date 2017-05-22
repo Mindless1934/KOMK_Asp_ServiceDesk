@@ -63,8 +63,11 @@ namespace Prak.Controllers
                 DateTime dmd = jWorkList.DateModifcation;
                 jWorkList.StateWorkId = db.hStateWork.First(m => m.Description == "Ожидает").StateWorkId;
                 jWorkList.Verification = false;
-                string com = "-" + jWorkList.Comment + " "+User.Identity.Name + " " +DateTime.Now.ToString();
-                jWorkList.Comment = com;
+                if (jWorkList.Comment != null)
+                {
+                    string com = "-" + jWorkList.Comment + " " + User.Identity.Name + " " + DateTime.Now.ToString();
+                    jWorkList.Comment = com;
+                }
                 db.jWorkList.Add(jWorkList);
                 db.SaveChanges();
 
@@ -165,7 +168,7 @@ namespace Prak.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(jWorkList).State = EntityState.Modified;
-                if (Request.Form["addCom"] != null)
+                if (Request.Form["addCom"] != "")
                 {
                     string com = "  -" + Request.Form["addCom"] + " " + User.Identity.Name + " " + DateTime.Now.ToString();
                     jWorkList.Comment = jWorkList.Comment + "\n" + com;
