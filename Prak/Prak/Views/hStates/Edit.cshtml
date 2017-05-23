@@ -9,6 +9,8 @@
 
 @using (Html.BeginForm())
 {
+    <h4>Важно! Нельзя изменять статусы: "Ожидает" "Выполнена" "Отклонена"</h4>
+
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">

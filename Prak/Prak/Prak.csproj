@@ -549,7 +549,6 @@
     <Content Include="Views\hWorkTypes\Index.cshtml" />
     <Content Include="Views\hSkills\Create.cshtml" />
     <Content Include="Views\hSkills\Delete.cshtml" />
-    <Content Include="Views\hSkills\Details.cshtml" />
     <Content Include="Views\hSkills\Edit.cshtml" />
     <Content Include="Views\hSkills\Index.cshtml" />
   </ItemGroup>
