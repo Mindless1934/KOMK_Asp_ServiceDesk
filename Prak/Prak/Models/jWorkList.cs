@@ -40,10 +40,10 @@ public partial class jWorkList
     public bool Verification { get; set; }
     public string Comment { get; set; }
 
-    public virtual AspNetUsers AspNetUsers { get; set; }
     public virtual hStateWork hStateWork { get; set; }
     public virtual hWorkType hWorkType { get; set; }
     public virtual jQuery jQuery { get; set; }
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
     public virtual ICollection<jJournal> jJournal { get; set; }
+    public virtual AspNetUsers AspNetUsers { get; set; }
 }

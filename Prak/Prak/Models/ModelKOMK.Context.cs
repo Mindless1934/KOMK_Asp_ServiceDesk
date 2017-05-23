@@ -29,10 +29,6 @@ namespace Prak.Models
     
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
-        public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
-        public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
-        public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
-        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         public virtual DbSet<hEventType> hEventType { get; set; }
         public virtual DbSet<hSkill> hSkill { get; set; }
         public virtual DbSet<hState> hState { get; set; }
@@ -42,6 +38,11 @@ namespace Prak.Models
         public virtual DbSet<jQuery> jQuery { get; set; }
         public virtual DbSet<jWorkList> jWorkList { get; set; }
         public virtual DbSet<jJournal> jJournal { get; set; }
+        public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUserRoles> AspNetUserRoles { get; set; }
+        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
     
         public virtual int inshEventType(string de)
         {

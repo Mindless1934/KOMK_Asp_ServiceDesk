@@ -168,11 +168,6 @@ namespace Prak.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(jWorkList).State = EntityState.Modified;
-                if (Request.Form["addCom"] != "")
-                {
-                    string com = "  -" + Request.Form["addCom"] + " " + User.Identity.Name + " " + DateTime.Now.ToString();
-                    jWorkList.Comment = jWorkList.Comment + "\n" + com;
-                }
                 if (jWorkList.StateWorkId == db.hStateWork.First(m => m.Description == "Выполнена").StateWorkId || jWorkList.StateWorkId == db.hStateWork.First(m => m.Description == "Отклонена").StateWorkId)
                 {
                     jWorkList.DateOut = DateTime.Parse(DateTime.Today.ToShortDateString());
@@ -201,6 +196,50 @@ namespace Prak.Controllers
         }
 
         // GET: jWorkLists/ChangeStateWork/5
+        public ActionResult Comments(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            jWorkList jWorkList = db.jWorkList.Find(id);           
+            if (jWorkList == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "Fio", jWorkList.PersonExecId);
+            ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description", jWorkList.StateWorkId);
+            ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description", jWorkList.WorkTypeId);
+            ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text", jWorkList.QueryId);
+            return View(jWorkList);
+        }
+
+        // POST: jWorkLists/ChangeStateWork/5
+        // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
+        // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Comments([Bind(Include = "WorkListId,DateIn,DateOut,DateModifcation,Deadline,QueryId,WorkTypeId,PersonExecId,StateWorkId,Verification,Comment")] jWorkList jWorkList)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(jWorkList).State = EntityState.Modified;
+                if (Request.Form["addCom"] != "")
+                {
+                    string com = "  -" + Request.Form["addCom"] + " " + User.Identity.Name + " " + DateTime.Now.ToString();
+                    jWorkList.Comment = jWorkList.Comment + "\n" + com;
+                }
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "Fio", jWorkList.PersonExecId);
+            ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description", jWorkList.StateWorkId);
+            ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description", jWorkList.WorkTypeId);
+            ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text", jWorkList.QueryId);
+            return View(jWorkList);
+        }
+
+        // GET: jWorkLists/ChangeWorker/5
         public ActionResult ChangeWorker(int? id)
         {
             if (id == null)
@@ -220,7 +259,7 @@ namespace Prak.Controllers
             return View(jWorkList);
         }
 
-        // POST: jWorkLists/ChangeStateWork/5
+        // POST: jWorkLists/ChangeWorker/5
         // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]

@@ -39,7 +39,7 @@
                 Текст заявки
             </th>
             <th>
-                Комментарий
+                Комментарии
             </th>
             <th></th>
             <th></th>
@@ -73,14 +73,14 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.jQuery.Text)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Comment)
+                <td>                    
+                    @Html.ActionLink("Перейти", "Comments", "jWorkLists", new { id = item.WorkListId },  new { @class = "btn btn-default" })
                 </td>
                 <td>
-                    @Html.ActionLink("Сменить статус", "ChangeStateWork", new { id = item.WorkListId })
+                    @Html.ActionLink("Сменить статус", "ChangeStateWork", new { id = item.WorkListId }, new { @class = "btn btn-default" })
                 </td>
                 <td>
-                    @Html.ActionLink("Сменить исполнителя", "ChangeWorker", new { id = item.WorkListId })
+                    @Html.ActionLink("Сменить исполнителя", "ChangeWorker", new { id = item.WorkListId }, new { @class = "btn btn-default" })
 
                     <!--
                         @Html.ActionLink("Изменить", "Edit", new { id=item.WorkListId }) |

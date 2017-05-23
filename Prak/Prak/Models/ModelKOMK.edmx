@@ -43,11 +43,11 @@
         </EntityType>
         <EntityType Name="AspNetUserRoles">
           <Key>
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="UserRoleId" />
           </Key>
           <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserRoleId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="AspNetUsers">
           <Key>
@@ -555,22 +555,6 @@
           <FunctionImport Name="vhPerson" ReturnType="Collection(KOMK_Main_v2Model.vhPerson_Result)" />
           <FunctionImport Name="vjQuery" ReturnType="Collection(KOMK_Main_v2Model.vjQuery_Result)" />
           <EntitySet Name="C__MigrationHistory" EntityType="KOMK_Main_v2Model.C__MigrationHistory" />
-          <EntitySet Name="AspNetRoles" EntityType="KOMK_Main_v2Model.AspNetRoles" />
-          <EntitySet Name="AspNetUserClaims" EntityType="KOMK_Main_v2Model.AspNetUserClaims" />
-          <EntitySet Name="AspNetUserLogins" EntityType="KOMK_Main_v2Model.AspNetUserLogins" />
-          <EntitySet Name="AspNetUsers" EntityType="KOMK_Main_v2Model.AspNetUsers" />
-          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="KOMK_Main_v2Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="KOMK_Main_v2Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
-          </AssociationSet>
-          <AssociationSet Name="AspNetUserRoles" Association="KOMK_Main_v2Model.AspNetUserRoles">
-            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-          </AssociationSet>
           <EntitySet Name="hEventType" EntityType="KOMK_Main_v2Model.hEventType" />
           <EntitySet Name="hSkill" EntityType="KOMK_Main_v2Model.hSkill" />
           <EntitySet Name="hState" EntityType="KOMK_Main_v2Model.hState" />
@@ -585,24 +569,8 @@
             <End Role="hSkill" EntitySet="hSkill" />
             <End Role="hWorkType" EntitySet="hWorkType" />
           </AssociationSet>
-          <AssociationSet Name="FK_jSkillList_AspNetUsers" Association="KOMK_Main_v2Model.FK_jSkillList_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="jSkillList" EntitySet="jSkillList" />
-          </AssociationSet>
           <EntitySet Name="jQuery" EntityType="KOMK_Main_v2Model.jQuery" />
           <EntitySet Name="jWorkList" EntityType="KOMK_Main_v2Model.jWorkList" />
-          <AssociationSet Name="FK_jQuery_AspNetUsers" Association="KOMK_Main_v2Model.FK_jQuery_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="jQuery" EntitySet="jQuery" />
-          </AssociationSet>
-          <AssociationSet Name="FK_jQuery_AspNetUsers1" Association="KOMK_Main_v2Model.FK_jQuery_AspNetUsers1">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="jQuery" EntitySet="jQuery" />
-          </AssociationSet>
-          <AssociationSet Name="FK_jWorkList_AspNetUsers" Association="KOMK_Main_v2Model.FK_jWorkList_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="jWorkList" EntitySet="jWorkList" />
-          </AssociationSet>
           <AssociationSet Name="FK_jQuery_hState" Association="KOMK_Main_v2Model.FK_jQuery_hState">
             <End Role="hState" EntitySet="hState" />
             <End Role="jQuery" EntitySet="jQuery" />
@@ -620,10 +588,6 @@
             <End Role="jWorkList" EntitySet="jWorkList" />
           </AssociationSet>
           <EntitySet Name="jJournal" EntityType="KOMK_Main_v2Model.jJournal" />
-          <AssociationSet Name="FK_jJournal_AspNetUsers" Association="KOMK_Main_v2Model.FK_jJournal_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="jJournal" EntitySet="jJournal" />
-          </AssociationSet>
           <AssociationSet Name="FK_jJournal_hEventType" Association="KOMK_Main_v2Model.FK_jJournal_hEventType">
             <End Role="hEventType" EntitySet="hEventType" />
             <End Role="jJournal" EntitySet="jJournal" />
@@ -631,6 +595,47 @@
           <AssociationSet Name="FK_jJournal_jWorkList" Association="KOMK_Main_v2Model.FK_jJournal_jWorkList">
             <End Role="jWorkList" EntitySet="jWorkList" />
             <End Role="jJournal" EntitySet="jJournal" />
+          </AssociationSet>
+          <EntitySet Name="AspNetRoles" EntityType="KOMK_Main_v2Model.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="KOMK_Main_v2Model.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="KOMK_Main_v2Model.AspNetUserLogins" />
+          <EntitySet Name="AspNetUserRoles" EntityType="KOMK_Main_v2Model.AspNetUserRoles" />
+          <EntitySet Name="AspNetUsers" EntityType="KOMK_Main_v2Model.AspNetUsers" />
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="KOMK_Main_v2Model.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="KOMK_Main_v2Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="KOMK_Main_v2Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="KOMK_Main_v2Model.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jJournal_AspNetUsers" Association="KOMK_Main_v2Model.FK_jJournal_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="jJournal" EntitySet="jJournal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jQuery_AspNetUsers" Association="KOMK_Main_v2Model.FK_jQuery_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="jQuery" EntitySet="jQuery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jQuery_AspNetUsers1" Association="KOMK_Main_v2Model.FK_jQuery_AspNetUsers1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="jQuery" EntitySet="jQuery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jSkillList_AspNetUsers" Association="KOMK_Main_v2Model.FK_jSkillList_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="jSkillList" EntitySet="jSkillList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jWorkList_AspNetUsers" Association="KOMK_Main_v2Model.FK_jWorkList_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="jWorkList" EntitySet="jWorkList" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -670,93 +675,6 @@
           <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
           <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="AspNetRoles">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUsers" Relationship="KOMK_Main_v2Model.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
-        </EntityType>
-        <EntityType Name="AspNetUserClaims">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUsers" Relationship="KOMK_Main_v2Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
-        </EntityType>
-        <EntityType Name="AspNetUserLogins">
-          <Key>
-            <PropertyRef Name="LoginProvider" />
-            <PropertyRef Name="ProviderKey" />
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUsers" Relationship="KOMK_Main_v2Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
-        </EntityType>
-        <EntityType Name="AspNetUsers">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
-          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
-          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
-          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
-          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
-          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUserClaims" Relationship="KOMK_Main_v2Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
-          <NavigationProperty Name="AspNetUserLogins" Relationship="KOMK_Main_v2Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
-          <NavigationProperty Name="AspNetRoles" Relationship="KOMK_Main_v2Model.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
-          <NavigationProperty Name="jSkillList" Relationship="KOMK_Main_v2Model.FK_jSkillList_AspNetUsers" FromRole="AspNetUsers" ToRole="jSkillList" />
-          <NavigationProperty Name="jQuery" Relationship="KOMK_Main_v2Model.FK_jQuery_AspNetUsers" FromRole="AspNetUsers" ToRole="jQuery" />
-          <NavigationProperty Name="jQuery1" Relationship="KOMK_Main_v2Model.FK_jQuery_AspNetUsers1" FromRole="AspNetUsers" ToRole="jQuery" />
-          <NavigationProperty Name="jWorkList" Relationship="KOMK_Main_v2Model.FK_jWorkList_AspNetUsers" FromRole="AspNetUsers" ToRole="jWorkList" />
-          <Property Name="Fio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="jJournal" Relationship="KOMK_Main_v2Model.FK_jJournal_AspNetUsers" FromRole="AspNetUsers" ToRole="jJournal" />
-        </EntityType>
-        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-          <End Type="KOMK_Main_v2Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="KOMK_Main_v2Model.AspNetUserClaims" Role="AspNetUserClaims" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserClaims">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-          <End Type="KOMK_Main_v2Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="KOMK_Main_v2Model.AspNetUserLogins" Role="AspNetUserLogins" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AspNetUserLogins">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="AspNetUserRoles">
-          <End Type="KOMK_Main_v2Model.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
-          <End Type="KOMK_Main_v2Model.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
-        </Association>
         <EntityType Name="hEventType">
           <Key>
             <PropertyRef Name="EventTypeId" />
@@ -834,18 +752,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_jSkillList_AspNetUsers">
-          <End Type="KOMK_Main_v2Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
-          <End Type="KOMK_Main_v2Model.jSkillList" Role="jSkillList" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="jSkillList">
-              <PropertyRef Name="PersonId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="jQuery">
           <Key>
             <PropertyRef Name="QueryId" />
@@ -859,10 +765,10 @@
           <Property Name="StateId" Type="Int32" Nullable="false" />
           <Property Name="PersonId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="PersonSpId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUsers" Relationship="KOMK_Main_v2Model.FK_jQuery_AspNetUsers" FromRole="jQuery" ToRole="AspNetUsers" />
-          <NavigationProperty Name="AspNetUsers1" Relationship="KOMK_Main_v2Model.FK_jQuery_AspNetUsers1" FromRole="jQuery" ToRole="AspNetUsers" />
           <NavigationProperty Name="hState" Relationship="KOMK_Main_v2Model.FK_jQuery_hState" FromRole="jQuery" ToRole="hState" />
           <NavigationProperty Name="jWorkList" Relationship="KOMK_Main_v2Model.FK_jWorkList_jQuery" FromRole="jQuery" ToRole="jWorkList" />
+          <NavigationProperty Name="AspNetUsers" Relationship="KOMK_Main_v2Model.FK_jQuery_AspNetUsers" FromRole="jQuery" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers1" Relationship="KOMK_Main_v2Model.FK_jQuery_AspNetUsers1" FromRole="jQuery" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="jWorkList">
           <Key>
@@ -878,49 +784,13 @@
           <Property Name="PersonExecId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="StateWorkId" Type="Int32" Nullable="false" />
           <Property Name="Verification" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="AspNetUsers" Relationship="KOMK_Main_v2Model.FK_jWorkList_AspNetUsers" FromRole="jWorkList" ToRole="AspNetUsers" />
           <NavigationProperty Name="hStateWork" Relationship="KOMK_Main_v2Model.FK_jWorkList_hStateWork" FromRole="jWorkList" ToRole="hStateWork" />
           <NavigationProperty Name="hWorkType" Relationship="KOMK_Main_v2Model.FK_jWorkList_hWorkType" FromRole="jWorkList" ToRole="hWorkType" />
           <NavigationProperty Name="jQuery" Relationship="KOMK_Main_v2Model.FK_jWorkList_jQuery" FromRole="jWorkList" ToRole="jQuery" />
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="jJournal" Relationship="KOMK_Main_v2Model.FK_jJournal_jWorkList" FromRole="jWorkList" ToRole="jJournal" />
+          <NavigationProperty Name="AspNetUsers" Relationship="KOMK_Main_v2Model.FK_jWorkList_AspNetUsers" FromRole="jWorkList" ToRole="AspNetUsers" />
         </EntityType>
-        <Association Name="FK_jQuery_AspNetUsers">
-          <End Type="KOMK_Main_v2Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
-          <End Type="KOMK_Main_v2Model.jQuery" Role="jQuery" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="jQuery">
-              <PropertyRef Name="PersonId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_jQuery_AspNetUsers1">
-          <End Type="KOMK_Main_v2Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
-          <End Type="KOMK_Main_v2Model.jQuery" Role="jQuery" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="jQuery">
-              <PropertyRef Name="PersonSpId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_jWorkList_AspNetUsers">
-          <End Type="KOMK_Main_v2Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
-          <End Type="KOMK_Main_v2Model.jWorkList" Role="jWorkList" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="jWorkList">
-              <PropertyRef Name="PersonExecId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_jQuery_hState">
           <End Type="KOMK_Main_v2Model.hState" Role="hState" Multiplicity="1" />
           <End Type="KOMK_Main_v2Model.jQuery" Role="jQuery" Multiplicity="*" />
@@ -980,22 +850,10 @@
           <Property Name="JournalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PersonId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="QueryID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AspNetUsers" Relationship="KOMK_Main_v2Model.FK_jJournal_AspNetUsers" FromRole="jJournal" ToRole="AspNetUsers" />
           <NavigationProperty Name="hEventType" Relationship="KOMK_Main_v2Model.FK_jJournal_hEventType" FromRole="jJournal" ToRole="hEventType" />
           <NavigationProperty Name="jWorkList" Relationship="KOMK_Main_v2Model.FK_jJournal_jWorkList" FromRole="jJournal" ToRole="jWorkList" />
+          <NavigationProperty Name="AspNetUsers" Relationship="KOMK_Main_v2Model.FK_jJournal_AspNetUsers" FromRole="jJournal" ToRole="AspNetUsers" />
         </EntityType>
-        <Association Name="FK_jJournal_AspNetUsers">
-          <End Type="KOMK_Main_v2Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
-          <End Type="KOMK_Main_v2Model.jJournal" Role="jJournal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="jJournal">
-              <PropertyRef Name="PersonId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_jJournal_hEventType">
           <End Type="KOMK_Main_v2Model.hEventType" Role="hEventType" Multiplicity="1" />
           <End Type="KOMK_Main_v2Model.jJournal" Role="jJournal" Multiplicity="*" />
@@ -1017,6 +875,187 @@
             </Principal>
             <Dependent Role="jJournal">
               <PropertyRef Name="WorkListId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserRoles" Relationship="KOMK_Main_v2Model.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" FromRole="AspNetRoles" ToRole="AspNetUserRoles" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="KOMK_Main_v2Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="KOMK_Main_v2Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserRoleId" />
+          </Key>
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="RoleId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserRoleId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AspNetRoles" Relationship="KOMK_Main_v2Model.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" FromRole="AspNetUserRoles" ToRole="AspNetRoles" />
+          <NavigationProperty Name="AspNetUsers" Relationship="KOMK_Main_v2Model.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" FromRole="AspNetUserRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Fio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="KOMK_Main_v2Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="KOMK_Main_v2Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetUserRoles" Relationship="KOMK_Main_v2Model.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserRoles" />
+          <NavigationProperty Name="jJournal" Relationship="KOMK_Main_v2Model.FK_jJournal_AspNetUsers" FromRole="AspNetUsers" ToRole="jJournal" />
+          <NavigationProperty Name="jQuery" Relationship="KOMK_Main_v2Model.FK_jQuery_AspNetUsers" FromRole="AspNetUsers" ToRole="jQuery" />
+          <NavigationProperty Name="jQuery1" Relationship="KOMK_Main_v2Model.FK_jQuery_AspNetUsers1" FromRole="AspNetUsers" ToRole="jQuery" />
+          <NavigationProperty Name="jSkillList" Relationship="KOMK_Main_v2Model.FK_jSkillList_AspNetUsers" FromRole="AspNetUsers" ToRole="jSkillList" />
+          <NavigationProperty Name="jWorkList" Relationship="KOMK_Main_v2Model.FK_jWorkList_AspNetUsers" FromRole="AspNetUsers" ToRole="jWorkList" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Type="KOMK_Main_v2Model.AspNetRoles" Role="AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="KOMK_Main_v2Model.AspNetUserRoles" Role="AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="KOMK_Main_v2Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="KOMK_Main_v2Model.AspNetUserClaims" Role="AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="KOMK_Main_v2Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="KOMK_Main_v2Model.AspNetUserLogins" Role="AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Type="KOMK_Main_v2Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="KOMK_Main_v2Model.AspNetUserRoles" Role="AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jJournal_AspNetUsers">
+          <End Type="KOMK_Main_v2Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+          <End Type="KOMK_Main_v2Model.jJournal" Role="jJournal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="jJournal">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jQuery_AspNetUsers">
+          <End Type="KOMK_Main_v2Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+          <End Type="KOMK_Main_v2Model.jQuery" Role="jQuery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="jQuery">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jQuery_AspNetUsers1">
+          <End Type="KOMK_Main_v2Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+          <End Type="KOMK_Main_v2Model.jQuery" Role="jQuery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="jQuery">
+              <PropertyRef Name="PersonSpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jSkillList_AspNetUsers">
+          <End Type="KOMK_Main_v2Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+          <End Type="KOMK_Main_v2Model.jSkillList" Role="jSkillList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="jSkillList">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jWorkList_AspNetUsers">
+          <End Type="KOMK_Main_v2Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+          <End Type="KOMK_Main_v2Model.jWorkList" Role="jWorkList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="jWorkList">
+              <PropertyRef Name="PersonExecId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1097,60 +1136,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="AspNetRoles">
-            <EntityTypeMapping TypeName="KOMK_Main_v2Model.AspNetRoles">
-              <MappingFragment StoreEntitySet="AspNetRoles">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AspNetUserClaims">
-            <EntityTypeMapping TypeName="KOMK_Main_v2Model.AspNetUserClaims">
-              <MappingFragment StoreEntitySet="AspNetUserClaims">
-                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
-                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AspNetUserLogins">
-            <EntityTypeMapping TypeName="KOMK_Main_v2Model.AspNetUserLogins">
-              <MappingFragment StoreEntitySet="AspNetUserLogins">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
-                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AspNetUsers">
-            <EntityTypeMapping TypeName="KOMK_Main_v2Model.AspNetUsers">
-              <MappingFragment StoreEntitySet="AspNetUsers">
-                <ScalarProperty Name="Fio" ColumnName="Fio" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
-                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
-                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
-                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
-                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
-                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="AspNetUserRoles" TypeName="KOMK_Main_v2Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
-            <EndProperty Name="AspNetUsers">
-              <ScalarProperty Name="Id" ColumnName="UserId" />
-            </EndProperty>
-            <EndProperty Name="AspNetRoles">
-              <ScalarProperty Name="Id" ColumnName="RoleId" />
-            </EndProperty>
-          </AssociationSetMapping>
           <EntitySetMapping Name="hEventType">
             <EntityTypeMapping TypeName="KOMK_Main_v2Model.hEventType">
               <MappingFragment StoreEntitySet="hEventType">
@@ -1243,6 +1228,61 @@
                 <ScalarProperty Name="WorkListId" ColumnName="WorkListId" />
                 <ScalarProperty Name="EventTypeId" ColumnName="EventTypeId" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="KOMK_Main_v2Model.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="KOMK_Main_v2Model.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="KOMK_Main_v2Model.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserRoles">
+            <EntityTypeMapping TypeName="KOMK_Main_v2Model.AspNetUserRoles">
+              <MappingFragment StoreEntitySet="AspNetUserRoles">
+                <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="KOMK_Main_v2Model.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Fio" ColumnName="Fio" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

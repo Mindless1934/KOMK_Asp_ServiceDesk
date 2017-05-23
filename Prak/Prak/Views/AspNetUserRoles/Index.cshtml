@@ -1,0 +1,41 @@
+﻿@model IEnumerable<AspNetUserRoles>
+<div class="trWe2">
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Распределение ролей</h2>
+
+    <p>
+        @Html.ActionLink("Добавить пользователю роль", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Роль
+            </th>
+            <th>
+                Пользователь
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetRoles.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUsers.Fio)
+                </td>
+                <td>
+                    <div class="postr">
+                        @Html.ActionLink("Изменить", "Edit", new { id = item.UserRoleId }, new { @class = "btn btn-default" })
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

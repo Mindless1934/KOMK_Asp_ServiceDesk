@@ -61,9 +61,20 @@
                             <li>@Html.ActionLink("Умения", "Index", "hSkills")</li>
                         </ul>
                     </li>
-                    <li>@Html.ActionLink("Создание заявки", "Create", "jQueries")</li>
-                    <li>@Html.ActionLink("Заявки", "Index", "jQueries")</li>
-                    <li>@Html.ActionLink("Создание работы", "Create", "jWorkLists")</li>
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                            Администрирование
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Пользователи", "Index", "AspNetUsers")</li>
+
+                            <li>@Html.ActionLink("Умения", "Index", "jSkillLists")</li>
+
+                            <li>@Html.ActionLink("Роли", "Index", "AspNetUserRoles")</li>
+                        </ul>
+                    </li>                    
+                    <li>@Html.ActionLink("Заявки", "Index", "jQueries")</li>                    
                     <li>@Html.ActionLink("Работы", "Index", "jWorkLists")</li>
                     <li>@Html.ActionLink("Журнал", "Index", "jJournals")</li>
                 </ul>

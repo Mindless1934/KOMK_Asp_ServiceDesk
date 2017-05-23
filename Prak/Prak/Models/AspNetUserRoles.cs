@@ -10,17 +10,12 @@
 using System;
 using System.Collections.Generic;
 
-public partial class jJournal
+public partial class AspNetUserRoles
 {
-    public System.DateTime Date { get; set; }
-    public int EventTypeId { get; set; }
-    public Nullable<int> WorkListId { get; set; }
-    public string Description { get; set; }
-    public int JournalId { get; set; }
-    public string PersonId { get; set; }
-    public int QueryID { get; set; }
+    public string UserId { get; set; }
+    public string RoleId { get; set; }
+    public int UserRoleId { get; set; }
 
-    public virtual hEventType hEventType { get; set; }
-    public virtual jWorkList jWorkList { get; set; }
+    public virtual AspNetRoles AspNetRoles { get; set; }
     public virtual AspNetUsers AspNetUsers { get; set; }
 }

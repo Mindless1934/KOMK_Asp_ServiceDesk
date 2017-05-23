@@ -1,0 +1,39 @@
+﻿@model jSkillList
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удалить</h2>
+
+
+<div>
+    <h4>Он разучился?</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Умение
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hSkill.Description)
+        </dd>
+
+        <dt>
+            Пользователь
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUsers.Fio)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" />
+        </div>
+    }
+</div>
