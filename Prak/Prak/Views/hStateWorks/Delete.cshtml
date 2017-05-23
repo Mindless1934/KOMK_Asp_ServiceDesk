@@ -1,0 +1,32 @@
+﻿@model hStateWork
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Точно удаляем?</h2>
+
+
+<div>
+    <h4>Важно! Нельзя удать статусы: "Ожидает" "Выполнена" "Отклонена"</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Название
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> 
+           
+        </div>
+    }
+</div>

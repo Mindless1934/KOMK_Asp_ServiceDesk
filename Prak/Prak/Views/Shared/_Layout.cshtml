@@ -44,6 +44,23 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                            Библиотеки
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("События", "Index", "hEventTypes")</li>
+                           
+                            <li>@Html.ActionLink("Статусы заявок", "Index", "hStates")</li>
+                        
+                            <li>@Html.ActionLink("Статусы работ", "Index", "hStateWorks")</li>
+                        
+                            <li>@Html.ActionLink("Типы работ", "Index", "hWorkTypes")</li>
+
+                            <li>@Html.ActionLink("Умения", "Index", "hSkills")</li>
+                        </ul>
+                    </li>
                     <li>@Html.ActionLink("Создание заявки", "Create", "jQueries")</li>
                     <li>@Html.ActionLink("Заявки", "Index", "jQueries")</li>
                     <li>@Html.ActionLink("Создание работы", "Create", "jWorkLists")</li>

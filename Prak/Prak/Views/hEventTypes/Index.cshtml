@@ -1,0 +1,28 @@
+﻿@model IEnumerable<hEventType>
+<div class="trWe">
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>События</h2>
+
+
+    <table class="table">
+        <tr>
+            <th>
+                События попадающие в журнал:
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr class="trWe">
+                <td class="tdcen">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

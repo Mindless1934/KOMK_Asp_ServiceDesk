@@ -1,0 +1,36 @@
+﻿@model IEnumerable<hSkill>
+<div class="trWe">
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Конфигурирование умений</h2>
+
+    <p>
+        @Html.ActionLink("Добавить", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Умения:
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr class="trWe">
+                <td class="tdcen">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <div class="postr">
+                        @Html.ActionLink("Изменить", "Edit", new { id = item.SkillId }, new { @class = "btn btn-default" })
+                        @Html.ActionLink("Удалить", "Delete", new { id = item.SkillId }, new { @class = "btn btn-default" })
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

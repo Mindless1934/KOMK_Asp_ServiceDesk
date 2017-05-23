@@ -1,0 +1,42 @@
+﻿@model IEnumerable<hWorkType>
+<div class="trWe2">
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Конфигурация типов работ</h2>
+
+    <p>
+        @Html.ActionLink("Добавить", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Тип работы
+            </th>
+            <th>
+                Необходимое умение
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hSkill.Description)
+                </td>
+                <td>
+                    <div class="postr">
+                        @Html.ActionLink("Изменить", "Edit", new { id = item.WorkTypeId }, new { @class = "btn btn-default" })
+                        @Html.ActionLink("Удалить", "Delete", new { id = item.WorkTypeId }, new { @class = "btn btn-default" })
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

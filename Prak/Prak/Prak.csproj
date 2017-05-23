@@ -199,7 +199,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AspNetUsersController.cs" />
+    <Compile Include="Controllers\hEventTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\hSkillsController.cs" />
+    <Compile Include="Controllers\hStatesController.cs" />
+    <Compile Include="Controllers\hStateWorksController.cs" />
+    <Compile Include="Controllers\hWorkTypesController.cs" />
     <Compile Include="Controllers\jJournalsController.cs" />
     <Compile Include="Controllers\jQueriesController.cs" />
     <Compile Include="Controllers\jWorkListsController.cs" />
@@ -526,6 +531,27 @@
     <Content Include="Views\jQueries\Details.cshtml" />
     <Content Include="Views\jWorkLists\Details.cshtml" />
     <Content Include="Views\jWorkLists\ChangeWorker.cshtml" />
+    <Content Include="Views\hEventTypes\Create.cshtml" />
+    <Content Include="Views\hEventTypes\Delete.cshtml" />
+    <Content Include="Views\hEventTypes\Edit.cshtml" />
+    <Content Include="Views\hEventTypes\Index.cshtml" />
+    <Content Include="Views\hStates\Create.cshtml" />
+    <Content Include="Views\hStates\Delete.cshtml" />
+    <Content Include="Views\hStates\Edit.cshtml" />
+    <Content Include="Views\hStates\Index.cshtml" />
+    <Content Include="Views\hStateWorks\Create.cshtml" />
+    <Content Include="Views\hStateWorks\Delete.cshtml" />
+    <Content Include="Views\hStateWorks\Edit.cshtml" />
+    <Content Include="Views\hStateWorks\Index.cshtml" />
+    <Content Include="Views\hWorkTypes\Create.cshtml" />
+    <Content Include="Views\hWorkTypes\Delete.cshtml" />
+    <Content Include="Views\hWorkTypes\Edit.cshtml" />
+    <Content Include="Views\hWorkTypes\Index.cshtml" />
+    <Content Include="Views\hSkills\Create.cshtml" />
+    <Content Include="Views\hSkills\Delete.cshtml" />
+    <Content Include="Views\hSkills\Details.cshtml" />
+    <Content Include="Views\hSkills\Edit.cshtml" />
+    <Content Include="Views\hSkills\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

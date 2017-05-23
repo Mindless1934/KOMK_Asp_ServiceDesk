@@ -1,0 +1,36 @@
+﻿@model IEnumerable<hStateWork>
+<div class="trWe">
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Конфигурирование статусов работ</h2>
+
+    <p>
+        @Html.ActionLink("Добавить", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Статусы работ:
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr class="trWe">
+                <td class="tdcen">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <div class="postr">
+                        @Html.ActionLink("Изменить", "Edit", new { id = item.StateWorkId }, new { @class = "btn btn-default" })
+                        @Html.ActionLink("Удалить", "Delete", new { id = item.StateWorkId }, new { @class = "btn btn-default" })
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

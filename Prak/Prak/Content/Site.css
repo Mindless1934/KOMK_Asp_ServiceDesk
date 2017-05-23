@@ -34,3 +34,15 @@ textarea {
     margin-left: 20px;
     margin-top: 10px;
 }
+.postr{
+    float:right;
+}
+.tdcen{
+    text-align:justify;
+}
+.trWe{
+    width:50%;
+}
+.trWe2{
+    width:70%;
+}
