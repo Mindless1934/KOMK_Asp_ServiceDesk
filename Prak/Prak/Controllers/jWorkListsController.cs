@@ -36,14 +36,25 @@ namespace Prak.Controllers
             }
             return View(jWorkList);
         }
-
+        
+        public List<AspNetUsers> GetUserFromSkill(int idWorkTy)
+        {
+            int idSkil = db.hWorkType.Where(i => i.WorkTypeId == idWorkTy).First().SkillId;
+            var persnFormjSkillList = db.jSkillList.Where(m => m.SkillId == idSkil);
+            var aspNetUsers = db.AspNetUsers;
+            List<AspNetUsers> listpolz = new List<AspNetUsers>();
+            foreach (jSkillList skillLis in persnFormjSkillList)
+            {
+                listpolz.Add(aspNetUsers.Where(m => m.Id == skillLis.PersonId).First());
+            }
+            return listpolz;
+        }
         // GET: jWorkLists/Create
         public ActionResult Create()
         {
-
-            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "Fio");
-            ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description");
-            ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description");
+            ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description");            
+            ViewBag.PersonExecId = new SelectList(GetUserFromSkill(db.hWorkType.First().WorkTypeId), "Id", "Fio");
+            ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description");            
             ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text");
             return View();
         }
