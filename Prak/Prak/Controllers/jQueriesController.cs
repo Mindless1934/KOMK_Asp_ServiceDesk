@@ -224,5 +224,14 @@ namespace Prak.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+        public ActionResult AjaxTest()
+        {
+            ViewData["data"] = Request["data"];
+            if (Request.IsAjaxRequest())
+                return PartialView("_AjaxTestPartial");
+            return View();
+        }
     }
 }

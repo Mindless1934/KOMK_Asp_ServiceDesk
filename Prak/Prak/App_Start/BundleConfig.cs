@@ -10,6 +10,8 @@ namespace Prak
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle("~/bundles/jquery.unobtrusive-ajax.min.js").Include(
+            "~/Scripts/jquery.unobtrusive-ajax.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -28,7 +30,7 @@ namespace Prak
                       "~/Content/site.css"));
             
             bundles.Add(new ScriptBundle("~/bundles/js_scripts").Include(
-                        "~/Scripts/ContextMenuScript-{version}.js"));
+                        "~/Scripts/MyTestJs.js"));
         }
     }
 }

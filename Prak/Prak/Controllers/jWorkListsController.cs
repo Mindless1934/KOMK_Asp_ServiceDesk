@@ -37,9 +37,23 @@ namespace Prak.Controllers
             return View(jWorkList);
         }
         
-        public List<AspNetUsers> GetUserFromSkill(int idWorkTy)
+        public ActionResult GetNewDDList(int id)
         {
-            int idSkil = db.hWorkType.Where(i => i.WorkTypeId == idWorkTy).First().SkillId;
+            int idSkil = db.hWorkType.Where(i => i.WorkTypeId == id).First().SkillId;
+            var persnFormjSkillList = db.jSkillList.Where(m => m.SkillId == idSkil);
+            var aspNetUsers = db.AspNetUsers;
+            List<AspNetUsers> listpolz = new List<AspNetUsers>();
+            foreach (jSkillList skillLis in persnFormjSkillList)
+            {
+                listpolz.Add(aspNetUsers.Where(m => m.Id == skillLis.PersonId).First());
+            }
+            ViewBag.PersonExecId = new SelectList(listpolz, "Id", "Fio");
+            return PartialView("GetNewDDList");
+        }
+
+        public List<AspNetUsers> GetListWromWT(int id)
+        {
+            int idSkil = db.hWorkType.Where(i => i.WorkTypeId == id).First().SkillId;
             var persnFormjSkillList = db.jSkillList.Where(m => m.SkillId == idSkil);
             var aspNetUsers = db.AspNetUsers;
             List<AspNetUsers> listpolz = new List<AspNetUsers>();
@@ -53,7 +67,7 @@ namespace Prak.Controllers
         public ActionResult Create()
         {
             ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description");            
-            ViewBag.PersonExecId = new SelectList(GetUserFromSkill(db.hWorkType.First().WorkTypeId), "Id", "Fio");
+            ViewBag.PersonExecId = new SelectList(GetListWromWT(db.hWorkType.First().SkillId), "Id", "Fio");
             ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description");            
             ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text");
             return View();

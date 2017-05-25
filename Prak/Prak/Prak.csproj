@@ -473,7 +473,7 @@
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
-    <Content Include="Scripts\ContextMenuScript-1.0.0.js" />
+    <Content Include="Scripts\MyTestJs.js" />
     <Content Include="Scripts\jquery-3.1.0.js" />
     <Content Include="Scripts\jquery-3.1.0.min.js" />
     <Content Include="Scripts\jquery-3.1.0.slim.js" />
@@ -483,6 +483,8 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.12.0.js" />
     <Content Include="Scripts\jquery-ui-1.12.0.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -569,6 +571,9 @@
     <Content Include="Views\jWorkLists\Comments.cshtml" />
     <Content Include="Views\AspNetUsers\Edit.cshtml" />
     <Content Include="Views\AspNetUsers\Delete.cshtml" />
+    <Content Include="Views\jQueries\AjaxTest.cshtml" />
+    <Content Include="Views\jQueries\_AjaxTestPartial.cshtml" />
+    <Content Include="Views\jWorkLists\GetNewDDList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

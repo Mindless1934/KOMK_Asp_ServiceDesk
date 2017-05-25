@@ -13,9 +13,11 @@
 <body>
     @Scripts.Render("~/bundles/jquery")
     <!--стили jquery ui-->
-    @Styles.Render("~/Content/themes/base/css")
-    <!--сама библиотека jquey ui-->
-    @Scripts.Render("~/bundles/jqueryui")
+  <!-- @Styles.Render("~/Content/themes/base/css") -->
+    <!--сама библиотека jquey ui-->   
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jquery.unobtrusive-ajax.min.js")
+
     @RenderSection("scripts", required: false)
     <!--если браузер не создает специального поля для date, то добавляем datepicker-->
     <script type="text/javascript">

@@ -1,0 +1,8 @@
+﻿<div class="col-md-5">
+    @using (Ajax.BeginForm("AjaxTest", "jQueries", new AjaxOptions { UpdateTargetId = "containerr" }))
+    {
+        <input type="text" id="inp" name="data" />
+        <input type="submit" value="Тест" />
+    }
+    <p id="containerr"></p>
+</div>

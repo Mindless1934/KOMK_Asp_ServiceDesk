@@ -35,7 +35,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.WorkTypeId, "Тип работы", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("WorkTypeId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("WorkTypeId", null, htmlAttributes: new { @class = "form-control", id = "FirstDD" })
                 @Html.ValidationMessageFor(model => model.WorkTypeId, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -43,7 +43,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PersonExecId, "Выберите работника", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("PersonExecId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("PersonExecId", null, htmlAttributes: new { @class = "form-control", id = "SecondDD" })
                 @Html.ValidationMessageFor(model => model.PersonExecId, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -65,5 +65,7 @@
 
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryval",
+    "~/bundles/js_scripts")
+    
 }
