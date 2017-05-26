@@ -121,7 +121,7 @@ namespace Prak.Controllers
                 jJur.WorkListId = jW.WorkListId;
                 jJur.PersonId = User.Identity.GetUserId();
                 jJur.QueryID = jW.QueryId;
-                if (jW.Comment != "")
+                if (jW.Comment != null)
                 {
                     jJur.Description = " Коментарий перед работой: " + jW.Comment;
                 }
