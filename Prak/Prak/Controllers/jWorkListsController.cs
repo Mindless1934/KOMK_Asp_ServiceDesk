@@ -63,13 +63,27 @@ namespace Prak.Controllers
             }
             return listpolz;
         }
+
+        public List<jQuery> GetOpenQuery()
+        {       
+            var allQuery = db.jQuery;
+            List<jQuery> opQuer = new List<jQuery>();
+            foreach (jQuery quer in allQuery)
+            {
+                if (quer.StateId != db.hState.First(m => m.Description == "Выполнена").StateId && quer.StateId != db.hState.First(m => m.Description == "Отклонена").StateId) {
+                    opQuer.Add(quer);
+                }
+            }
+            return opQuer;
+        }
         // GET: jWorkLists/Create
         public ActionResult Create()
         {
+
             ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description");            
             ViewBag.PersonExecId = new SelectList(GetListWromWT(db.hWorkType.First().SkillId), "Id", "Fio");
             ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description");            
-            ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text");
+            ViewBag.QueryId = new SelectList(GetOpenQuery(), "QueryId", "Text");
             return View();
         }
 
@@ -107,8 +121,14 @@ namespace Prak.Controllers
                 jJur.WorkListId = jW.WorkListId;
                 jJur.PersonId = User.Identity.GetUserId();
                 jJur.QueryID = jW.QueryId;
-                jJur.Description = " Коментарий перед работой: " + jW.Comment;
-
+                if (jW.Comment != "")
+                {
+                    jJur.Description = " Коментарий перед работой: " + jW.Comment;
+                }
+                else
+                {
+                    jJur.Description = "Комментария перед работой не было";
+                }
 
                 db.jJournal.Add(jJur);
                 db.SaveChanges();
@@ -208,9 +228,12 @@ namespace Prak.Controllers
                     hStateWork oldst = db.hStateWork.Find(Convert.ToInt32(TempData["oldState"]));
                     hStateWork newst = db.hStateWork.Find(jWorkList.StateWorkId);
                     jJur.Description = "c " + oldst.Description + " на " + newst.Description;
+                    CloseQuery(jWorkList.QueryId);
                     db.jJournal.Add(jJur);
                 }
                 db.SaveChanges();
+
+
                 return RedirectToAction("Index");
             }
             ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "Fio", jWorkList.PersonExecId);
@@ -277,7 +300,7 @@ namespace Prak.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.PersonExecId = new SelectList(db.AspNetUsers, "Id", "Fio", jWorkList.PersonExecId);
+            ViewBag.PersonExecId = new SelectList(GetListWromWT(db.hWorkType.Find(jWorkList.WorkTypeId).SkillId ), "Id", "Fio", jWorkList.PersonExecId);
             ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description", jWorkList.StateWorkId);
             ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description", jWorkList.WorkTypeId);
             ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text", jWorkList.QueryId);
@@ -349,6 +372,37 @@ namespace Prak.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public void CloseQuery(int idQury)
+        {
+            var workByQuery = db.jWorkList.Where(m => m.QueryId == idQury);
+            Boolean close = true;       
+            foreach (jWorkList work in workByQuery)
+            {
+                if (work.StateWorkId != db.hStateWork.First(m => m.Description == "Выполнена").StateWorkId)
+                {
+                    close = false;
+                }
+            }
+            if (close)
+            {
+                jQuery jQuery = db.jQuery.Find(idQury);
+                string oldst = db.hState.Find(jQuery.StateId).Description;
+                jQuery.StateId = db.hState.First(m => m.Description == "Выполнена").StateId;
+                jQuery.DateOut = DateTime.Parse(DateTime.Today.ToShortDateString());
+
+                jJournal jJur = new jJournal();
+                jJur.Date = DateTime.Now;
+                jJur.EventTypeId = db.hEventType.First(m => m.Description == "Смена статуса заявки").EventTypeId;
+                jJur.WorkListId = null;
+                jJur.PersonId = User.Identity.GetUserId();
+                jJur.QueryID = jQuery.QueryId;
+
+                hState newst = db.hState.Find(jQuery.StateId);
+                jJur.Description = "c " + oldst + " на " + newst.Description;
+                db.jJournal.Add(jJur);
+                db.SaveChanges();
+            }
         }
     }
 }
