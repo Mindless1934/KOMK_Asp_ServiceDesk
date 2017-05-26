@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using MvcSiteMapProvider.Web.Html;
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -44,7 +45,7 @@
                 
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                @*<ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Главная", "Index", "Home")</li>
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">
@@ -79,7 +80,9 @@
                     <li>@Html.ActionLink("Заявки", "Index", "jQueries")</li>                    
                     <li>@Html.ActionLink("Работы", "Index", "jWorkLists")</li>
                     <li>@Html.ActionLink("Журнал", "Index", "jJournals")</li>
-                </ul>
+                    <li>@Html.ActionLink("Test", "Test", "Home")</li>
+                </ul>*@
+                @Html.MvcSiteMap().Menu()
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
