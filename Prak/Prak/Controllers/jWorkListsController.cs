@@ -81,7 +81,7 @@ namespace Prak.Controllers
         {
 
             ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description");            
-            ViewBag.PersonExecId = new SelectList(GetListWromWT(db.hWorkType.First().SkillId), "Id", "Fio");
+            ViewBag.PersonExecId = new SelectList(GetListWromWT(db.hWorkType.First().WorkTypeId), "Id", "Fio");
             ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description");            
             ViewBag.QueryId = new SelectList(GetOpenQuery(), "QueryId", "Text");
             return View();
@@ -300,7 +300,7 @@ namespace Prak.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.PersonExecId = new SelectList(GetListWromWT(db.hWorkType.Find(jWorkList.WorkTypeId).SkillId ), "Id", "Fio", jWorkList.PersonExecId);
+            ViewBag.PersonExecId = new SelectList(GetListWromWT(db.hWorkType.Find(jWorkList.WorkTypeId).WorkTypeId ), "Id", "Fio", jWorkList.PersonExecId);
             ViewBag.StateWorkId = new SelectList(db.hStateWork, "StateWorkId", "Description", jWorkList.StateWorkId);
             ViewBag.WorkTypeId = new SelectList(db.hWorkType, "WorkTypeId", "Description", jWorkList.WorkTypeId);
             ViewBag.QueryId = new SelectList(db.jQuery, "QueryId", "Text", jWorkList.QueryId);
