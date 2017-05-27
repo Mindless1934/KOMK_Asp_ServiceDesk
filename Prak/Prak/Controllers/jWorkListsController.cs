@@ -19,6 +19,14 @@ namespace Prak.Controllers
         public ActionResult Index()
         {
             var jWorkList = db.jWorkList.Include(j => j.AspNetUsers).Include(j => j.hStateWork).Include(j => j.hWorkType).Include(j => j.jQuery);
+            AspNetUsers userNow = db.AspNetUsers.Find(User.Identity.GetUserId());
+            AspNetUserRoles usrol = db.AspNetUserRoles.Where(m => m.UserId == userNow.Id).First();
+            AspNetRoles rol = db.AspNetRoles.Where(m => m.Id == usrol.RoleId).First();
+            switch (rol.Name)
+            {
+                case "Admin": return View(jWorkList.ToList());
+                case "Worker": return View(jWorkList.Where(m => m.PersonExecId == userNow.Id).ToList());
+            }
             return View(jWorkList.ToList());
         }
 

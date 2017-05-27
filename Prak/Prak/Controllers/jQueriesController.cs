@@ -10,6 +10,7 @@ using Prak.Models;
 using Microsoft.AspNet.Identity;
 using MvcSiteMapProvider;
 
+
 namespace Prak.Controllers
 {
     //Контроллер отвечает за обработку входящих запросов, 
@@ -26,6 +27,14 @@ namespace Prak.Controllers
         public ActionResult Index()
         {
             var jQuery = db.jQuery.Include(j => j.AspNetUsers).Include(j => j.AspNetUsers1).Include(j => j.hState);
+            AspNetUsers userNow = db.AspNetUsers.Find(User.Identity.GetUserId());
+            AspNetUserRoles usrol = db.AspNetUserRoles.Where(m => m.UserId == userNow.Id).First();
+            AspNetRoles rol = db.AspNetRoles.Where(m => m.Id == usrol.RoleId).First();
+            switch (rol.Name)
+            {
+                case "Admin": return View(jQuery.ToList());
+                case "User": return View(jQuery.Where(m=>m.PersonId == userNow.Id).ToList());
+            }
             return View(jQuery.ToList());
         }
 
