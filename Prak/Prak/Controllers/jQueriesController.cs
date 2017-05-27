@@ -55,12 +55,22 @@ namespace Prak.Controllers
             return View(jQuery);
         }
 
+        public List<AspNetUsers> GetAdmin()
+        {
+            List<AspNetUserRoles> usrol = db.AspNetUserRoles.Where(m => m.RoleId == db.AspNetRoles.Where(r => r.Name =="Admin").FirstOrDefault().Id).ToList();
+            List<AspNetUsers> users = new List<AspNetUsers>();
+            foreach(AspNetUserRoles ur in usrol)
+            {
+                users.Add(db.AspNetUsers.Find(ur.UserId));
+            }
+            return users;
+        }
         // GET: jQueries/Create
         // Используем ViewBag для того чтобы в представлении у нас были вместо вторичных ключей конкретные значения из связаных таблиц
         public ActionResult Create()
         {
             ViewBag.PersonId = new SelectList(db.AspNetUsers, "Id", "Fio");
-            ViewBag.PersonSpId = new SelectList(db.AspNetUsers, "Id", "Fio");
+            ViewBag.PersonSpId = new SelectList(GetAdmin(), "Id", "Fio");
             ViewBag.StateId = new SelectList(db.hState, "StateId", "Description");
             return View();
         }

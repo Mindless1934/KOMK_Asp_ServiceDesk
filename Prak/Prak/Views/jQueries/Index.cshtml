@@ -35,7 +35,9 @@
             <th>
                 Статус работы
             </th>
+            @if(User.IsInRole("Admin")){
             <th></th>
+            }
         </tr>
     </thead>
     <!--Дальше идет код для заполнения созданой таблицы данными из бд-->
@@ -68,17 +70,20 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.hState.Description)
                 </td>
-                <td>
-                    <!--Создаем ссылку на смену статуса-->
-                    @Html.ActionLink("Сменить статус", "ChangeStatusQuery", new { id = item.QueryId }, new { @class = "btn btn-default" }) 
+                @if (User.IsInRole("Admin"))
+                {
+                    <td>
+                        <!--Создаем ссылку на смену статуса-->
+                        @Html.ActionLink("Сменить статус", "ChangeStatusQuery", new { id = item.QueryId }, new { @class = "btn btn-default" })
 
-                    <!--@Html.ActionLink("Изменить", "Edit", new { id = item.QueryId }) |
+                        <!--@Html.ActionLink("Изменить", "Edit", new { id = item.QueryId }) |
 
-                    @Html.ActionLink("Подробнее", "Details", new { id = item.QueryId }) |
+                        @Html.ActionLink("Подробнее", "Details", new { id = item.QueryId }) |
 
-                    @Html.ActionLink("Удалить", "Delete", new { id = item.QueryId }) |-->
+                        @Html.ActionLink("Удалить", "Delete", new { id = item.QueryId }) |-->
 
-                </td>
+                    </td>
+                }
             </tr>
         }
         </tbody>

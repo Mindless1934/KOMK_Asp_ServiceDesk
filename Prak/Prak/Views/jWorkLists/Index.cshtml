@@ -9,7 +9,11 @@
 
 
 <p>
-    @Html.ActionLink("Добавить работу", "Create")
+    @if (User.IsInRole("Admin"))
+            {
+        @Html.ActionLink("Добавить работу", "Create")
+    }
+   
 </p>
 <table class="table table-striped table-hover">
     <thead>
@@ -42,7 +46,10 @@
                 Комментарии
             </th>
             <th></th>
-            <th></th>
+            @if (User.IsInRole("Admin"))
+            {
+                <th></th>
+            }
         </tr>
     </thead>
         @foreach (var item in Model)
@@ -79,14 +86,18 @@
                 <td>
                     @Html.ActionLink("Сменить статус", "ChangeStateWork", new { id = item.WorkListId }, new { @class = "btn btn-default" })
                 </td>
-                <td>
-                    @Html.ActionLink("Сменить исполнителя", "ChangeWorker", new { id = item.WorkListId }, new { @class = "btn btn-default" })
+                @if (User.IsInRole("Admin"))
+                {
+                    <td>
+                        @Html.ActionLink("Сменить исполнителя", "ChangeWorker", new { id = item.WorkListId }, new { @class = "btn btn-default" })
 
-                    <!--
-                        @Html.ActionLink("Изменить", "Edit", new { id=item.WorkListId }) |
-                        @Html.ActionLink("Подробнее", "Details", new { id=item.WorkListId }) |
-                    @Html.ActionLink("Удалить", "Delete", new { id=item.WorkListId })-->
-                </td>
+                        <!--
+                            @Html.ActionLink("Изменить", "Edit", new { id=item.WorkListId }) |
+                            @Html.ActionLink("Подробнее", "Details", new { id=item.WorkListId }) |
+                        @Html.ActionLink("Удалить", "Delete", new { id=item.WorkListId })-->
+                    </td>
+                }
+
             </tr>
         }
 
