@@ -42,63 +42,64 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                
+
             </div>
-            <div class="navbar-collapse collapse">
-                @*<ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Главная", "Index", "Home")</li>
-                    <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-                            Библиотеки
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("События", "Index", "hEventTypes")</li>
-                           
-                            <li>@Html.ActionLink("Статусы заявок", "Index", "hStates")</li>
-                        
-                            <li>@Html.ActionLink("Статусы работ", "Index", "hStateWorks")</li>
-                        
-                            <li>@Html.ActionLink("Типы работ", "Index", "hWorkTypes")</li>
+            @* <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                        Библиотеки
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("События", "Index", "hEventTypes")</li>
 
-                            <li>@Html.ActionLink("Умения", "Index", "hSkills")</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-                            Администрирование
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Пользователи", "Index", "AspNetUsers")</li>
+                        <li>@Html.ActionLink("Статусы заявок", "Index", "hStates")</li>
 
-                            <li>@Html.ActionLink("Умения", "Index", "jSkillLists")</li>
+                        <li>@Html.ActionLink("Статусы работ", "Index", "hStateWorks")</li>
 
-                            <li>@Html.ActionLink("Роли", "Index", "AspNetUserRoles")</li>
-                        </ul>
-                    </li>                    
-                    <li>@Html.ActionLink("Заявки", "Index", "jQueries")</li>                    
-                    <li>@Html.ActionLink("Работы", "Index", "jWorkLists")</li>
-                    <li>@Html.ActionLink("Журнал", "Index", "jJournals")</li>
-                    <li>@Html.ActionLink("Test", "Test", "Home")</li>
-                </ul>*@
-                @Html.MvcSiteMap().Menu()
-                @Html.Partial("_LoginPartial")
-            </div>
+                        <li>@Html.ActionLink("Типы работ", "Index", "hWorkTypes")</li>
+
+                        <li>@Html.ActionLink("Умения", "Index", "hSkills")</li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                        Администрирование
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Пользователи", "Index", "AspNetUsers")</li>
+
+                        <li>@Html.ActionLink("Умения", "Index", "jSkillLists")</li>
+
+                        <li>@Html.ActionLink("Роли", "Index", "AspNetUserRoles")</li>
+                    </ul>
+                </li>
+                <li>@Html.ActionLink("Заявки", "Index", "jQueries")</li>
+                <li>@Html.ActionLink("Работы", "Index", "jWorkLists")</li>
+                <li>@Html.ActionLink("Журнал", "Index", "jJournals")</li>
+                <li>@Html.ActionLink("Test", "Test", "Home")</li>
+            </ul>*@
+
+                        @Html.MvcSiteMap().Menu("MenuHelperModel")
+                        @Html.Partial("_LoginPartial")
+                        </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-       
-        <footer class="myfooter">
-           
-            <p class="marLeft">     &copy; Vadim and Artem 2017</p>
-        </footer>
-    </div>
+    
+                <div class="container body-content">
+                    @RenderBody()
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/js_scripts")
-    @Scripts.Render("~/bundles/bootstrap")
+                    <footer class="myfooter">
+
+                        <p class="marLeft">     &copy; Vadim and Artem 2017</p>
+                    </footer>
+                </div>
+
+                @Scripts.Render("~/bundles/jquery")
+                @Scripts.Render("~/bundles/js_scripts")
+                @Scripts.Render("~/bundles/bootstrap")
 
 
 </body>

@@ -1,13 +1,91 @@
 ﻿@model MvcSiteMapProvider.Web.Html.Models.MenuHelperModel
 @using System.Web.Mvc.Html
 @using MvcSiteMapProvider.Web.Html.Models
+@helper  TopMenu(List<SiteMapNodeModel> nodeList)
+{
 
-<ul id="menu" class="nav navbar-nav">
-    @foreach (var node in Model.Nodes) { 
-        <li>@Html.DisplayFor(m => node) 
-            @if (node.Children.Any()) {
-                @Html.DisplayFor(m => node.Children)
+                <ul class="nav navbar-nav">
+                    @foreach (SiteMapNodeModel node in nodeList)
+                    {
+                        string url = node.IsClickable ? node.Url : "#";
+
+                        if (!node.Children.Any())
+                        {
+                            <li><a href="@url">@node.Title</a></li>
+                        }
+                        else
+                        {
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">@node.Title <span class="caret"></span></a>@DropDownMenu(node.Children)</li>
+                        }
+
+                        if (node != nodeList.Last())
+                        {
+                            <li class="divider-vertical"></li>
+                        }
+                    }
+                </ul>
+
+}
+
+@helper DropDownMenu(SiteMapNodeModelList nodeList)
+{
+    <ul class="dropdown-menu" role="menu">
+        @foreach (SiteMapNodeModel node in nodeList)
+        {
+            if (node.Title == "Separator")
+            {
+                <li class="divider"></li>
+                continue;
             }
-        </li>
-    }
-</ul>
+
+            string url = node.IsClickable ? node.Url : "#";
+
+            if (!node.Children.Any())
+            {
+                <li><a href="@url">@node.Title</a></li>
+            }
+            else
+            {
+                <li class="dropdown-submenu"><a href="@url">@node.Title</a>@DropDownMenu(node.Children)</li>
+            }
+        }
+    </ul>
+}
+
+@TopMenu(Model.Nodes)
+@*<ul class="nav navbar-nav">
+    <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+    <li class="dropdown">
+        <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+            Библиотеки
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li>@Html.ActionLink("События", "Index", "hEventTypes")</li>
+
+            <li>@Html.ActionLink("Статусы заявок", "Index", "hStates")</li>
+
+            <li>@Html.ActionLink("Статусы работ", "Index", "hStateWorks")</li>
+
+            <li>@Html.ActionLink("Типы работ", "Index", "hWorkTypes")</li>
+
+            <li>@Html.ActionLink("Умения", "Index", "hSkills")</li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+            Администрирование
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li>@Html.ActionLink("Пользователи", "Index", "AspNetUsers")</li>
+
+            <li>@Html.ActionLink("Умения", "Index", "jSkillLists")</li>
+
+            <li>@Html.ActionLink("Роли", "Index", "AspNetUserRoles")</li>
+        </ul>
+    </li>
+    <li>@Html.ActionLink("Заявки", "Index", "jQueries")</li>
+    <li>@Html.ActionLink("Работы", "Index", "jWorkLists")</li>
+    <li>@Html.ActionLink("Журнал", "Index", "jJournals")</li>
+</ul>*@

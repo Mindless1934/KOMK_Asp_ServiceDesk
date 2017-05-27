@@ -8,18 +8,21 @@ using System.Web;
 using System.Web.Mvc;
 using Prak.Models;
 using Microsoft.AspNet.Identity;
+using MvcSiteMapProvider;
 
 namespace Prak.Controllers
 {
     //Контроллер отвечает за обработку входящих запросов, 
     //выполнение операций над моделью предметной области и выбор представлений для визуализации пользователю.
+   // [MvcSiteMapNode(Title = "TestGlobal", ParentKey = "Home", Key = "jQuery", Roles = new string[] { "User" })]
     public class jQueriesController : Controller
     {
         //Создаем экземпляр класса контекста для взаимодействия с нашей бд 
-        private KOMK_Main_v2Entities db = new KOMK_Main_v2Entities();      
+        private KOMK_Main_v2Entities db = new KOMK_Main_v2Entities();
         // GET: jQueries
         // Метод Index, в нем мы задаем связи с какими таблицами нам будут нужны для оботражения данных в представлени
-        //Результатом работы метода является вызов представления Index
+        //Результатом работы метода является вызов представления Index    
+        //[MvcSiteMapNode(Title = "Test", ParentKey = "jQuery", Key = "jQueryIndex", Roles = new string[] { "User" })]   
         public ActionResult Index()
         {
             var jQuery = db.jQuery.Include(j => j.AspNetUsers).Include(j => j.AspNetUsers1).Include(j => j.hState);

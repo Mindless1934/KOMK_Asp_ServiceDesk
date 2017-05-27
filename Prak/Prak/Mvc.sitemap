@@ -3,8 +3,22 @@
             xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
             xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
 
-  <mvcSiteMapNode title="Home" controller="Home" action="Index">
-    <mvcSiteMapNode title="Test" controller="Home" action="Test" roles="User"/>
+<mvcSiteMapNode title="HelpDesk" controller="Home" action="Index">
+    <mvcSiteMapNode title="Заявки" controller="jQueries" action="Index" roles="User, Admin"/>
+    <mvcSiteMapNode title="Работы" controller="jWorkLists" action="Index" roles="Worker, Admin"/>
+    <mvcSiteMapNode title="Библиотеки" clickable="false" roles="Admin">
+      <mvcSiteMapNode title="События" controller="hEventTypes" action="Index" />
+      <mvcSiteMapNode title="Статусы заявок" controller="hStates" action="Index" />
+      <mvcSiteMapNode title="Статусы работ" controller="hStateWorks" action="Index" />
+      <mvcSiteMapNode title="Типы работ" controller="hWorkTypes" action="Index" />
+      <mvcSiteMapNode title="Умения" controller="hSkills" action="Index" />
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Администрирование" clickable="false" roles="Admin">
+      <mvcSiteMapNode title="Пользователи" controller="AspNetUsers" action="Index" />
+      <mvcSiteMapNode title="Умения" controller="jSkillLists" action="Index" />  
+      <mvcSiteMapNode title="Роли" controller="AspNetUserRoles" action="Index" />
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Журнал" controller="jJournals" action="Index" roles="Admin"/>
   </mvcSiteMapNode>
   
 </mvcSiteMap>
