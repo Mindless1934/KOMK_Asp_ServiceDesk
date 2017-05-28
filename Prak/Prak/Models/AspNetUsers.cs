@@ -9,10 +9,13 @@
 
 using System;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
+[XmlRoot("AspNetUsers")]
 public partial class AspNetUsers
 {
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+
     public AspNetUsers()
     {
         this.AspNetUserClaims = new HashSet<AspNetUserClaims>();
@@ -24,8 +27,9 @@ public partial class AspNetUsers
         this.jSkillList = new HashSet<jSkillList>();
         this.jWorkList = new HashSet<jWorkList>();
     }
-
+    [XmlAttribute("Id")]
     public string Id { get; set; }
+    [XmlAttribute("Email")]
     public string Email { get; set; }
     public bool EmailConfirmed { get; set; }
     public string PasswordHash { get; set; }
@@ -40,19 +44,27 @@ public partial class AspNetUsers
     public string Fio { get; set; }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    [XmlIgnore]
     public virtual ICollection<AspNetUserClaims> AspNetUserClaims { get; set; }
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    [XmlIgnore]
     public virtual ICollection<AspNetUserLogins> AspNetUserLogins { get; set; }
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    [XmlIgnore]
     public virtual ICollection<AspNetUserRoles> AspNetUserRoles { get; set; }
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    [XmlIgnore]
     public virtual ICollection<jJournal> jJournal { get; set; }
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    [XmlIgnore]
     public virtual ICollection<jQuery> jQuery { get; set; }
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    [XmlIgnore]
     public virtual ICollection<jQuery> jQuery1 { get; set; }
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    [XmlIgnore]
     public virtual ICollection<jSkillList> jSkillList { get; set; }
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    [XmlIgnore]
     public virtual ICollection<jWorkList> jWorkList { get; set; }
 }
