@@ -39,7 +39,7 @@
         }
 
     </table>
-    @Html.ActionLink("Экспорт", "AspNetUsers", new { }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Экспорт","Export", new { }, new { @class = "btn btn-default" })
 
     @using (Html.BeginForm("Import", "AspNetUsers", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
