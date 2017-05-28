@@ -4,10 +4,15 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-
+using Excel = Microsoft.Office.Interop.Excel;
 using Prak.Models;
 using Calabonga.Xml.Exports;
 using System.Text;
+using System.Web;
+using System.IO;
+using System.Threading;
+using System.Globalization;
+
 
 namespace Prak.Controllers
 {
@@ -232,6 +237,56 @@ namespace Prak.Controllers
                 ctx1.Response.End();
                 }
             }
+        [HttpPost]
+        public ActionResult Import(HttpPostedFileBase excelfile)
+        {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+
+            if (excelfile == null || excelfile.ContentLength == 0)
+            {
+                ViewBag.Error = "Файл не выбран! <br>";
+                return View("Index", db.AspNetUsers.ToList());
+            }
+            else
+            {
+                if(excelfile.FileName.EndsWith("xls") || excelfile.FileName.EndsWith("xlsx"))
+                {
+                    db = new KOMK_Main_v2Entities();
+                    string path = Server.MapPath("~/Import/" + excelfile.FileName);
+                    if (System.IO.File.Exists(path))
+                        System.IO.File.Delete(path);
+                    excelfile.SaveAs(path);
+                    //Читаем из файла
+                   // Excel.Application ap = new Excel.Application();
+                    Excel.Application application = new Excel.Application();
+                    Excel.Workbook workbook = application.Workbooks.Open(path);
+                    Excel.Worksheet worksheet = workbook.ActiveSheet;
+                    Excel.Range range = worksheet.UsedRange;
+                    List<AspNetUsers> listUsers = new List<AspNetUsers>();
+                    for(int row = 2; row < range.Rows.Count; row++)
+                    {
+                        AspNetUsers user = new AspNetUsers();
+                        user.Fio = ((Excel.Range)range.Cells[row, 1]).Text;
+                        user.PasswordHash = ((Excel.Range)range.Cells[row, 2]).Text;
+                        user.SecurityStamp = ((Excel.Range)range.Cells[row, 3]).Text;
+                        user.Email = ((Excel.Range)range.Cells[row, 4]).Text;
+                        user.UserName = ((Excel.Range)range.Cells[row, 5]).Text;
+                        db.AspNetUsers.Add(user);
+                        db.SaveChanges();
+
+                    }
+                    workbook.Close();
+                    ViewBag.Error = "Данные загружены <br>";
+                    return View("Index", db.AspNetUsers.ToList());
+                }
+                else
+                {
+                    ViewBag.Error = "Это не Excel! <br>";
+                    return View("Index", db.AspNetUsers.ToList());
+                }
+            }
+            
+        }
 
         }
 }

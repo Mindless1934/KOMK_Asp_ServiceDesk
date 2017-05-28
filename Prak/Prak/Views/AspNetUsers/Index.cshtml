@@ -39,5 +39,13 @@
         }
 
     </table>
-    @Html.ActionLink("Экспорт", "Export", new { }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Экспорт", "AspNetUsers", new { }, new { @class = "btn btn-default" })
+
+    @using (Html.BeginForm("Import", "AspNetUsers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.Raw(ViewBag.Error)
+
+         <input type="file" name="excelfile" class="btn btn-default" />
+         <input type="submit" value="Импорт" class="btn btn-default" />
+    }
     </div>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?><?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40">
+  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+    <Author>Calabonga</Author>
+    <Created>28.05.2017 0:00:00</Created>
+    <LastAutor>Calabonga</LastAutor>
+    <Version>14</Version>
+  </DocumentProperties>
+  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+    <AllowPNG />
+  </OfficeDocumentSettings>
+  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+    <ProtectStructure>False</ProtectStructure>
+    <ProtectWindows>False</ProtectWindows>
+  </ExcelWorkbook>
+  <Styles>
+    <Style ss:ID="Default" ss:Name="Normal">
+      <Aligment ss:Vertical="Bottom" />
+      <Borders />
+      <Font ss:FontName="Calibri" x:CharSet="204" x:Family="Swiss" ss:Size="11" ss:Color="#000000" />
+      <Interior />
+      <NumberFormat />
+      <Protection />
+    </Style>
+  </Styles>
+  <Worksheet ss:Name="Пользователи">
+    <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="3" x:FullColumns="1" x:FullRows="1" ss:DefaultRowHeight="15">
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell>
+          <Data ss:Type="String">Вадим Олегович</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">ACJpjeBQ/Gy8ofnr5kMrAaIu93JZsdLUKaTwH/jAKC9rnuzcfSKEi7OzKkRTn15w/A==</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">9d8331f4-f959-4e59-83c2-4a3958d9ff16</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Vadim@test.ru</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Vadim@test.ru</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell>
+          <Data ss:Type="String">Артем Андреевич</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">ADgU03J3ZP8G8AKnUH/OGz1SDuB7zTEDmi0srCrbIHfLe6+XIOIWktgbyTwI7YJ5Nw==</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">06314fd3-22f8-406e-a4f4-f4f8b7fd5520</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Artem@test.ru</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Artem@test.ru</Data>
+        </Cell>
+      </Row>
+    </Table>
+    <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+      <PageSetup>
+        <Header x:Margin="0,5" />
+        <Footer x:Margin="0,5" />
+        <Layout Orientation="Portrait" />
+        <PageMargins />
+      </PageSetup>
+      <Print>
+        <HorizontalResolution>600</HorizontalResolution>
+        <VerticalResolution>600</VerticalResolution>
+      </Print>
+      <ProtectObjects>False</ProtectObjects>
+      <ProtectScenarios>False</ProtectScenarios>
+    </WorksheetOptions>
+  </Worksheet>
+</Workbook>
