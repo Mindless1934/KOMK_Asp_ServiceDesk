@@ -11,7 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
-[XmlRoot("AspNetUsers")]
+
 public partial class AspNetUsers
 {
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -27,9 +27,8 @@ public partial class AspNetUsers
         this.jSkillList = new HashSet<jSkillList>();
         this.jWorkList = new HashSet<jWorkList>();
     }
-    [XmlAttribute("Id")]
+
     public string Id { get; set; }
-    [XmlAttribute("Email")]
     public string Email { get; set; }
     public bool EmailConfirmed { get; set; }
     public string PasswordHash { get; set; }

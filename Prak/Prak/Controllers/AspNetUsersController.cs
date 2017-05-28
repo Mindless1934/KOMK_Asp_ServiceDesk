@@ -258,12 +258,13 @@ namespace Prak.Controllers
                     excelfile.SaveAs(path);
                     //Читаем из файла
                    // Excel.Application ap = new Excel.Application();
+
                     Excel.Application application = new Excel.Application();
                     Excel.Workbook workbook = application.Workbooks.Open(path);
                     Excel.Worksheet worksheet = workbook.ActiveSheet;
                     Excel.Range range = worksheet.UsedRange;
                     List<AspNetUsers> listUsers = new List<AspNetUsers>();
-                    for(int row = 2; row < range.Rows.Count; row++)
+                    for(int row = 2; row <= range.Rows.Count; row++)
                     {
                         AspNetUsers user = new AspNetUsers();
                         user.Fio = ((Excel.Range)range.Cells[row, 1]).Text;
@@ -271,8 +272,20 @@ namespace Prak.Controllers
                         user.SecurityStamp = ((Excel.Range)range.Cells[row, 3]).Text;
                         user.Email = ((Excel.Range)range.Cells[row, 4]).Text;
                         user.UserName = ((Excel.Range)range.Cells[row, 5]).Text;
+                        user.Id = Guid.NewGuid().ToString();
+                        user.EmailConfirmed = false;
+                        user.PhoneNumberConfirmed = false;
+                        user.TwoFactorEnabled = false;
+                        user.LockoutEnabled = true;
+                        user.AccessFailedCount = 0;
                         db.AspNetUsers.Add(user);
                         db.SaveChanges();
+                        //AspNetUserRoles acc = new AspNetUserRoles();
+                        //acc.UserId = user.Id;
+                        //acc.RoleId = db.AspNetRoles.Where(m => m.Name == "User").First().Id;
+                        
+                        //db.AspNetUserRoles.Add(acc);
+                        //db.SaveChanges();
 
                     }
                     workbook.Close();
