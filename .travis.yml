@@ -1,4 +1,8 @@
-language: CSharp
+language: csharp
+solution: Prak.sln
+install:
+  - nuget restore solution-name.sln
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
-- k test -parallel none
-
+  - xbuild /p:Configuration=Release Prak.sln
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Prak.Tests/bin/Release/Prak.Tests.dll
