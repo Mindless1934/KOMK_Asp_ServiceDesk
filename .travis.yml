@@ -1,7 +1,7 @@
-language: csharp
-solution: Prak.sln
+language: CSharp
 install:
-  - nuget restore Prak.sln
-  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+  - curl -sSL https://raw.githubusercontent.com/aspnet/Home/master/kvminstall.sh | sh && source ~/.k/kvm/kvm.sh
+  - kvm upgrade
+  - kpm restore --no-cache
 script:
-  - ./Prak.Tests/bin/Release/Prak.Tests.dll
+  - k test -parallel none
