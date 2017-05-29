@@ -1,0 +1,4 @@
+language: CSharp
+script:
+- k test -parallel none
+
