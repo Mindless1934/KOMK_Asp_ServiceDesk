@@ -39,13 +39,21 @@
         }
 
     </table>
-    @Html.ActionLink("Экспорт","Export", new { }, new { @class = "btn btn-default" })
+    <div class="button-area">
+        <p> </p>
+        @Html.ActionLink("Экспорт", "Export", new { }, new { @class = "btn btn-default dopBut" })
 
-    @using (Html.BeginForm("Import", "AspNetUsers", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        @Html.Raw(ViewBag.Error)
+        @using (Html.BeginForm("Import", "AspNetUsers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.Raw(ViewBag.Error)
 
-         <input type="file" name="excelfile" class="btn btn-default" />
-         <input type="submit" value="Импорт" class="btn btn-default" />
-    }
+            <div class="browse-button" style="margin-left:10px; margin-top:10px;">
+                <input type="button" value="Открыть" class="btn btn-default">
+                <input type="file" name="excelfile">
+            </div>
+            <input type="submit" value="Импорт" class="btn btn-default" style="margin-left:20px; margin-top:10px;" />
+
+        }
+        <p> </p>
+    </div>
     </div>

@@ -46,3 +46,33 @@ textarea {
 .trWe2{
     width:70%;
 }
+.browse-button { 
+    cursor: pointer;
+    float: left;
+    overflow: hidden;
+    position: relative;
+}
+.browse-button input[type="button"] { 
+    cursor: pointer;
+}
+.browse-button input[type="file"] { 
+    width: 150px; 
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    cursor: pointer;
+    opacity: 0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+.button-area{
+    background-color:#2e3338;
+     width:25%;
+     padding:5px;   
+     /*border-radius:10px;*/
+     outline:dashed;  
+     outline-color:red;
+
+}
+.dopBut{
+    margin-left:10px;
+}
