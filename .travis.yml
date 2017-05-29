@@ -1,7 +1,7 @@
 language: csharp
 solution: Prak.sln
 install:
-  - nuget restore Pral.sln
+  - nuget restore Prak.sln
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release Prak.sln
