@@ -1,7 +1,9 @@
-language: CSharp
+language: csharp
+solution: Prak.sln
 install:
-  - curl -sSL https://raw.githubusercontent.com/aspnet/Home/master/kvminstall.sh | sh && source ~/.k/kvm/kvm.sh
-  - kvm upgrade
-  - kpm restore --no-cache
+  - sudo apt-get install -y gtk-sharp2
+  - nuget restore Prak.sln
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
-  - k test -parallel none
+  - xbuild /p:Configuration=Release Prak.sln
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Prak.Tests/bin/Debug/Prak.Tests.dll
