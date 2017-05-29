@@ -609,6 +609,7 @@
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\AspNetUsers\GetUsers.cshtml" />
+    <Content Include="Views\jQueries\SomeText.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

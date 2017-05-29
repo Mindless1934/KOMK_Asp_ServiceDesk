@@ -20,6 +20,76 @@ namespace Prak.Controllers
     {
         //Создаем экземпляр класса контекста для взаимодействия с нашей бд 
         private KOMK_Main_v2Entities db = new KOMK_Main_v2Entities();
+
+        public interface IRepository : IDisposable
+        {
+            List<AspNetUsers> GetUserList();
+            List<AspNetUserRoles> GetUserRoleList();
+            List<AspNetRoles> GetRoleList();
+            AspNetUsers GetUserFromDb(string Id);
+
+        }
+
+        class Mydb : IRepository
+        {
+            private KOMK_Main_v2Entities db;
+
+            public  Mydb()
+            {
+                this.db = new KOMK_Main_v2Entities();
+            }
+            public List<AspNetUsers> GetUserList()
+            {
+                return db.AspNetUsers.ToList();
+            }
+
+            public List<AspNetUserRoles> GetUserRoleList()
+            {
+                return db.AspNetUserRoles.ToList();
+            }
+
+            public List<AspNetRoles> GetRoleList()
+            {
+                return db.AspNetRoles.ToList();
+            }
+
+            public AspNetUsers GetUserFromDb(string Id)
+            {
+                return db.AspNetUsers.Find(Id);
+            }
+
+
+            private bool disposed = false;
+
+            public virtual void Dispose(bool disposing)
+            {
+                if (!this.disposed)
+                {
+                    if (disposing)
+                    {
+                        db.Dispose();
+                    }
+                }
+                this.disposed = true;
+            }
+
+            public void Dispose()
+            {
+                Dispose(true);
+                GC.SuppressFinalize(this);
+            }
+        }
+
+        IRepository repo;
+
+        public jQueriesController(IRepository r)
+        {
+            repo = r;
+        }
+        public jQueriesController()
+        {
+            repo = new Mydb();
+        }
         // GET: jQueries
         // Метод Index, в нем мы задаем связи с какими таблицами нам будут нужны для оботражения данных в представлени
         //Результатом работы метода является вызов представления Index    
@@ -57,11 +127,11 @@ namespace Prak.Controllers
 
         public List<AspNetUsers> GetAdmin()
         {
-            List<AspNetUserRoles> usrol = db.AspNetUserRoles.Where(m => m.RoleId == db.AspNetRoles.Where(r => r.Name =="Admin").FirstOrDefault().Id).ToList();
+            List<AspNetUserRoles> usrol = repo.GetUserRoleList().Where(m => m.RoleId == repo.GetRoleList().Where(r => r.Name =="Admin").FirstOrDefault().Id).ToList();
             List<AspNetUsers> users = new List<AspNetUsers>();
             foreach(AspNetUserRoles ur in usrol)
             {
-                users.Add(db.AspNetUsers.Find(ur.UserId));
+                users.Add(repo.GetUserFromDb(ur.UserId));
             }
             return users;
         }
@@ -253,6 +323,17 @@ namespace Prak.Controllers
             ViewData["data"] = Request["data"];
             if (Request.IsAjaxRequest())
                 return PartialView("_AjaxTestPartial");
+            return View();
+        }
+        public double MyPow(int a)
+        {
+            return Math.Pow(a, 2);
+        }
+
+        public ActionResult SomeText()
+        {
+            ViewBag.Message = "Your application description page.";
+
             return View();
         }
     }
