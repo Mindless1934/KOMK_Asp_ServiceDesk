@@ -1,6 +1,6 @@
 configuration: Debug
 before_build:
-  - nuget restore -verbosity detailed
+  - nuget restore -PackagesDirectory ./Prak
 build:
     verbosity: minimal
     publish_wap: true
