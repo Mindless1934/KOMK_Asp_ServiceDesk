@@ -5,9 +5,6 @@ install:
   - ECHO %APPVEYOR_BUILD_WORKER_IMAGE%
   - dotnet --version
   - dotnet restore
-build_script:
-- dotnet build
-before_build:
-- appveyor-retry dotnet restore -v Minimal
-test_script:
-- dotnet test
+test:
+  assemblies:
+    - '**\*.tests.dll'
