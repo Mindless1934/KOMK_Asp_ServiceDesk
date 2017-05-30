@@ -1,7 +1,8 @@
 configuration: Debug
 before_build:
   - nuget restore
-artifact: /.*\.nupkg/ 
+artifacts:
+  - path: '**\*.nupkg'
 build:
     verbosity: minimal
     publish_wap: true
