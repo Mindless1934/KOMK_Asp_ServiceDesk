@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище KOMK_Main_v2Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserRoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserRoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Fio" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="hEventType">
+    <Key>
+      <PropertyRef Name="EventTypeId" />
+    </Key>
+    <Property Name="EventTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="hSkill">
+    <Key>
+      <PropertyRef Name="SkillId" />
+    </Key>
+    <Property Name="SkillId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="hState">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="StateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="hStateWork">
+    <Key>
+      <PropertyRef Name="StateWorkId" />
+    </Key>
+    <Property Name="StateWorkId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="hWorkType">
+    <Key>
+      <PropertyRef Name="WorkTypeId" />
+    </Key>
+    <Property Name="WorkTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SkillId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="jJournal">
+    <Key>
+      <PropertyRef Name="JournalId" />
+    </Key>
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="EventTypeId" Type="int" Nullable="false" />
+    <Property Name="WorkListId" Type="int" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="JournalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="QueryID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="jQuery">
+    <Key>
+      <PropertyRef Name="QueryId" />
+    </Key>
+    <Property Name="QueryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateOut" Type="date" />
+    <Property Name="DateIn" Type="date" />
+    <Property Name="DateModification" Type="datetime" Nullable="false" />
+    <Property Name="DeadLine" Type="date" />
+    <Property Name="Text" Type="nvarchar(max)" />
+    <Property Name="StateId" Type="int" Nullable="false" />
+    <Property Name="PersonId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PersonSpId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="jSkillList">
+    <Key>
+      <PropertyRef Name="SkillListId" />
+    </Key>
+    <Property Name="SkillListId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SkillId" Type="int" Nullable="false" />
+    <Property Name="PersonId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="jWorkList">
+    <Key>
+      <PropertyRef Name="WorkListId" />
+    </Key>
+    <Property Name="WorkListId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateIn" Type="date" />
+    <Property Name="DateOut" Type="date" />
+    <Property Name="DateModifcation" Type="datetime" Nullable="false" />
+    <Property Name="Deadline" Type="date" Nullable="false" />
+    <Property Name="QueryId" Type="int" Nullable="false" />
+    <Property Name="WorkTypeId" Type="int" Nullable="false" />
+    <Property Name="PersonExecId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="StateWorkId" Type="int" Nullable="false" />
+    <Property Name="Verification" Type="bit" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jJournal_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="jJournal" Type="Self.jJournal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="jJournal">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jJournal_hEventType">
+    <End Role="hEventType" Type="Self.hEventType" Multiplicity="1" />
+    <End Role="jJournal" Type="Self.jJournal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hEventType">
+        <PropertyRef Name="EventTypeId" />
+      </Principal>
+      <Dependent Role="jJournal">
+        <PropertyRef Name="EventTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jJournal_jWorkList">
+    <End Role="jWorkList" Type="Self.jWorkList" Multiplicity="0..1" />
+    <End Role="jJournal" Type="Self.jJournal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jWorkList">
+        <PropertyRef Name="WorkListId" />
+      </Principal>
+      <Dependent Role="jJournal">
+        <PropertyRef Name="WorkListId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jQuery_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="jQuery" Type="Self.jQuery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="jQuery">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jQuery_AspNetUsers1">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="jQuery" Type="Self.jQuery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="jQuery">
+        <PropertyRef Name="PersonSpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jQuery_hState">
+    <End Role="hState" Type="Self.hState" Multiplicity="1" />
+    <End Role="jQuery" Type="Self.jQuery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hState">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="jQuery">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jSkillList_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="jSkillList" Type="Self.jSkillList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="jSkillList">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jSkillList_hSkill">
+    <End Role="hSkill" Type="Self.hSkill" Multiplicity="1" />
+    <End Role="jSkillList" Type="Self.jSkillList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hSkill">
+        <PropertyRef Name="SkillId" />
+      </Principal>
+      <Dependent Role="jSkillList">
+        <PropertyRef Name="SkillId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jSkillList_hWorkType">
+    <End Role="hSkill" Type="Self.hSkill" Multiplicity="1" />
+    <End Role="hWorkType" Type="Self.hWorkType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hSkill">
+        <PropertyRef Name="SkillId" />
+      </Principal>
+      <Dependent Role="hWorkType">
+        <PropertyRef Name="SkillId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jWorkList_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="jWorkList" Type="Self.jWorkList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="jWorkList">
+        <PropertyRef Name="PersonExecId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jWorkList_hStateWork">
+    <End Role="hStateWork" Type="Self.hStateWork" Multiplicity="1" />
+    <End Role="jWorkList" Type="Self.jWorkList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hStateWork">
+        <PropertyRef Name="StateWorkId" />
+      </Principal>
+      <Dependent Role="jWorkList">
+        <PropertyRef Name="StateWorkId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jWorkList_hWorkType">
+    <End Role="hWorkType" Type="Self.hWorkType" Multiplicity="1" />
+    <End Role="jWorkList" Type="Self.jWorkList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hWorkType">
+        <PropertyRef Name="WorkTypeId" />
+      </Principal>
+      <Dependent Role="jWorkList">
+        <PropertyRef Name="WorkTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jWorkList_jQuery">
+    <End Role="jQuery" Type="Self.jQuery" Multiplicity="1" />
+    <End Role="jWorkList" Type="Self.jWorkList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jQuery">
+        <PropertyRef Name="QueryId" />
+      </Principal>
+      <Dependent Role="jWorkList">
+        <PropertyRef Name="QueryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="inshEventType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="De" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="InshSkill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="De" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="vhPerson" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="vjQuery" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="Хранилище KOMK_Main_v2ModelContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hEventType" EntityType="Self.hEventType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hSkill" EntityType="Self.hSkill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hState" EntityType="Self.hState" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hStateWork" EntityType="Self.hStateWork" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hWorkType" EntityType="Self.hWorkType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="jJournal" EntityType="Self.jJournal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="jQuery" EntityType="Self.jQuery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="jSkillList" EntityType="Self.jSkillList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="jWorkList" EntityType="Self.jWorkList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jJournal_AspNetUsers" Association="Self.FK_jJournal_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="jJournal" EntitySet="jJournal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jJournal_hEventType" Association="Self.FK_jJournal_hEventType">
+      <End Role="hEventType" EntitySet="hEventType" />
+      <End Role="jJournal" EntitySet="jJournal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jJournal_jWorkList" Association="Self.FK_jJournal_jWorkList">
+      <End Role="jWorkList" EntitySet="jWorkList" />
+      <End Role="jJournal" EntitySet="jJournal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jQuery_AspNetUsers" Association="Self.FK_jQuery_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="jQuery" EntitySet="jQuery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jQuery_AspNetUsers1" Association="Self.FK_jQuery_AspNetUsers1">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="jQuery" EntitySet="jQuery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jQuery_hState" Association="Self.FK_jQuery_hState">
+      <End Role="hState" EntitySet="hState" />
+      <End Role="jQuery" EntitySet="jQuery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jSkillList_AspNetUsers" Association="Self.FK_jSkillList_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="jSkillList" EntitySet="jSkillList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jSkillList_hSkill" Association="Self.FK_jSkillList_hSkill">
+      <End Role="hSkill" EntitySet="hSkill" />
+      <End Role="jSkillList" EntitySet="jSkillList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jSkillList_hWorkType" Association="Self.FK_jSkillList_hWorkType">
+      <End Role="hSkill" EntitySet="hSkill" />
+      <End Role="hWorkType" EntitySet="hWorkType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jWorkList_AspNetUsers" Association="Self.FK_jWorkList_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="jWorkList" EntitySet="jWorkList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jWorkList_hStateWork" Association="Self.FK_jWorkList_hStateWork">
+      <End Role="hStateWork" EntitySet="hStateWork" />
+      <End Role="jWorkList" EntitySet="jWorkList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jWorkList_hWorkType" Association="Self.FK_jWorkList_hWorkType">
+      <End Role="hWorkType" EntitySet="hWorkType" />
+      <End Role="jWorkList" EntitySet="jWorkList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jWorkList_jQuery" Association="Self.FK_jWorkList_jQuery">
+      <End Role="jQuery" EntitySet="jQuery" />
+      <End Role="jWorkList" EntitySet="jWorkList" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

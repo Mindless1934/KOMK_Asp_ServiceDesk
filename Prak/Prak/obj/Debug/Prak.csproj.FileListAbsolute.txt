@@ -1,0 +1,409 @@
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\ApplicationInsights.config
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\roslyn\csc.exe
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\roslyn\vbc.exe
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\roslyn\VBCSCompiler.exe
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Prak.dll.config
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Prak.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Prak.pdb
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Antlr3.Runtime.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\EntityFramework.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\EntityFramework.SqlServer.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.AI.Web.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.Owin.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.Owin.Security.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Newtonsoft.Json.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Owin.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\System.Web.Helpers.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\System.Web.Mvc.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\System.Web.Optimization.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\System.Web.Razor.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\System.Web.WebPages.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\System.Web.WebPages.Razor.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\WebGrease.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.AI.Web.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\System.Web.Helpers.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\System.Web.Mvc.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\System.Web.Optimization.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\System.Web.Razor.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\System.Web.WebPages.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\System.Web.WebPages.Razor.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Antlr3.Runtime.pdb
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Newtonsoft.Json.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\EntityFramework.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\EntityFramework.SqlServer.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.Owin.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.Owin.Security.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\ru\System.Web.Helpers.resources.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\ru\System.Web.Mvc.resources.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\ru\System.Web.Optimization.resources.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\ru\System.Web.Razor.resources.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\ru\System.Web.WebPages.resources.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\ru\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\ru\System.Web.WebPages.Razor.resources.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\ru\EntityFramework.resources.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\ru\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\ru\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\ru\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\ru\Microsoft.Owin.resources.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\ru\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\ru\Microsoft.Owin.Security.resources.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\ru\Microsoft.Owin.Security.Facebook.resources.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\ru\Microsoft.Owin.Security.Google.resources.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\ru\Microsoft.Owin.Security.Twitter.resources.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\bin\ru\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\obj\Debug\Prak.csprojResolveAssemblyReference.cache
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\obj\Debug\Prak.dll
+C:\Users\Вадим\Desktop\Практика 2016\Prak\Prak\obj\Debug\Prak.pdb
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\ApplicationInsights.config
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\csc.exe
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\vbc.exe
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\VBCSCompiler.exe
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Prak.dll.config
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Prak.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Prak.pdb
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Antlr3.Runtime.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\EntityFramework.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\EntityFramework.SqlServer.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.AI.Web.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.Owin.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.Owin.Security.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Newtonsoft.Json.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Owin.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\System.Web.Helpers.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\System.Web.Mvc.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\System.Web.Optimization.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\System.Web.Razor.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\System.Web.WebPages.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\System.Web.WebPages.Razor.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\WebGrease.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.AI.Web.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\System.Web.Helpers.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\System.Web.Mvc.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\System.Web.Optimization.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\System.Web.Razor.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\System.Web.WebPages.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\System.Web.WebPages.Razor.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Antlr3.Runtime.pdb
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Newtonsoft.Json.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\EntityFramework.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\EntityFramework.SqlServer.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.Owin.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.Owin.Security.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\ru\System.Web.Helpers.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\ru\System.Web.Mvc.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\ru\System.Web.Optimization.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\ru\System.Web.Razor.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\ru\System.Web.WebPages.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\ru\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\ru\System.Web.WebPages.Razor.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\ru\EntityFramework.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\ru\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\ru\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\ru\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\ru\Microsoft.Owin.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\ru\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\ru\Microsoft.Owin.Security.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\ru\Microsoft.Owin.Security.Facebook.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\ru\Microsoft.Owin.Security.Google.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\ru\Microsoft.Owin.Security.Twitter.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\ru\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\obj\Debug\Prak.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\obj\Debug\Prak.pdb
+C:\Users\Вадим\Desktop\REP\Prak\Prak\obj\Debug\Prak.csproj.GenerateResource.Cache
+C:\Users\Вадим\Desktop\REP\Prak\Prak\obj\Debug\Prak.Migrations.PlzWork.resources
+C:\Users\Вадим\Desktop\REP\Prak\Prak\obj\Debug\Prak.Migrations.IntToStr.resources
+C:\Users\Вадим\Desktop\REP\Prak\Prak\obj\Debug\Prak.Migrations.TestDel.resources
+C:\Users\Вадим\Desktop\REP\Prak\Prak\obj\Debug\Prak.Migrations.Fio.resources
+C:\Users\Вадим\Desktop\REP\Prak\Prak\obj\Debug\Prak.Migrations.com.resources
+C:\Users\Вадим\Desktop\REP\Prak\Prak\obj\Debug\Prak.Migrations.jJur.resources
+C:\Users\Вадим\Desktop\REP\Prak\Prak\obj\Debug\Prak.Migrations.idforurril.resources
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\MvcSiteMapProvider.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\MvcSiteMapProvider.WebActivator.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\WebActivatorEx.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\MvcSiteMapProvider.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\MvcSiteMapProvider.WebActivator.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\Calabonga.Xml.Exports.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\obj\Debug\Prak.csproj.ResolveComReference.cache
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\csc.exe.config
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\csc.rsp
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\csi.exe
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\csi.exe.config
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\csi.rsp
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.AppContext.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.Console.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.Diagnostics.Process.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.IO.Compression.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.Security.Claims.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.Threading.Thread.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.ValueTuple.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\vbc.exe.config
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\roslyn\vbc.rsp
+C:\Users\Вадим\Desktop\REP\Prak\Prak\obj\Debug\Prak.csprojResolveAssemblyReference.cache
+C:\Users\Вадим\Desktop\REP\Prak\bin\ApplicationInsights.config
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\csc.exe
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\csc.exe.config
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\csc.rsp
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\csi.exe
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\csi.exe.config
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\csi.rsp
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.AppContext.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.Console.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.Diagnostics.Process.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.IO.Compression.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.Security.Claims.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.Threading.Thread.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.ValueTuple.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\vbc.exe
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\vbc.exe.config
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\vbc.rsp
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\VBCSCompiler.exe
+C:\Users\Вадим\Desktop\REP\Prak\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Вадим\Desktop\REP\Prak\bin\Prak.dll.config
+C:\Users\Вадим\Desktop\REP\Prak\bin\Prak.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Prak.pdb
+C:\Users\Вадим\Desktop\REP\Prak\bin\Antlr3.Runtime.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Calabonga.Xml.Exports.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\EntityFramework.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\EntityFramework.SqlServer.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.AI.Web.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.Owin.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.Owin.Security.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\MvcSiteMapProvider.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\MvcSiteMapProvider.WebActivator.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Newtonsoft.Json.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Owin.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\System.Web.Helpers.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\System.Web.Mvc.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\System.Web.Optimization.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\System.Web.Razor.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\System.Web.WebPages.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\System.Web.WebPages.Razor.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\WebActivatorEx.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\WebGrease.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\Antlr3.Runtime.pdb
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.AI.Web.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.Owin.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.Owin.Security.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\MvcSiteMapProvider.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\MvcSiteMapProvider.WebActivator.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\Newtonsoft.Json.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\System.Web.Helpers.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\System.Web.Mvc.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\System.Web.Optimization.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\System.Web.Razor.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\System.Web.WebPages.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\System.Web.WebPages.Razor.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\EntityFramework.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\EntityFramework.SqlServer.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Вадим\Desktop\REP\Prak\bin\ru\Microsoft.Owin.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\ru\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\ru\Microsoft.Owin.Security.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\ru\Microsoft.Owin.Security.Facebook.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\ru\Microsoft.Owin.Security.Google.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\ru\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\ru\Microsoft.Owin.Security.Twitter.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\ru\System.Web.Helpers.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\ru\System.Web.Mvc.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\ru\System.Web.Optimization.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\ru\System.Web.Razor.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\ru\System.Web.WebPages.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\ru\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\ru\System.Web.WebPages.Razor.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\ru\EntityFramework.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\ru\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\ru\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\ru\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\Вадим\Desktop\REP\Prak\obj\Debug\Prak.csprojResolveAssemblyReference.cache
+C:\Users\Вадим\Desktop\REP\Prak\obj\Debug\Prak.csproj.ResolveComReference.cache
+C:\Users\Вадим\Desktop\REP\Prak\obj\Debug\Prak.Migrations.PlzWork.resources
+C:\Users\Вадим\Desktop\REP\Prak\obj\Debug\Prak.Migrations.IntToStr.resources
+C:\Users\Вадим\Desktop\REP\Prak\obj\Debug\Prak.Migrations.TestDel.resources
+C:\Users\Вадим\Desktop\REP\Prak\obj\Debug\Prak.Migrations.Fio.resources
+C:\Users\Вадим\Desktop\REP\Prak\obj\Debug\Prak.Migrations.com.resources
+C:\Users\Вадим\Desktop\REP\Prak\obj\Debug\Prak.Migrations.jJur.resources
+C:\Users\Вадим\Desktop\REP\Prak\obj\Debug\Prak.Migrations.idforurril.resources
+C:\Users\Вадим\Desktop\REP\Prak\obj\Debug\Prak.csproj.GenerateResource.Cache
+C:\Users\Вадим\Desktop\REP\Prak\obj\Debug\Prak.dll
+C:\Users\Вадим\Desktop\REP\Prak\obj\Debug\Prak.pdb
+C:\Users\Вадим\Desktop\REP\Prak\bin\nunit.framework.dll
+C:\Users\Вадим\Desktop\REP\Prak\bin\nunit.framework.xml
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\nunit.framework.dll
+C:\Users\Вадим\Desktop\REP\Prak\Prak\bin\nunit.framework.xml
