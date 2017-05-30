@@ -1,6 +1,7 @@
-configuration: Release
+configuration: Debug
 before_build:
   - nuget restore
+artifact: /.*\.nupkg/ 
 build:
     verbosity: minimal
     publish_wap: true
