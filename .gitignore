@@ -245,3 +245,4 @@ ModelManifest.xml
 .fake/
 !Prak/bin
 !Prak/ApplicationInsights.config
+!packages
