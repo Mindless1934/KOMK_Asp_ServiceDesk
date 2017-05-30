@@ -27,6 +27,7 @@ namespace Prak.Controllers
             List<AspNetUserRoles> GetUserRoleList();
             List<AspNetRoles> GetRoleList();
             AspNetUsers GetUserFromDb(string Id);
+            List<jQuery> GetQueryList();
 
         }
 
@@ -51,6 +52,11 @@ namespace Prak.Controllers
             public List<AspNetRoles> GetRoleList()
             {
                 return db.AspNetRoles.ToList();
+            }
+
+            public List<jQuery> GetQueryList()
+            {
+                return db.jQuery.ToList();
             }
 
             public AspNetUsers GetUserFromDb(string Id)
@@ -332,9 +338,18 @@ namespace Prak.Controllers
 
         public ActionResult SomeText()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "My text in ViewBag.Message";
 
             return View("SomeText");
         }
+
+        public ActionResult QueryIndex()
+        {
+            var modelQuery = repo.GetQueryList();
+            ViewBag.Message = String.Format("{0}", modelQuery.Count);
+
+            return View(modelQuery);
+        }
+
     }
 }

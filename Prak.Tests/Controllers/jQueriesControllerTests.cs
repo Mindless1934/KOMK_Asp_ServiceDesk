@@ -26,16 +26,78 @@ namespace Prak.Tests
             Assert.AreEqual(4, jQ.MyPow(2));
         }
 
-        //Тест для проверки информации передающейся на представление
+        //Отрицательный результат
         [TestMethod()]
-        public void SomeTextTest()
+        public void MyPowNoTest()
         {
             jQ = new jQueriesController();
-            //ViewResult result = jQ.SomeText() as ViewResult;
-            //string actual = result.ViewBag.Message as string;
-            //Assert.AreEqual("Your application description page.", actual);
-            var result = jQ.SomeText();
-            Assert.AreEqual("SomeText", ((ViewResult)result).ViewName);
+            Assert.AreNotEqual(7, jQ.MyPow(2));
+        }
+
+        //Проверим имя запускаемого представления
+        [TestMethod()]
+        public void SomeTextTestNameTest()
+        {
+            var jQ = new jQueriesController();
+            ViewResult result = jQ.SomeText() as ViewResult;
+            Assert.AreEqual("SomeText", result.ViewName);
+        }
+
+        //Отрицательный результат
+        [TestMethod()]
+        public void SomeTextTestNameNoTest()
+        {
+            var jQ = new jQueriesController();
+            ViewResult result = jQ.SomeText() as ViewResult;
+            Assert.AreNotEqual("NO", result.ViewName);
+        }
+
+        //Тест для проверки информации передающейся на представление
+        [TestMethod()]
+        public void SomeTextTestMassageTest()
+        {
+            var jQ = new jQueriesController();
+            ViewResult result = jQ.SomeText() as ViewResult;
+            Assert.AreEqual("My text in ViewBag.Message", result.ViewBag.Message);
+        }
+
+        //Проверим Отрицательный результат
+        [TestMethod()]
+        public void SomeTextTestNoMassageTest()
+        {
+            var jQ = new jQueriesController();
+            ViewResult result = jQ.SomeText() as ViewResult;
+            Assert.AreNotEqual("No", result.ViewBag.Message);
+        }
+
+        //Проверим как передается модель в представление 
+        [TestMethod()]
+        public void QueryIndexTest()
+        {
+            //Создадим 1 заявку
+            jQuery query = new jQuery();
+            List<jQuery> queryList = new List<jQuery> { query };
+            //Сымитируем работу бд
+            var mock = new Mock<IRepository>();
+            mock.Setup(a => a.GetQueryList()).Returns(queryList);
+            jQ = new jQueriesController(mock.Object);
+            ViewResult result = jQ.QueryIndex() as ViewResult;
+            Assert.AreEqual("1", result.ViewBag.Message);
+        }
+
+        //Проверим Отрицательный результат
+        [TestMethod()]
+        public void QueryIndexNoTest()
+        {
+            //Создадим 1 заявку
+            jQuery query = new jQuery();
+            List<jQuery> queryList = new List<jQuery> { query };
+            //Сымитируем работу бд
+            var mock = new Mock<IRepository>();
+            mock.Setup(a => a.GetQueryList()).Returns(queryList);
+            jQ = new jQueriesController(mock.Object);
+            ViewResult result = jQ.QueryIndex() as ViewResult;
+            Assert.AreNotEqual("2", result.ViewBag.Message);
         }
 
         //Проверим логику поиска Администраторов в системе
