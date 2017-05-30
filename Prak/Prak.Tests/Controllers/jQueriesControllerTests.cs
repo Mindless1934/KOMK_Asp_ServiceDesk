@@ -23,7 +23,7 @@ namespace Prak.Tests
         public void MyPowTest()
         {
             jQ = new jQueriesController();
-            Assert.AreEqual(5, jQ.MyPow(2));
+            Assert.AreEqual(4, jQ.MyPow(2));
         }
 
         //Отрицательный результат
