@@ -1,30 +1,10 @@
-# My application    [![Build Status](https://travis-ci.org/ZloyRob/Kondratenkov_Vadim.svg?branch=master)](https://travis-ci.org/ZloyRob/Kondratenkov_Vadim)
+# HelpDesk    [![Build status](https://ci.appveyor.com/api/projects/status/0jffs057wtikogx5?svg=true)](https://ci.appveyor.com/project/ZloyRob/komk-asp-servicedesk)
 
  * Описание проекта:
  
-  Проект представляет собой консольное приложение для осуществления доступа к ресурсам, для авторизованных пользователей.
- 
- * Инструкция по сборке:
- 
- Запустить ./BUILD.sh из командной строки, не передавая никаких параметров. Результатом сборки является архив Kondratenkov_Vadim.jar.
- 
- * Инструкция по запуску:
- 
- Запустить ./RUN.sh из командной строки и передать параметры для выполенния приложением.
- 
- * Инструкция по тестированию:
- 
- Запустить ./TEST.sh из командной строки, не передавая никаких параметров. Результатом успешного тестирования является возврат exit кода 0,
- так же можно просмотреть результаты тестирования для каждого теста в отдельности.
+  Веб-приложение, разработанное для поддержки пользователей предприятия Кемеровского областного медицинского колледжа при неисправности технического оборудования.
  
  * Полезные ссылки
- 
-    Ссылка на [GitPages](https://zloyrob.github.io/Kondratenkov_Vadim/).
 
-    Ссылка на [ROADMAP1](./ROADMAP1.md).
-
-    Ссылка на [ROADMAP2](./ROADMAP2.md).
+    Ссылка на [ROADMAP](./ROADMAP.md).
     
-    Ссылка на [ROADMAP3](./ROADMAP3.md).
-
-	Ссылка на [ROADMAP4](./ROADMAP4.md).
