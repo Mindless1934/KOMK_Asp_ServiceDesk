@@ -1,6 +1,4 @@
 configuration: Debug
-before_build:
-  - nuget restore
 artifacts:
   - path: '**\*.nupkg'
 build:
